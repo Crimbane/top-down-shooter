@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 0.03
+var SPEED = 30
 var reachedTarget = false
 
 @onready var target = get_parent().get_node("Player")
@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if target:
-		var direction = (target.global_position - global_position)
+		var direction = (target.global_position - global_position).normalized()
 		if reachedTarget == false:
 			velocity = direction * SPEED
 	
@@ -27,6 +27,6 @@ func _physics_process(_delta: float) -> void:
 func stopPathfinding(body: Node2D) -> void:
 	
 	if body.name == "Player":
-		print("Reached target")
+		print("Bird Reached target")
 		reachedTarget = true
 		velocity = Vector2.ZERO

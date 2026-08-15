@@ -3,24 +3,26 @@
 [ext_resource type="Script" uid="uid://cv6hb5kmn87ou" path="res://Testing/olem50/Enemy/Bird/bird.gd" id="1_7gv7o"]
 [ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="2_fpvtx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nm3ne"]
-size = Vector2(13.125, 26.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(126, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyjvv"]
+size = Vector2(128, 128)
 
 [node name="Bird" type="CharacterBody2D" unique_id=814393800]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_7gv7o")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1269385171]
+shape = SubResource("RectangleShape2D_t1yug")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=578268206]
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
 texture = ExtResource("2_fpvtx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1851518046]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_nm3ne")
-
 [node name="Area2D" type="Area2D" parent="." unique_id=204001311]
+collision_layer = 4
 
-[node name="Pathfinding collision" type="CollisionShape2D" parent="Area2D" unique_id=1522695565]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_nm3ne")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=468950609]
+shape = SubResource("RectangleShape2D_fyjvv")
