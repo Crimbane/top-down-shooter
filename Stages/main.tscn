@@ -2,12 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="1_kerj0"]
 [ext_resource type="PackedScene" uid="uid://ur5sxjyuysuj" path="res://Entities/Player/player.tscn" id="1_lxwtg"]
+[ext_resource type="PackedScene" uid="uid://duy5jol7jojhh" path="res://Systems/UI/ui.tscn" id="2_dqdwq"]
 
 [node name="Main" type="Node" unique_id=1718697254]
 
 [node name="Player" parent="." unique_id=1625488090 instance=ExtResource("1_lxwtg")]
 
+[node name="UI" parent="Player" unique_id=48622636 instance=ExtResource("2_dqdwq")]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=978750236]
-position = Vector2(293.99994, -68.50006)
+position = Vector2(1801, 1330.9998)
 scale = Vector2(36.468754, 28.195313)
 texture = ExtResource("1_kerj0")

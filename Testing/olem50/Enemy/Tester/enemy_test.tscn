@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dlaugitkx8tf4"]
+
+[ext_resource type="Script" uid="uid://cvyfu7weavhkl" path="res://Testing/olem50/Enemy/Tester/enemy_test.gd" id="1_akvdy"]
+[ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="2_tlgm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(123, 122)
+
+[node name="EnemyTest" type="Area2D" unique_id=596271408]
+script = ExtResource("1_akvdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1113028905]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=630828065]
+texture = ExtResource("2_tlgm1")

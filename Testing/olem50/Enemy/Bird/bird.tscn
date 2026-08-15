@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d2yui0kay4kfj"]
+
+[ext_resource type="Script" uid="uid://cv6hb5kmn87ou" path="res://Testing/olem50/Enemy/Bird/bird.gd" id="1_7gv7o"]
+[ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="2_fpvtx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nm3ne"]
+size = Vector2(13.125, 26.25)
+
+[node name="Bird" type="CharacterBody2D" unique_id=814393800]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_7gv7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=578268206]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture = ExtResource("2_fpvtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1851518046]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_nm3ne")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=204001311]
+
+[node name="Pathfinding collision" type="CollisionShape2D" parent="Area2D" unique_id=1522695565]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_nm3ne")

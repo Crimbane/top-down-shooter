@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cnfs0hjpwp47v"]
+
+[ext_resource type="Script" uid="uid://bqkjguar330nx" path="res://Testing/olem50/Enemy/Short/short.gd" id="1_sxv2d"]
+[ext_resource type="Texture2D" uid="uid://dgc5fkwsg5cev" path="res://Entities/Player/Art/Player Character.png" id="2_sxv2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nm3ne"]
+size = Vector2(13.125, 26.25)
+
+[node name="Short" type="CharacterBody2D" unique_id=814393800]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_sxv2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=578268206]
+modulate = Color(4.6817894, 4.6817894, 4.6817894, 1)
+texture = ExtResource("2_sxv2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1851518046]
+visible = false
+position = Vector2(0.4375, 0.125)
+shape = SubResource("RectangleShape2D_nm3ne")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=204001311]
+
+[node name="Pathfinding collision" type="CollisionShape2D" parent="Area2D" unique_id=1522695565]
+visible = false
+shape = SubResource("RectangleShape2D_nm3ne")

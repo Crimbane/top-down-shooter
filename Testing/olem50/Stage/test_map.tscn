@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://do8j7w4dsh8xr"]
+
+[ext_resource type="PackedScene" uid="uid://dlaugitkx8tf4" path="res://Testing/olem50/Enemy/Tester/enemy_test.tscn" id="1_4aig8"]
+[ext_resource type="PackedScene" uid="uid://cnfs0hjpwp47v" path="res://Testing/olem50/Enemy/Short/short.tscn" id="1_8g4ct"]
+[ext_resource type="PackedScene" uid="uid://ur5sxjyuysuj" path="res://Entities/Player/player.tscn" id="1_hu4gm"]
+[ext_resource type="PackedScene" uid="uid://duy5jol7jojhh" path="res://Systems/UI/ui.tscn" id="2_4aig8"]
+[ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="3_oqh76"]
+[ext_resource type="PackedScene" uid="uid://d2yui0kay4kfj" path="res://Testing/olem50/Enemy/Bird/bird.tscn" id="5_oqh76"]
+
+[node name="Test Map" type="Node" unique_id=1372446901]
+
+[node name="Short" parent="." unique_id=814393800 instance=ExtResource("1_8g4ct")]
+position = Vector2(-314, 0)
+
+[node name="EnemyTest" parent="." unique_id=596271408 instance=ExtResource("1_4aig8")]
+position = Vector2(94, 0)
+
+[node name="Player" parent="." unique_id=1625488090 instance=ExtResource("1_hu4gm")]
+
+[node name="UI" parent="Player" unique_id=48622636 instance=ExtResource("2_4aig8")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2074704731]
+z_index = -1
+position = Vector2(1801, 1330.9998)
+scale = Vector2(36.468754, 28.195313)
+texture = ExtResource("3_oqh76")
+
+[node name="Bird" parent="." unique_id=1667973257 instance=ExtResource("5_oqh76")]
+position = Vector2(-359, -194)
