@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var health: int = 1
+
 var SPEED = 100
 var reachedTarget = false
 var findTarget = false
@@ -34,6 +36,7 @@ func stopPathfinding(body: Node2D) -> void:
 		reachedTarget = true
 		velocity = Vector2.ZERO
 		body.hit.emit() 
+		body.takeDamage(3)
 
 func startPathfinding() -> void:
 	if global_position.distance_to(target.position) < 150:
@@ -47,3 +50,12 @@ func resumePathfinding(body: Node2D) -> void:
 	if body == target:
 		print("Target left range!")
 		reachedTarget = false
+
+func takeDamage(damage: int) -> void:
+	health -= damage
+	
+	if health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()

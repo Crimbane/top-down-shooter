@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var health: int = 10
+
 var SPEED = 30
 var reachedTarget = false
 
@@ -25,8 +27,18 @@ func _physics_process(_delta: float) -> void:
 
 
 func stopPathfinding(body: Node2D) -> void:
-	
 	if body.name == "Player":
 		print("Bird Reached target")
 		reachedTarget = true
 		velocity = Vector2.ZERO
+		body.takeDamage(1)
+
+
+func takeDamage(damage: int) -> void:
+	health -= damage
+	
+	if health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()

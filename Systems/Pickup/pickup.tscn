@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b1v2i1jgbgqj2"]
+
+[ext_resource type="Script" uid="uid://bx5vdcx0gg8rt" path="res://Systems/Pickup/pickup.gd" id="1_lsu1q"]
+[ext_resource type="Texture2D" uid="uid://dgc5fkwsg5cev" path="res://Entities/Player/Art/Player Character.png" id="2_cnia6"]
+[ext_resource type="Texture2D" uid="uid://bof2beee21c6k" path="res://Entities/Player/Art/Player Front Facing.png" id="2_kxadx"]
+[ext_resource type="Texture2D" uid="uid://c36olnjqaayrr" path="res://Entities/Player/Art/Player Back Facing.png" id="3_duxmx"]
+[ext_resource type="Texture2D" uid="uid://ca2ivk8u65bq6" path="res://Entities/Player/Art/Player Side Facing.png" id="3_kxadx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kxadx")
+}],
+"loop": 1,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_duxmx")
+}],
+"loop": 1,
+"name": &"health",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cnia6")
+}],
+"loop": 1,
+"name": &"shield",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kxadx")
+}],
+"loop": 1,
+"name": &"speed",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1yug"]
+radius = 6.0
+height = 26.0
+
+[node name="Pickup" type="Area2D" unique_id=2133711726]
+z_index = 1
+collision_layer = 8
+script = ExtResource("1_lsu1q")
+pickupSprite = "Damage"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1481813929]
+modulate = Color(1, 0, 1, 1)
+sprite_frames = SubResource("SpriteFrames_t1yug")
+animation = &"damage"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962728380]
+shape = SubResource("CapsuleShape2D_t1yug")

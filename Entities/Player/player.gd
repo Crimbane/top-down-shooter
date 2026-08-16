@@ -2,49 +2,148 @@ extends CharacterBody2D
 
 signal hit
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var maxHealth: int = 5
+@onready var currentHealth: int = maxHealth
+const NORMAL_SPEED = 300.0
+var speed = NORMAL_SPEED
 
-var idle_direction: String = "down"
+var damageBuffActive = false
+var damageBuffTimer = 10
+var speedBuffTimer = 10
+
+var currentGun: Node2D
+
+var pistolScene = preload("uid://4wwqaebiasr3")
+var shotgunScene = preload("uid://dp1kk0cs51e68")
+
+var lastDirection: String = "down"
 
 func _ready() -> void:
 	hit.connect(onHit)
+	$"Timers/Damage Buff Timer".timeout.connect(onDamageBuffTimerTimeout)
+	$"Timers/Speed Buff Timer".timeout.connect(onSpeedBuffTimerTimeout)
+	equipGun(shotgunScene)
+
 
 func _process(_delta: float) -> void:
-	if velocity.x > 0 or Input.is_action_pressed("Move Right"):
-		$AnimatedSprite2D.play("right")
-		$AnimatedSprite2D.flip_h = true
-		idle_direction = "right"
-	elif velocity.x < 0 or Input.is_action_pressed("Move Left"):
-		$AnimatedSprite2D.play("left")
-		$AnimatedSprite2D.flip_h = false
-		idle_direction = "left"
-	elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
-		$AnimatedSprite2D.play("up")
-		idle_direction = "up"
-	elif velocity.y > 0 or Input.is_action_pressed("Move Down"):
-		$AnimatedSprite2D.play("down")
-		idle_direction = "down"
-	else:
-		$AnimatedSprite2D.play("idle " + idle_direction)
+	if Input.is_action_pressed("Shoot"):
+		if currentGun:
+			currentGun.shoot()
+	#var mousePosition = get_global_mouse_position()
+	#$Gun.look_at(mousePosition)
+	
 
 func _physics_process(_delta: float) -> void:
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down")
 	if direction != Vector2.ZERO:
-		velocity = direction * SPEED
+		velocity = direction * speed
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+		velocity = velocity.move_toward(Vector2.ZERO, speed)
 
 	move_and_slide()
+	
+	animations()
+
 
 func onHit() -> void:
-	call_deferred("restartGame")
+	pass
+
 
 func restartGame() -> void:
 	get_tree().reload_current_scene()
+
+
+func animations() -> void:
+	if velocity.x > 0 or Input.is_action_pressed("Move Right"):
+		$AnimatedSprite2D.play("right")
+		$AnimatedSprite2D.flip_h = true
+		lastDirection = "right"
+		#updateGun()
+		
+	elif velocity.x < 0 or Input.is_action_pressed("Move Left"):
+		$AnimatedSprite2D.play("left")
+		$AnimatedSprite2D.flip_h = false
+		lastDirection = "left"
+		#updateGun()
+		
+	elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
+		$AnimatedSprite2D.play("up")
+		lastDirection = "up"
+		#updateGun()
+		
+	elif velocity.y > 0 or Input.is_action_pressed("Move Down"):
+		$AnimatedSprite2D.play("down")
+		lastDirection = "down"
+		#updateGun()
+		
+	else:
+		$AnimatedSprite2D.play("idle " + lastDirection)
+
+
+func updateGun() -> void:
+	if lastDirection == "right":
+		$GunHolder.rotation = 0
+		$GunHolder/Sprite2D.flip_v = false
+
+	elif lastDirection == "left":
+		$GunHolder.rotation = PI
+		$GunHolder/Sprite2D.flip_v = true
+
+	elif lastDirection == "up":
+		$GunHolder.rotation = -PI / 2
+		$GunHolder/Sprite2D.flip_v = false
+
+	elif lastDirection == "down":
+		$GunHolder.rotation = PI / 2
+		$GunHolder/Sprite2D.flip_v = false
+
+
+func takeDamage(damage: int) -> void:
+	print("Player took ", damage, " damage")
+	if damage > 0:
+		currentHealth -= damage
+	
+	if currentHealth <= 0:
+		die()
+	print("Player health: ", currentHealth)
+
+
+func heal(healing: int) -> void:
+	print("Player healed ", healing, " health")
+	currentHealth += healing
+	
+	if currentHealth >= maxHealth:
+		currentHealth = maxHealth
+
+
+func damageBuff() -> void:
+	damageBuffActive = true
+	$"Timers/Damage Buff Timer".start()
+
+func onDamageBuffTimerTimeout() -> void:
+	damageBuffActive = false
+
+
+func speedBuff() -> void:
+	speed = NORMAL_SPEED * 1.5
+	$"Timers/Speed Buff Timer".start()
+
+func onSpeedBuffTimerTimeout() -> void:
+	speed = NORMAL_SPEED
+
+
+func shieldBuff() -> void:
+	pass
+
+
+func die() -> void:
+	#load death screen
+	call_deferred("restartGame")
+
+
+func equipGun(gunScene: PackedScene) -> void:
+	if currentGun:
+		currentGun.queue_free()
+
+	currentGun = gunScene.instantiate()
+	$GunHolder.add_child(currentGun)

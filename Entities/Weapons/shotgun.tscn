@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dp1kk0cs51e68"]
+
+[ext_resource type="Script" uid="uid://b6d5qwl4q70e6" path="res://Entities/Weapons/gun.gd" id="1_iaqvo"]
+[ext_resource type="PackedScene" uid="uid://bsaepq7eyjcmc" path="res://Entities/Weapons/Projectiles/bullet.tscn" id="2_2msgq"]
+[ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="2_8xpl2"]
+
+[node name="Shotgun" type="Node2D" unique_id=1122283156]
+script = ExtResource("1_iaqvo")
+bulletScene = ExtResource("2_2msgq")
+fireRate = 1.0
+bulletCount = 5
+spread = 0.2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=89037113]
+scale = Vector2(0.31, 0.14)
+texture = ExtResource("2_8xpl2")
+
+[node name="BulletSpawn" type="Marker2D" parent="." unique_id=921675985]
+position = Vector2(18, 0)

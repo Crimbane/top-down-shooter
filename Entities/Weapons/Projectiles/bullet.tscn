@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bsaepq7eyjcmc"]
+
+[ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_nx0yk"]
+[ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="1_siqsa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1yug"]
+
+[node name="Bullet" type="Area2D" unique_id=1617219927]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_nx0yk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=974925344]
+rotation = 1.5707964
+scale = Vector2(0.06, 0.235)
+texture = ExtResource("1_siqsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=990565021]
+rotation = 1.5707964
+scale = Vector2(0.38000003, 1.01)
+shape = SubResource("CapsuleShape2D_t1yug")

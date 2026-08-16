@@ -16,3 +16,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		# Trigger the hit signal directly on the player
 		body.hit.emit() 
+		body.takeDamage(5)
