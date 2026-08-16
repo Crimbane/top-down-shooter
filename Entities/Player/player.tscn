@@ -156,7 +156,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_0poeq")
 }, {
 "duration": 1.0,
@@ -165,15 +165,15 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v7p16")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_a8wow")
 }],
 "loop": 1,
 "name": &"idle down",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_avsg8")
 }, {
 "duration": 1.0,
@@ -182,15 +182,15 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_01ng6")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_ui1ln")
 }],
 "loop": 1,
 "name": &"idle left",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_og23y")
 }, {
 "duration": 1.0,
@@ -199,15 +199,15 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_80ryp")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_v27kq")
 }],
 "loop": 1,
 "name": &"idle right",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_kx1i7")
 }, {
 "duration": 1.0,
@@ -216,12 +216,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_slvv8")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_l3oqu")
 }],
 "loop": 1,
 "name": &"idle up",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,4 +289,4 @@ shape = SubResource("CapsuleShape2D_t1yug")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776810120]
 sprite_frames = SubResource("SpriteFrames_t1yug")
 animation = &"idle down"
-frame_progress = 0.3907848
+frame_progress = 0.81478024

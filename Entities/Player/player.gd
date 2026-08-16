@@ -5,7 +5,7 @@ signal hit
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var idle_direction = "down"
+var idle_direction: String = "down"
 
 func _ready() -> void:
 	hit.connect(onHit)
@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 	elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
 		$AnimatedSprite2D.play("up")
 		idle_direction = "up"
-	elif velocity.y < 0 or Input.is_action_pressed("Move Down"):
+	elif velocity.y > 0 or Input.is_action_pressed("Move Down"):
 		$AnimatedSprite2D.play("down")
 		idle_direction = "down"
 	else:
