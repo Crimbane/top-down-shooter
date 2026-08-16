@@ -5,20 +5,28 @@ signal hit
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var idle_direction = "down"
+
 func _ready() -> void:
 	hit.connect(onHit)
 
 func _process(_delta: float) -> void:
 	if velocity.x > 0 or Input.is_action_pressed("Move Right"):
-		$AnimatedSprite2D.animation = "right"
+		$AnimatedSprite2D.play("right")
 		$AnimatedSprite2D.flip_h = true
+		idle_direction = "right"
 	elif velocity.x < 0 or Input.is_action_pressed("Move Left"):
-		$AnimatedSprite2D.animation = "left"
+		$AnimatedSprite2D.play("left")
 		$AnimatedSprite2D.flip_h = false
+		idle_direction = "left"
 	elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
-		$AnimatedSprite2D.animation = "up"
+		$AnimatedSprite2D.play("up")
+		idle_direction = "up"
 	elif velocity.y < 0 or Input.is_action_pressed("Move Down"):
-		$AnimatedSprite2D.animation = "down"
+		$AnimatedSprite2D.play("down")
+		idle_direction = "down"
+	else:
+		$AnimatedSprite2D.play("idle " + idle_direction)
 
 func _physics_process(_delta: float) -> void:
 
