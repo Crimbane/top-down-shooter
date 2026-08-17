@@ -30,22 +30,6 @@ func _process(_delta: float) -> void:
 		if currentGun:
 			currentGun.shoot()
 
-	if velocity.x > 0 or Input.is_action_pressed("Move Right"):
-		$AnimatedSprite2D.play("right")
-		#$AnimatedSprite2D.flip_h = true
-		idle_direction = "right"
-	elif velocity.x < 0 or Input.is_action_pressed("Move Left"):
-		$AnimatedSprite2D.play("left")
-		#$AnimatedSprite2D.flip_h = false
-		idle_direction = "left"
-	elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
-		$AnimatedSprite2D.play("up")
-		idle_direction = "up"
-	elif velocity.y > 0 or Input.is_action_pressed("Move Down"):
-		$AnimatedSprite2D.play("down")
-		idle_direction = "down"
-	else:
-		$AnimatedSprite2D.play("idle " + idle_direction)
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down")
