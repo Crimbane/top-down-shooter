@@ -58,19 +58,19 @@ region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_og23y"]
 atlas = ExtResource("3_lu8i8")
-region = Rect2(0, 64, 32, 32)
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u86q5"]
 atlas = ExtResource("3_lu8i8")
-region = Rect2(32, 64, 32, 32)
+region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80ryp"]
 atlas = ExtResource("3_lu8i8")
-region = Rect2(64, 64, 32, 32)
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v27kq"]
 atlas = ExtResource("3_lu8i8")
-region = Rect2(96, 64, 32, 32)
+region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kx1i7"]
 atlas = ExtResource("3_lu8i8")
@@ -106,19 +106,19 @@ region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap3xn"]
 atlas = ExtResource("2_3uyv8")
-region = Rect2(0, 64, 32, 32)
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iplt1"]
 atlas = ExtResource("2_3uyv8")
-region = Rect2(32, 64, 32, 32)
+region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_owvpp"]
 atlas = ExtResource("2_3uyv8")
-region = Rect2(64, 64, 32, 32)
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xr8lj"]
 atlas = ExtResource("2_3uyv8")
-region = Rect2(96, 64, 32, 32)
+region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8fok"]
 atlas = ExtResource("2_3uyv8")
@@ -304,3 +304,4 @@ one_shot = true
 [node name="Speed Buff Timer" type="Timer" parent="Timers" unique_id=1292641556]
 wait_time = 10.0
 one_shot = true
+animation = &"right"
