@@ -293,6 +293,8 @@ frame_progress = 0.93708944
 
 [node name="GunHolder" type="Node2D" parent="." unique_id=395921520]
 
+[node name="Bullet Spawn" type="Marker2D" parent="GunHolder" unique_id=395032728]
+
 [node name="Timers" type="Node" parent="." unique_id=389473384]
 
 [node name="Damage Buff Timer" type="Timer" parent="Timers" unique_id=1457494945]

@@ -29,9 +29,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Shoot"):
 		if currentGun:
 			currentGun.shoot()
-	#var mousePosition = get_global_mouse_position()
-	#$Gun.look_at(mousePosition)
-	
+
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down")
@@ -58,44 +56,22 @@ func animations() -> void:
 		$AnimatedSprite2D.play("right")
 		$AnimatedSprite2D.flip_h = true
 		lastDirection = "right"
-		#updateGun()
 		
 	elif velocity.x < 0 or Input.is_action_pressed("Move Left"):
 		$AnimatedSprite2D.play("left")
 		$AnimatedSprite2D.flip_h = false
 		lastDirection = "left"
-		#updateGun()
 		
 	elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
 		$AnimatedSprite2D.play("up")
 		lastDirection = "up"
-		#updateGun()
 		
 	elif velocity.y > 0 or Input.is_action_pressed("Move Down"):
 		$AnimatedSprite2D.play("down")
 		lastDirection = "down"
-		#updateGun()
 		
 	else:
 		$AnimatedSprite2D.play("idle " + lastDirection)
-
-
-func updateGun() -> void:
-	if lastDirection == "right":
-		$GunHolder.rotation = 0
-		$GunHolder/Sprite2D.flip_v = false
-
-	elif lastDirection == "left":
-		$GunHolder.rotation = PI
-		$GunHolder/Sprite2D.flip_v = true
-
-	elif lastDirection == "up":
-		$GunHolder.rotation = -PI / 2
-		$GunHolder/Sprite2D.flip_v = false
-
-	elif lastDirection == "down":
-		$GunHolder.rotation = PI / 2
-		$GunHolder/Sprite2D.flip_v = false
 
 
 func takeDamage(damage: int) -> void:
@@ -147,3 +123,19 @@ func equipGun(gunScene: PackedScene) -> void:
 
 	currentGun = gunScene.instantiate()
 	$GunHolder.add_child(currentGun)
+	
+	$"GunHolder/Bullet Spawn".position = currentGun.bulletSpawnPosition
+
+
+func getBulletSpawnPosition() -> Vector2:
+	match lastDirection:
+		"right":
+			return currentGun.bulletSpawnRight
+		"left":
+			return currentGun.bulletSpawnLeft
+		"up":
+			return currentGun.bulletSpawnUp
+		"down":
+			return currentGun.bulletSpawnDown
+	
+	return Vector2.ZERO
