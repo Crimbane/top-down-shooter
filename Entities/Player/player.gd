@@ -52,26 +52,46 @@ func restartGame() -> void:
 
 
 func animations() -> void:
-	if velocity.x > 0 or Input.is_action_pressed("Move Right"):
-		$AnimatedSprite2D.play("right")
-		#$AnimatedSprite2D.flip_h = true
-		lastDirection = "right"
+	if currentGun == null:
+		if velocity.x > 0 or Input.is_action_pressed("Move Right"):
+			$AnimatedSprite2D.play("right")
+			#$AnimatedSprite2D.flip_h = true
+			lastDirection = "right"
 		
-	elif velocity.x < 0 or Input.is_action_pressed("Move Left"):
-		$AnimatedSprite2D.play("left")
-		#$AnimatedSprite2D.flip_h = false
-		lastDirection = "left"
+		elif velocity.x < 0 or Input.is_action_pressed("Move Left"):
+			$AnimatedSprite2D.play("left")
+			#$AnimatedSprite2D.flip_h = false
+			lastDirection = "left"
 		
-	elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
-		$AnimatedSprite2D.play("up")
-		lastDirection = "up"
+		elif velocity.y < 0 or Input.is_action_pressed("Move Up"):
+			$AnimatedSprite2D.play("up")
+			lastDirection = "up"
 		
-	elif velocity.y > 0 or Input.is_action_pressed("Move Down"):
-		$AnimatedSprite2D.play("down")
-		lastDirection = "down"
+		elif velocity.y > 0 or Input.is_action_pressed("Move Down"):
+			$AnimatedSprite2D.play("down")
+			lastDirection = "down"
+			
+		else:
+			$AnimatedSprite2D.play("idle " + lastDirection)
+	
+	if currentGun != null:
+		updateFacingDirection()
 		
-	else:
-		$AnimatedSprite2D.play("idle " + lastDirection)
+		if velocity != Vector2.ZERO:
+			match lastDirection:
+				"right":
+					$AnimatedSprite2D.play("gun right")
+				
+				"left":
+					$AnimatedSprite2D.play("gun left")
+				
+				"up":
+					$AnimatedSprite2D.play("gun up")
+				
+				"down":
+					$AnimatedSprite2D.play("gun down")
+		else:
+			$AnimatedSprite2D.play("gun idle " + lastDirection)
 
 
 func takeDamage(damage: int) -> void:
@@ -139,3 +159,19 @@ func getBulletSpawnPosition() -> Vector2:
 			return currentGun.bulletSpawnDown
 	
 	return Vector2.ZERO
+
+
+func updateFacingDirection() -> void:
+	var mousePosition = get_global_mouse_position()
+	var direction = mousePosition - global_position
+
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			lastDirection = "right"
+		else:
+			lastDirection = "left"
+	else:
+		if direction.y > 0:
+			lastDirection = "down"
+		else:
+			lastDirection = "up"
