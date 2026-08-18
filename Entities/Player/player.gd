@@ -8,11 +8,9 @@ const NORMAL_SPEED = 300.0
 var speed = NORMAL_SPEED
 
 var damageBuffActive = false
-var damageBuffTimer = 10
-var speedBuffTimer = 10
+var shieldBuffActive = false
 
 var currentGun: Node2D
-
 var pistolScene = preload("uid://4wwqaebiasr3")
 var shotgunScene = preload("uid://dp1kk0cs51e68")
 
@@ -22,6 +20,7 @@ func _ready() -> void:
 	hit.connect(onHit)
 	$"Timers/Damage Buff Timer".timeout.connect(onDamageBuffTimerTimeout)
 	$"Timers/Speed Buff Timer".timeout.connect(onSpeedBuffTimerTimeout)
+	$"Timers/Shield Buff Timer".timeout.connect(onShieldBuffTimerTimeout)
 	equipGun(shotgunScene)
 
 
@@ -37,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 		velocity = direction * speed
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, speed)
-
+	
 	move_and_slide()
 	
 	animations()
@@ -95,6 +94,10 @@ func animations() -> void:
 
 
 func takeDamage(damage: int) -> void:
+	if shieldBuffActive:
+		print("Shield blocked damage")
+		return
+	
 	print("Player took ", damage, " damage")
 	if damage > 0:
 		currentHealth -= damage
@@ -129,8 +132,13 @@ func onSpeedBuffTimerTimeout() -> void:
 
 
 func shieldBuff() -> void:
-	pass
+	shieldBuffActive = true
+	$"Timers/Shield Buff Timer".start()
+	$"Shield Sprite".visible = true
 
+func onShieldBuffTimerTimeout() -> void:
+	shieldBuffActive = false
+	$"Shield Sprite".visible = false
 
 func die() -> void:
 	#load death screen

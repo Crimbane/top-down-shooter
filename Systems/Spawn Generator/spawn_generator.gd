@@ -1,7 +1,7 @@
 extends Node
 
 var pickupScene = preload("uid://b1v2i1jgbgqj2")
-var pickupSpawnTimer: int = 2
+var pickupSpawnTimer: int = 10
 
 var player
 
@@ -15,10 +15,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-
-func spawnTimer(timer: int) -> void:
-	await get_tree().create_timer(timer).timeout
-	
 
 func spawnPickups() -> void:
 	while true:
@@ -38,4 +34,3 @@ func createPickup() -> void:
 	
 	get_parent().call_deferred("add_child", pickup)
 	
-	spawnTimer(pickupSpawnTimer)

@@ -1,6 +1,8 @@
 @tool
 extends Area2D
 
+@export var despawnTimer: int = 20
+
 @export_enum("Health", "Damage", "Shield", "Speed") var pickupSprite: String = "Health":
 	set(value):
 		pickupSprite = value
@@ -11,6 +13,10 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(pickup)
 	updateSprite()
+	
+	if not Engine.is_editor_hint():
+		await get_tree().create_timer(despawnTimer).timeout
+		queue_free()
 
 
 func updateSprite() -> void:

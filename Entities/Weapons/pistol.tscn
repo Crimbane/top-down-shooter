@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://4wwqaebiasr3"]
-
-[ext_resource type="Script" uid="uid://b6d5qwl4q70e6" path="res://Entities/Weapons/gun.gd" id="1_em150"]
-[ext_resource type="PackedScene" uid="uid://bsaepq7eyjcmc" path="res://Entities/Weapons/Projectiles/bullet.tscn" id="2_n7ul4"]
-
-[node name="Pistol" type="Node2D" unique_id=1149618179]
-script = ExtResource("1_em150")
-bulletScene = ExtResource("2_n7ul4")
-bulletDamage = 2
