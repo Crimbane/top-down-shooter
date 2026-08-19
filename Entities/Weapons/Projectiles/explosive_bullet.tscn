@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://b6etqfxs3ophg"]
+
+[ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_3moi2"]
+[ext_resource type="PackedScene" uid="uid://d6sfc3655tnk" path="res://Entities/Weapons/Projectiles/explosion.tscn" id="2_vwp3h"]
+[ext_resource type="Texture2D" uid="uid://7qcey0fjdvql" path="res://Entities/Weapons/Projectiles/Art/Shot Explosive Bullet Sprite Sheet.png" id="3_3moi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(10, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwp3h"]
+atlas = ExtResource("3_3moi2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbw0j"]
+atlas = ExtResource("3_3moi2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lqvh"]
+atlas = ExtResource("3_3moi2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwp3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbw0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lqvh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Explosive Bullet" type="Area2D" unique_id=1704228791]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_3moi2")
+speed = 400
+damage = 0
+explosionScene = ExtResource("2_vwp3h")
+explosive = true
+explosionDamage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731677393]
+shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1189616964]
+sprite_frames = SubResource("SpriteFrames_t1yug")

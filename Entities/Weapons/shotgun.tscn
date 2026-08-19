@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dp1kk0cs51e68"]
 
 [ext_resource type="Script" uid="uid://b6d5qwl4q70e6" path="res://Entities/Weapons/gun.gd" id="1_iaqvo"]
-[ext_resource type="PackedScene" uid="uid://bsaepq7eyjcmc" path="res://Entities/Weapons/Projectiles/bullet.tscn" id="2_2msgq"]
+[ext_resource type="PackedScene" uid="uid://c7upwuv7l3c1p" path="res://Entities/Weapons/Projectiles/shotgun_buckshot.tscn" id="2_iaqvo"]
+[ext_resource type="PackedScene" uid="uid://cmumnfsyy3ysh" path="res://Entities/Weapons/Projectiles/shotgun_slug.tscn" id="3_8xpl2"]
 
 [node name="Shotgun" type="Node2D" unique_id=1122283156]
 script = ExtResource("1_iaqvo")
-bulletScene = ExtResource("2_2msgq")
+bulletScene = ExtResource("2_iaqvo")
+altBulletScene = ExtResource("3_8xpl2")
 fireRate = 1.0
-bulletSpeed = 300
-bulletCount = 5
-spread = 0.2
+bulletCount = 8
+spread = 0.18

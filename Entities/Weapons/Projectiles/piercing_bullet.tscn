@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://3c8d5hlekwj3"]
+
+[ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_3mucl"]
+[ext_resource type="Texture2D" uid="uid://cuul0u44iex7s" path="res://Entities/Weapons/Projectiles/Art/Shot Piercing Bullet Sprite Sheet.png" id="2_3mucl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s6cr"]
+atlas = ExtResource("2_3mucl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iewni"]
+atlas = ExtResource("2_3mucl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yvle"]
+atlas = ExtResource("2_3mucl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s6cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iewni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yvle")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Piercing Bullet" type="Area2D" unique_id=1886400774]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_3mucl")
+speed = 600
+pierceCount = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=407699268]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133888081]
+sprite_frames = SubResource("SpriteFrames_t1yug")
+frame = 2
+frame_progress = 0.09492365

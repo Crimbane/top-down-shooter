@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cjt02kx5neh4v"]
+
+[ext_resource type="Script" uid="uid://b6d5qwl4q70e6" path="res://Entities/Weapons/gun.gd" id="1_qg5l7"]
+[ext_resource type="PackedScene" uid="uid://b6etqfxs3ophg" path="res://Entities/Weapons/Projectiles/explosive_bullet.tscn" id="2_pqclf"]
+[ext_resource type="PackedScene" uid="uid://c7w8w5hgqwgyx" path="res://Entities/Weapons/Projectiles/bouncing_bullet.tscn" id="3_un1m5"]
+
+[node name="C4-TT" type="Node2D" unique_id=1148224477]
+script = ExtResource("1_qg5l7")
+bulletScene = ExtResource("2_pqclf")
+altBulletScene = ExtResource("3_un1m5")

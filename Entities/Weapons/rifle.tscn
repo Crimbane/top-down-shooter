@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b6d5qwl4q70e6" path="res://Entities/Weapons/gun.gd" id="1_gxt14"]
 [ext_resource type="PackedScene" uid="uid://bsaepq7eyjcmc" path="res://Entities/Weapons/Projectiles/bullet.tscn" id="2_scshn"]
+[ext_resource type="PackedScene" uid="uid://3c8d5hlekwj3" path="res://Entities/Weapons/Projectiles/piercing_bullet.tscn" id="3_scshn"]
 
 [node name="Rifle" type="Node2D" unique_id=1149618179]
 script = ExtResource("1_gxt14")
 bulletScene = ExtResource("2_scshn")
-bulletDamage = 2
-bulletSpeed = 600
+altBulletScene = ExtResource("3_scshn")

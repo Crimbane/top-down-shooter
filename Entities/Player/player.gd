@@ -11,8 +11,17 @@ var damageBuffActive = false
 var shieldBuffActive = false
 
 var currentGun: Node2D
-var pistolScene = preload("uid://4wwqaebiasr3")
+var rifleScene = preload("uid://4wwqaebiasr3")
 var shotgunScene = preload("uid://dp1kk0cs51e68")
+var C4_TTScene = preload("uid://cjt02kx5neh4v")
+
+var currentWeaponIndex: int = 0
+
+var weaponScenes: Array[PackedScene] = [
+	rifleScene,
+	shotgunScene,
+	C4_TTScene
+]
 
 var lastDirection: String = "down"
 
@@ -21,13 +30,26 @@ func _ready() -> void:
 	$"Timers/Damage Buff Timer".timeout.connect(onDamageBuffTimerTimeout)
 	$"Timers/Speed Buff Timer".timeout.connect(onSpeedBuffTimerTimeout)
 	$"Timers/Shield Buff Timer".timeout.connect(onShieldBuffTimerTimeout)
-	equipGun(shotgunScene)
+	switchWeapon(1)
 
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("Weapon 1"):
+		switchWeapon(0)
+	
+	if Input.is_action_just_pressed("Weapon 2"):
+		switchWeapon(1)
+	
+	if Input.is_action_just_pressed("Weapon 3"):
+		switchWeapon(2)
+	
 	if Input.is_action_pressed("Shoot"):
 		if currentGun:
 			currentGun.shoot()
+	
+	if Input.is_action_pressed("Shoot Alt"):
+		if currentGun:
+			currentGun.shootAlt()
 
 
 func _physics_process(_delta: float) -> void:
@@ -183,3 +205,15 @@ func updateFacingDirection() -> void:
 			lastDirection = "down"
 		else:
 			lastDirection = "up"
+
+
+func switchWeapon(index: int) -> void:
+	if currentGun:
+		currentGun.queue_free()
+	
+	currentGun = weaponScenes[index].instantiate()
+	$GunHolder.add_child(currentGun)
+	
+	$"GunHolder/Bullet Spawn".position = currentGun.bulletSpawnPosition
+	
+	currentWeaponIndex = index

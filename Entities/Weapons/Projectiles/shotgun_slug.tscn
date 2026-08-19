@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cmumnfsyy3ysh"]
+
+[ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_26n2m"]
+[ext_resource type="Texture2D" uid="uid://bqjs0gvewsjbd" path="res://Entities/Weapons/Projectiles/Art/Shot Slug Sprite Sheet.png" id="2_26n2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(7, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt0oy"]
+atlas = ExtResource("2_26n2m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfmky"]
+atlas = ExtResource("2_26n2m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwgrq"]
+atlas = ExtResource("2_26n2m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt0oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfmky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwgrq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shotgun Slug" type="Area2D" unique_id=306783611]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_26n2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1283822303]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1716836253]
+sprite_frames = SubResource("SpriteFrames_t1yug")
+frame_progress = 0.4696727

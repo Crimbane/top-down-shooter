@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://d2yui0kay4kfj" path="res://Testing/olem50/Enemy/Bird/bird.tscn" id="5_oqh76"]
 [ext_resource type="PackedScene" uid="uid://b1v2i1jgbgqj2" path="res://Systems/Pickup/pickup.tscn" id="7_dqrj4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(128, 126)
+
 [node name="Test Map" type="Node" unique_id=1372446901]
 
 [node name="Spawn Generator" parent="." unique_id=1144861929 instance=ExtResource("1_7ps02")]
@@ -25,7 +28,7 @@ position = Vector2(94, 0)
 
 [node name="Background Sprite" type="Sprite2D" parent="." unique_id=2074704731]
 z_index = -1
-position = Vector2(1801, 1330.9998)
+position = Vector2(1804, 1316)
 scale = Vector2(36.468754, 28.195313)
 texture = ExtResource("3_oqh76")
 
@@ -39,3 +42,17 @@ pickupSprite = "Shield"
 [node name="Pickup2" parent="." unique_id=1769232337 instance=ExtResource("7_dqrj4")]
 position = Vector2(-164, 93)
 pickupSprite = "Speed"
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1007030334]
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=150525292]
+position = Vector2(-222, 46)
+scale = Vector2(0.09375, 1)
+shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="Wall" type="Sprite2D" parent="Wall" unique_id=1656419687]
+position = Vector2(-222, 45)
+scale = Vector2(0.09375, 1)
+texture = ExtResource("3_oqh76")
