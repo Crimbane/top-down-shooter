@@ -3,8 +3,49 @@
 [ext_resource type="Script" uid="uid://b6d5qwl4q70e6" path="res://Entities/Weapons/gun.gd" id="1_gxt14"]
 [ext_resource type="PackedScene" uid="uid://bsaepq7eyjcmc" path="res://Entities/Weapons/Projectiles/bullet.tscn" id="2_scshn"]
 [ext_resource type="PackedScene" uid="uid://3c8d5hlekwj3" path="res://Entities/Weapons/Projectiles/piercing_bullet.tscn" id="3_scshn"]
+[ext_resource type="Texture2D" uid="uid://cwjoag8hrkd4l" path="res://Entities/Weapons/Art/Rifle Muzzle Flash Sprite Sheet.png" id="4_r3h7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efvb6"]
+atlas = ExtResource("4_r3h7t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si2eh"]
+atlas = ExtResource("4_r3h7t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfdd2"]
+atlas = ExtResource("4_r3h7t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elnyl"]
+atlas = ExtResource("4_r3h7t")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efvb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si2eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfdd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elnyl")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Rifle" type="Node2D" unique_id=1149618179]
 script = ExtResource("1_gxt14")
 bulletScene = ExtResource("2_scshn")
 altBulletScene = ExtResource("3_scshn")
+
+[node name="Muzzle Flash" type="AnimatedSprite2D" parent="." unique_id=311759531]
+visible = false
+sprite_frames = SubResource("SpriteFrames_t1yug")

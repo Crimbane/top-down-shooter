@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_3mucl"]
 [ext_resource type="Texture2D" uid="uid://cuul0u44iex7s" path="res://Entities/Weapons/Projectiles/Art/Shot Piercing Bullet Sprite Sheet.png" id="2_3mucl"]
+[ext_resource type="Texture2D" uid="uid://dpp211iyiqfck" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Hit Impact Sprite Sheet.png" id="3_3s6cr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(8, 3)
@@ -18,6 +19,22 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("2_3mucl")
 region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pidt2"]
+atlas = ExtResource("3_3s6cr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j028"]
+atlas = ExtResource("3_3s6cr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu0ac"]
+atlas = ExtResource("3_3s6cr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckrl8"]
+atlas = ExtResource("3_3s6cr")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
 "frames": [{
@@ -33,6 +50,23 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pidt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j028")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu0ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckrl8")
+}],
+"loop": 0,
+"name": &"impact",
+"speed": 10.0
 }]
 
 [node name="Piercing Bullet" type="Area2D" unique_id=1886400774]
@@ -48,5 +82,4 @@ shape = SubResource("RectangleShape2D_t1yug")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133888081]
 sprite_frames = SubResource("SpriteFrames_t1yug")
-frame = 2
-frame_progress = 0.09492365
+autoplay = "default"

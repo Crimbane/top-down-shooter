@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_nx0yk"]
 [ext_resource type="PackedScene" uid="uid://d6sfc3655tnk" path="res://Entities/Weapons/Projectiles/explosion.tscn" id="2_e4u0j"]
 [ext_resource type="Texture2D" uid="uid://c3g78ws3i554d" path="res://Entities/Weapons/Projectiles/Art/Shot Bullet Sprite Sheet.png" id="3_e4u0j"]
+[ext_resource type="Texture2D" uid="uid://dpp211iyiqfck" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Hit Impact Sprite Sheet.png" id="4_o4jrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyjvv"]
 size = Vector2(7.894736, 6.9306927)
@@ -19,6 +20,22 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("3_e4u0j")
 region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5dv0"]
+atlas = ExtResource("4_o4jrt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cewj"]
+atlas = ExtResource("4_o4jrt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arfnk"]
+atlas = ExtResource("4_o4jrt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av2ta"]
+atlas = ExtResource("4_o4jrt")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
 "frames": [{
@@ -34,6 +51,23 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5dv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cewj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arfnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av2ta")
+}],
+"loop": 0,
+"name": &"impact",
+"speed": 10.0
 }]
 
 [node name="Bullet" type="Area2D" unique_id=1617219927]
@@ -50,5 +84,5 @@ shape = SubResource("RectangleShape2D_fyjvv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2106631584]
 sprite_frames = SubResource("SpriteFrames_t1yug")
-frame = 1
-frame_progress = 0.09561312
+animation = &"impact"
+autoplay = "default"

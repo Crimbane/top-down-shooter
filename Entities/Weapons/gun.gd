@@ -12,18 +12,25 @@ var bulletSpawnPosition: Vector2 = bulletSpawnRight
 #@export var bulletDamage: int = 1
 #@export var bulletSpeed: int = 500
 @export var bulletCount: int = 1
+@export var bulletCountAlt: int = 1
 @export var spread: float = 0.0
+@export var spreadAlt: float = 0.0
+
+var muzzleFlashOffset: Vector2 = Vector2(15, 0)
 
 var canShoot = true
 
 func _ready() -> void:
-	pass
+	$"Muzzle Flash".animation_finished.connect(onMuzzleFlashFinished)
+	
 
 func shoot() -> void:
 	if not canShoot:
 		return
 	
 	canShoot = false
+	
+	muzzleFlash()
 	
 	for i in bulletCount:
 		shootBullet(bulletScene)
@@ -37,7 +44,7 @@ func shootAlt() -> void:
 	
 	canShoot = false
 	
-	for i in bulletCount:
+	for i in bulletCountAlt:
 		shootBullet(altBulletScene)
 	
 	await get_tree().create_timer(fireRate).timeout
@@ -80,3 +87,28 @@ func setSlug() -> void:
 	bulletScene = preload("uid://cmumnfsyy3ysh")
 	bulletCount = 1
 	spread = 0.0
+
+
+func muzzleFlash() -> void:
+	var player = get_parent().get_parent()
+	match player.lastDirection:
+		"right":
+			$"Muzzle Flash".rotation = 0
+			$"Muzzle Flash".position = get_parent().get_parent().getBulletSpawnPosition() + Vector2(14, 0)
+		"left":
+			$"Muzzle Flash".rotation = PI
+			$"Muzzle Flash".position = get_parent().get_parent().getBulletSpawnPosition() + Vector2(-14, 0)
+		"up":
+			$"Muzzle Flash".rotation = -PI / 2
+			$"Muzzle Flash".position = get_parent().get_parent().getBulletSpawnPosition() + Vector2(0, -15)
+		"down":
+			$"Muzzle Flash".rotation = PI / 2
+			$"Muzzle Flash".position = get_parent().get_parent().getBulletSpawnPosition() + Vector2(0, 13)
+	
+	$"Muzzle Flash".visible = true
+	$"Muzzle Flash".frame = 0
+	$"Muzzle Flash".play("default")
+
+
+func onMuzzleFlashFinished() -> void:
+	$"Muzzle Flash".visible = false

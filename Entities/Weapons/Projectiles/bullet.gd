@@ -5,6 +5,8 @@ var direction = Vector2.ZERO
 @export var damage: int = 5
 @export var pierceCount: int = 0
 
+var hasHit: bool = false
+
 @export var explosionScene: PackedScene
 @export var explosive: bool = false
 @export var explosionDamage: int = 3
@@ -20,6 +22,9 @@ func _physics_process(delta: float) -> void:
 
 
 func bulletHit(body: Node2D) -> void:
+	if hasHit:
+		return
+	
 	if body.is_in_group("Enemy"):
 		body.takeDamage(damage)
 	
@@ -31,6 +36,13 @@ func bulletHit(body: Node2D) -> void:
 	if pierceCount > 0:
 		pierceCount -= 1
 	else:
+		hasHit = true
+		speed = 0
+		set_deferred("monitoring", false)
+		
+		$AnimatedSprite2D.offset = Vector2(-12, 0)
+		$AnimatedSprite2D.play("impact")
+		await $AnimatedSprite2D.animation_finished
 		queue_free()
 
 
