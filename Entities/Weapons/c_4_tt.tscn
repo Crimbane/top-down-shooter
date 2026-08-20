@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6d5qwl4q70e6" path="res://Entities/Weapons/gun.gd" id="1_qg5l7"]
 [ext_resource type="PackedScene" uid="uid://b6etqfxs3ophg" path="res://Entities/Weapons/Projectiles/explosive_bullet.tscn" id="2_pqclf"]
 [ext_resource type="PackedScene" uid="uid://c7w8w5hgqwgyx" path="res://Entities/Weapons/Projectiles/bouncing_bullet.tscn" id="3_un1m5"]
-[ext_resource type="Texture2D" uid="uid://cwjoag8hrkd4l" path="res://Entities/Weapons/Art/Rifle Muzzle Flash Sprite Sheet.png" id="4_60wd3"]
+[ext_resource type="Texture2D" uid="uid://dk05ohms5mofe" path="res://Entities/Weapons/Art/Grenade Launcher Muzzle Flash Sprite Sheet.png" id="4_60wd3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2dlv"]
 atlas = ExtResource("4_60wd3")
@@ -21,6 +21,14 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("4_60wd3")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvgae"]
+atlas = ExtResource("4_60wd3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8gpb"]
+atlas = ExtResource("4_60wd3")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
 "frames": [{
@@ -35,10 +43,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hot1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvgae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8gpb")
 }],
 "loop": 0,
 "name": &"default",
-"speed": 30.0
+"speed": 20.0
 }]
 
 [node name="C4-TT" type="Node2D" unique_id=1148224477]

@@ -1,26 +1,73 @@
 [gd_scene format=3 uid="uid://d6sfc3655tnk"]
 
 [ext_resource type="Script" uid="uid://c0ha1ifhydgpu" path="res://Entities/Weapons/Projectiles/explosion.gd" id="1_x25w0"]
-[ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="1_y1cag"]
+[ext_resource type="Texture2D" uid="uid://hwond207urwn" path="res://Entities/Weapons/Projectiles/Art/Explosive Bullet Hit Impact Sprite Sheet.png" id="2_x25w0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
 radius = 82.006096
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0h8k"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8klq"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4njum"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bek6i"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8q81"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vijy5"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g40q2"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sy0s"]
+atlas = ExtResource("2_x25w0")
+region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_y1cag")
+"texture": SubResource("AtlasTexture_s0h8k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_y1cag")
+"texture": SubResource("AtlasTexture_w8klq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_y1cag")
+"texture": SubResource("AtlasTexture_4njum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bek6i")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_q8q81")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_vijy5")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_g40q2")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_7sy0s")
 }],
 "loop": 0,
 "name": &"explosion",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [node name="Explosion" type="Area2D" unique_id=1676358427]
