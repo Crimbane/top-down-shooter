@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"impact",
-"speed": 10.0
+"speed": 30.0
 }]
 
 [node name="Bullet" type="Area2D" unique_id=1617219927]

@@ -66,7 +66,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"impact",
-"speed": 10.0
+"speed": 30.0
 }]
 
 [node name="Bouncing Bullet" type="CharacterBody2D" unique_id=1233749361]
@@ -80,4 +80,5 @@ shape = SubResource("RectangleShape2D_t1yug")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1340301059]
 sprite_frames = SubResource("SpriteFrames_t1yug")
+animation = &"impact"
 autoplay = "default"
