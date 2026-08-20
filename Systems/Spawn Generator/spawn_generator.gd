@@ -1,25 +1,30 @@
 extends Node
 
 var pickupScene = preload("uid://b1v2i1jgbgqj2")
-var pickupSpawnTimer: int = 10
+
+#var pickupSpawnTimer: int = 10 
 
 var player
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
-	spawnPickups()
+	$"Spawn Timer".timeout.connect(onSpawnBuffTimerTimeout)
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	#createPickup()
+	#await get_tree().create_timer(pickupSpawnTimer).timeout
 	pass
 
 
 func spawnPickups() -> void:
-	while true:
-		createPickup()
-		await get_tree().create_timer(pickupSpawnTimer).timeout
+	pass
+	#if get_tree().paused:
+	#while not get_tree().paused:
+		#createPickup()
+		#await get_tree().create_timer(pickupSpawnTimer).timeout
 
 
 func createPickup() -> void:
@@ -34,3 +39,7 @@ func createPickup() -> void:
 	
 	get_parent().call_deferred("add_child", pickup)
 	
+
+
+func onSpawnBuffTimerTimeout() -> void:
+	createPickup()

@@ -59,6 +59,9 @@ animations = [{
 script = ExtResource("1_qg5l7")
 bulletScene = ExtResource("2_pqclf")
 altBulletScene = ExtResource("3_un1m5")
+fireRate = 1.5
+bulletCountAlt = 30
+spreadAlt = 2.0
 
 [node name="Muzzle Flash" type="AnimatedSprite2D" parent="." unique_id=1943690747]
 visible = false

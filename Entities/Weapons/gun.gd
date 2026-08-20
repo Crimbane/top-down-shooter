@@ -16,19 +16,33 @@ var bulletSpawnPosition: Vector2 = bulletSpawnRight
 @export var spread: float = 0.0
 @export var spreadAlt: float = 0.0
 
+@export var maxAmmo: int = 8
+@export var maxAmmoAlt: int = 8
+@export var magazineSize: int = 4
+@export var magazineSizeAlt: int = 4
+var currentAmmo: int
+var currentAmmoAlt: int
+
+
+
 var muzzleFlashOffset: Vector2 = Vector2(15, 0)
 
 var canShoot = true
 
 func _ready() -> void:
 	$"Muzzle Flash".animation_finished.connect(onMuzzleFlashFinished)
+	currentAmmo = magazineSize
+	currentAmmoAlt = magazineSize
+	updateAmmoUI()
 	
 
 func shoot() -> void:
-	if not canShoot:
+	if not canShoot or currentAmmo == 0:
 		return
 	
 	canShoot = false
+	currentAmmo -= 1
+	updateAmmoUI()
 	
 	muzzleFlash()
 	
@@ -39,10 +53,12 @@ func shoot() -> void:
 	canShoot = true
 
 func shootAlt() -> void:
-	if not canShoot:
+	if not canShoot or currentAmmoAlt == 0:
 		return
 	
 	canShoot = false
+	currentAmmoAlt -= 1
+	updateAmmoUI()
 	
 	for i in bulletCountAlt:
 		shootBullet(altBulletScene)
@@ -77,16 +93,26 @@ func shootBullet(selectedBulletScene) -> void:
 	get_tree().current_scene.add_child(bullet)
 
 
-func setBuckshot() -> void:
-	bulletScene = preload("uid://c7upwuv7l3c1p")
-	bulletCount = 8
-	spread = 0.15
+func reload() -> void:
+	if maxAmmo > 0:
+		maxAmmo -= currentAmmo
+		currentAmmo = magazineSize
+	
+	if maxAmmoAlt > 0:
+		maxAmmoAlt -= currentAmmoAlt
+		currentAmmoAlt = magazineSizeAlt
+	
+	updateAmmoUI()
 
 
-func setSlug() -> void:
-	bulletScene = preload("uid://cmumnfsyy3ysh")
-	bulletCount = 1
-	spread = 0.0
+func updateAmmoUI() -> void:
+	var ammoBar = get_tree().current_scene.get_node("UI/UI Manager/HUD/Ammo Counter")
+	ammoBar.max_value = magazineSize
+	ammoBar.value = currentAmmo
+	
+	var ammoBarAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Ammo Counter Alt")
+	ammoBarAlt.max_value = magazineSizeAlt
+	ammoBarAlt.value = currentAmmoAlt
 
 
 func muzzleFlash() -> void:

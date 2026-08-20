@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://duy5jol7jojhh"]
 
-[ext_resource type="Script" uid="uid://b26oppxkejkig" path="res://Systems/UI/ui.gd" id="1_22tvq"]
+[ext_resource type="Script" uid="uid://b26oppxkejkig" path="res://Systems/UI/ui_manager.gd" id="1_22tvq"]
+[ext_resource type="Texture2D" uid="uid://c6xveg6xhk0jj" path="res://Assets/Placeholders/Progress bar arc left empty.png" id="2_g01m3"]
+[ext_resource type="Texture2D" uid="uid://dbbjbcueyg57m" path="res://Assets/Placeholders/Progress bar arc left full.png" id="3_mumph"]
+[ext_resource type="Texture2D" uid="uid://bpopnts0n4jrk" path="res://Assets/Placeholders/Progress bar arc right empty.png" id="4_mumph"]
+[ext_resource type="Texture2D" uid="uid://ocw1tu0smylt" path="res://Assets/Placeholders/Progress bar arc right full.png" id="5_o4wqe"]
 
 [node name="UI" type="CanvasLayer" unique_id=48622636]
 
-[node name="UI" type="Control" parent="." unique_id=704845746]
+[node name="UI Manager" type="Control" parent="." unique_id=704845746]
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -14,26 +18,159 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_22tvq")
 
-[node name="Restart Button" type="Button" parent="UI" unique_id=1353344599]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -60.0
-offset_top = 31.0
-offset_bottom = 62.000046
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 8
-text = "Restart game"
+[node name="Dev" type="Control" parent="UI Manager" unique_id=876355745]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Quit Button" type="Button" parent="UI" unique_id=77528866]
+[node name="Quit Button" type="Button" parent="UI Manager/Dev" unique_id=77528866]
 z_index = 2
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -46.0
+offset_left = 554.0
+offset_right = 600.0
 offset_bottom = 31.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "Exit game"
+
+[node name="Restart Button" type="Button" parent="UI Manager/Dev" unique_id=1353344599]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 540.0
+offset_top = 31.0
+offset_right = 600.0
+offset_bottom = 62.000046
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Restart game"
+
+[node name="HUD" type="Control" parent="UI Manager" unique_id=634789716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Ammo Counter" type="TextureProgressBar" parent="UI Manager/HUD" unique_id=2108702290]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+value = 50.0
+fill_mode = 4
+radial_initial_angle = 180.0
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(6.5, 0)
+texture_under = ExtResource("2_g01m3")
+texture_progress = ExtResource("3_mumph")
+
+[node name="Ammo Counter Alt" type="TextureProgressBar" parent="UI Manager/HUD" unique_id=1483379860]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+value = 50.0
+fill_mode = 5
+radial_initial_angle = 180.0
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(-6.525, 0)
+texture_under = ExtResource("4_mumph")
+texture_progress = ExtResource("5_o4wqe")
+
+[node name="Ammo Counter Label" type="Label" parent="UI Manager/HUD" unique_id=154898401]
+visible = false
+layout_mode = 0
+offset_right = 43.0
+offset_bottom = 23.0
+text = "10/10"
+
+[node name="HBoxContainer Bottom Left" type="HBoxContainer" parent="UI Manager/HUD" unique_id=1043931068]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 165.0
+grow_vertical = 0
+
+[node name="Weapon Icon" type="TextureRect" parent="UI Manager/HUD/HBoxContainer Bottom Left" unique_id=1406224599]
+layout_mode = 2
+
+[node name="Weapon Name" type="Label" parent="UI Manager/HUD/HBoxContainer Bottom Left" unique_id=1236550322]
+layout_mode = 2
+text = "Weapon Name"
+
+[node name="Ammo Counter Bottom" type="Label" parent="UI Manager/HUD/HBoxContainer Bottom Left" unique_id=629666665]
+layout_mode = 2
+text = "10/10"
+
+[node name="MarginContainer Top Bar" type="MarginContainer" parent="UI Manager/HUD" unique_id=1313901784]
+visible = false
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/HUD/MarginContainer Top Bar" unique_id=647392362]
+layout_mode = 2
+
+[node name="Health" type="ProgressBar" parent="UI Manager/HUD/MarginContainer Top Bar/HBoxContainer" unique_id=1053036694]
+layout_mode = 2
+max_value = 5.0
+step = 1.0
+
+[node name="Pause Menu" type="Control" parent="UI Manager" unique_id=104725346]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI Manager/Pause Menu" unique_id=77244345]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI Manager/Pause Menu/CenterContainer" unique_id=2120086499]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer" unique_id=1843114570]
+layout_mode = 2
+
+[node name="Pause Label" type="Label" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=955942878]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="Resume Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=1272603258]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="Quit Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=313078946]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"

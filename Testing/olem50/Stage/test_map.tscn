@@ -14,6 +14,8 @@ size = Vector2(128, 126)
 
 [node name="Test Map" type="Node" unique_id=1372446901]
 
+[node name="UI" parent="." unique_id=48622636 instance=ExtResource("2_4aig8")]
+
 [node name="Spawn Generator" parent="." unique_id=1144861929 instance=ExtResource("1_7ps02")]
 
 [node name="Short" parent="." unique_id=814393800 instance=ExtResource("1_8g4ct")]
@@ -23,8 +25,6 @@ position = Vector2(-314, 0)
 position = Vector2(94, 0)
 
 [node name="Player" parent="." unique_id=1625488090 instance=ExtResource("1_hu4gm")]
-
-[node name="UI" parent="Player" unique_id=48622636 instance=ExtResource("2_4aig8")]
 
 [node name="Background Sprite" type="Sprite2D" parent="." unique_id=2074704731]
 z_index = -1

@@ -45,6 +45,10 @@ animations = [{
 script = ExtResource("1_gxt14")
 bulletScene = ExtResource("2_scshn")
 altBulletScene = ExtResource("3_scshn")
+maxAmmo = 50
+maxAmmoAlt = 25
+magazineSize = 10
+magazineSizeAlt = 10
 
 [node name="Muzzle Flash" type="AnimatedSprite2D" parent="." unique_id=311759531]
 visible = false

@@ -50,6 +50,10 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Shoot Alt"):
 		if currentGun:
 			currentGun.shootAlt()
+	
+	if Input.is_action_pressed("Reload"):
+		if currentGun:
+			currentGun.reload()
 
 
 func _physics_process(_delta: float) -> void:
@@ -215,5 +219,7 @@ func switchWeapon(index: int) -> void:
 	$GunHolder.add_child(currentGun)
 	
 	$"GunHolder/Bullet Spawn".position = currentGun.bulletSpawnPosition
+	
+	currentGun.updateAmmoUI()
 	
 	currentWeaponIndex = index
