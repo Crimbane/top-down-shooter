@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var gunName: String
 @export var bulletScene: PackedScene
 @export var altBulletScene: PackedScene
 @export var bulletSpawnRight: Vector2 = Vector2(12, 0)
@@ -32,7 +33,7 @@ var canShoot = true
 func _ready() -> void:
 	$"Muzzle Flash".animation_finished.connect(onMuzzleFlashFinished)
 	currentAmmo = magazineSize
-	currentAmmoAlt = magazineSize
+	currentAmmoAlt = magazineSizeAlt
 	updateAmmoUI()
 	
 
@@ -47,7 +48,7 @@ func shoot() -> void:
 	muzzleFlash()
 	
 	for i in bulletCount:
-		shootBullet(bulletScene)
+		shootBullet(bulletScene, spread)
 	
 	await get_tree().create_timer(fireRate).timeout
 	canShoot = true
@@ -61,12 +62,12 @@ func shootAlt() -> void:
 	updateAmmoUI()
 	
 	for i in bulletCountAlt:
-		shootBullet(altBulletScene)
+		shootBullet(altBulletScene, spreadAlt)
 	
 	await get_tree().create_timer(fireRate).timeout
 	canShoot = true
 
-func shootBullet(selectedBulletScene) -> void:
+func shootBullet(selectedBulletScene: PackedScene, bulletSpread: float) -> void:
 	var bullet = selectedBulletScene.instantiate()
 	
 	var player = get_parent().get_parent()
@@ -77,7 +78,7 @@ func shootBullet(selectedBulletScene) -> void:
 	var direction = (get_global_mouse_position() - spawnPosition).normalized()
 	
 	# Bullet spread
-	direction = direction.rotated(randf_range(-spread, spread))
+	direction = direction.rotated(randf_range(-bulletSpread, bulletSpread))
 	
 	bullet.global_position = spawnPosition
 	bullet.direction = direction
@@ -95,11 +96,11 @@ func shootBullet(selectedBulletScene) -> void:
 
 func reload() -> void:
 	if maxAmmo > 0:
-		maxAmmo -= currentAmmo
+		maxAmmo = maxAmmo - magazineSize + currentAmmo
 		currentAmmo = magazineSize
 	
 	if maxAmmoAlt > 0:
-		maxAmmoAlt -= currentAmmoAlt
+		maxAmmoAlt = maxAmmoAlt - magazineSizeAlt + currentAmmoAlt
 		currentAmmoAlt = magazineSizeAlt
 	
 	updateAmmoUI()
@@ -113,6 +114,36 @@ func updateAmmoUI() -> void:
 	var ammoBarAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Ammo Counter Alt")
 	ammoBarAlt.max_value = magazineSizeAlt
 	ammoBarAlt.value = currentAmmoAlt
+	
+	var ammoCounterLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer/Ammo Counter Bottom")
+	ammoCounterLabel.text = str(currentAmmo) + " / " + str(magazineSize)
+	
+	var ammoCounterLabelAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer2/Ammo Counter Bottom Alt")
+	ammoCounterLabelAlt.text = str(currentAmmoAlt) + " / " + str(magazineSizeAlt)
+	
+	var weaponNameLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Weapon Name")
+	weaponNameLabel.text = str(gunName)
+	
+	var maxAmmoLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Max Ammo")
+	maxAmmoLabel.text = "Reserve Ammo: " + str(maxAmmo) + " / " + str(maxAmmoAlt)
+	
+	var weaponIcon = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Weapon Icon")
+	var bulletIcon = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer/Bullet Icon")
+	var bulletIconAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer2/Bullet Icon Alt")
+	
+	match gunName:
+		"Rifle":
+			weaponIcon.texture = load("uid://dgi4ojqg7g3e2")
+			bulletIcon.texture = load("uid://dgi4ojqg7g3e2")
+			bulletIconAlt.texture = load("uid://bu0finc31bw61")
+		"Shotgun":
+			weaponIcon.texture = load("uid://xehr7o8em82r")
+			bulletIcon.texture = load("uid://xehr7o8em82r")
+			bulletIconAlt.texture = load("uid://blwdun6u52mrb")
+		"C4-TT":
+			weaponIcon.texture = load("uid://bdwoh4vr4v8qv")
+			bulletIcon.texture = load("uid://bdwoh4vr4v8qv")
+			bulletIconAlt.texture = load("uid://dahb6wgmn2pps")
 
 
 func muzzleFlash() -> void:

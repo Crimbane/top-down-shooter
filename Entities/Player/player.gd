@@ -30,7 +30,7 @@ func _ready() -> void:
 	$"Timers/Damage Buff Timer".timeout.connect(onDamageBuffTimerTimeout)
 	$"Timers/Speed Buff Timer".timeout.connect(onSpeedBuffTimerTimeout)
 	$"Timers/Shield Buff Timer".timeout.connect(onShieldBuffTimerTimeout)
-	switchWeapon(1)
+	switchWeapon(0)
 
 
 func _process(_delta: float) -> void:
@@ -145,6 +145,7 @@ func damageBuff() -> void:
 	damageBuffActive = true
 	$"Timers/Damage Buff Timer".start()
 
+
 func onDamageBuffTimerTimeout() -> void:
 	damageBuffActive = false
 
@@ -152,6 +153,7 @@ func onDamageBuffTimerTimeout() -> void:
 func speedBuff() -> void:
 	speed = NORMAL_SPEED * 1.5
 	$"Timers/Speed Buff Timer".start()
+
 
 func onSpeedBuffTimerTimeout() -> void:
 	speed = NORMAL_SPEED
@@ -162,9 +164,11 @@ func shieldBuff() -> void:
 	$"Timers/Shield Buff Timer".start()
 	$"Shield Sprite".visible = true
 
+
 func onShieldBuffTimerTimeout() -> void:
 	shieldBuffActive = false
 	$"Shield Sprite".visible = false
+
 
 func die() -> void:
 	#load death screen

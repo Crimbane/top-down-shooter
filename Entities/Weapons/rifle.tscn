@@ -43,6 +43,7 @@ animations = [{
 
 [node name="Rifle" type="Node2D" unique_id=1149618179]
 script = ExtResource("1_gxt14")
+gunName = "Rifle"
 bulletScene = ExtResource("2_scshn")
 altBulletScene = ExtResource("3_scshn")
 maxAmmo = 50

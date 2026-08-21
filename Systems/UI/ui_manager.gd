@@ -2,10 +2,14 @@ extends Control
 
 var cursorTexture
 
+@onready var cursor: Sprite2D = $"Software Mouse/Cursor"
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Hide native mouse
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
 	$"Dev/Quit Button".pressed.connect(exitGame)
 	$"Dev/Restart Button".pressed.connect(restartScene)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Resume Button".pressed.connect(resumeGame)
@@ -13,6 +17,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var mousePosition = get_global_mouse_position()
+	cursor.position = mousePosition
 	$"HUD/Ammo Counter".position = mousePosition + Vector2 (-19, -7.5)
 	$"HUD/Ammo Counter Alt".position = mousePosition + Vector2 (10,-7.5)
 
@@ -36,7 +41,7 @@ func resumeGame() -> void:
 
 func resizeCursor() -> void:
 	var image = cursorTexture.get_image()
-	image.resize(32, 32)
-
+	image.resize(16, 16)
+	
 	var texture = ImageTexture.create_from_image(image)
 	Input.set_custom_mouse_cursor(texture)

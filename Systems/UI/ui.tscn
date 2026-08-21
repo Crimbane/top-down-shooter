@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dbbjbcueyg57m" path="res://Assets/Placeholders/Progress bar arc left full.png" id="3_mumph"]
 [ext_resource type="Texture2D" uid="uid://bpopnts0n4jrk" path="res://Assets/Placeholders/Progress bar arc right empty.png" id="4_mumph"]
 [ext_resource type="Texture2D" uid="uid://ocw1tu0smylt" path="res://Assets/Placeholders/Progress bar arc right full.png" id="5_o4wqe"]
+[ext_resource type="Texture2D" uid="uid://cy2ue5555y0r7" path="res://Assets/Crosshair.png" id="6_o4wqe"]
+[ext_resource type="Texture2D" uid="uid://dgi4ojqg7g3e2" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Icon.png" id="6_vovoe"]
 
 [node name="UI" type="CanvasLayer" unique_id=48622636]
 
@@ -93,26 +95,6 @@ offset_right = 43.0
 offset_bottom = 23.0
 text = "10/10"
 
-[node name="HBoxContainer Bottom Left" type="HBoxContainer" parent="UI Manager/HUD" unique_id=1043931068]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 165.0
-grow_vertical = 0
-
-[node name="Weapon Icon" type="TextureRect" parent="UI Manager/HUD/HBoxContainer Bottom Left" unique_id=1406224599]
-layout_mode = 2
-
-[node name="Weapon Name" type="Label" parent="UI Manager/HUD/HBoxContainer Bottom Left" unique_id=1236550322]
-layout_mode = 2
-text = "Weapon Name"
-
-[node name="Ammo Counter Bottom" type="Label" parent="UI Manager/HUD/HBoxContainer Bottom Left" unique_id=629666665]
-layout_mode = 2
-text = "10/10"
-
 [node name="MarginContainer Top Bar" type="MarginContainer" parent="UI Manager/HUD" unique_id=1313901784]
 visible = false
 layout_mode = 1
@@ -126,6 +108,55 @@ layout_mode = 2
 layout_mode = 2
 max_value = 5.0
 step = 1.0
+
+[node name="Bottom Left" type="MarginContainer" parent="UI Manager/HUD" unique_id=1183913404]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 124.0
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="UI Manager/HUD/Bottom Left" unique_id=958650967]
+layout_mode = 2
+
+[node name="Weapon Name" type="Label" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=1236550322]
+layout_mode = 2
+text = "Weapon Name"
+
+[node name="Weapon Icon" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=1406224599]
+layout_mode = 2
+texture = ExtResource("6_vovoe")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=532515418]
+layout_mode = 2
+
+[node name="Bullet Icon" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer" unique_id=582425734]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="Ammo Counter Bottom" type="Label" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer" unique_id=629666665]
+layout_mode = 2
+text = "10 / 10"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=2137708071]
+layout_mode = 2
+
+[node name="Bullet Icon Alt" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer2" unique_id=1234562332]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="Ammo Counter Bottom Alt" type="Label" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer2" unique_id=1091501034]
+layout_mode = 2
+text = "10 / 10 Alt"
+
+[node name="Max Ammo" type="Label" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=1226336066]
+layout_mode = 2
+text = "Reserve Ammo: "
 
 [node name="Pause Menu" type="Control" parent="UI Manager" unique_id=104725346]
 process_mode = 2
@@ -174,3 +205,12 @@ text = "Resume"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
+
+[node name="Software Mouse" type="Control" parent="UI Manager" unique_id=1351047924]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cursor" type="Sprite2D" parent="UI Manager/Software Mouse" unique_id=1457149538]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_o4wqe")

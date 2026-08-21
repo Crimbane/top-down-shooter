@@ -57,6 +57,7 @@ animations = [{
 
 [node name="Shotgun" type="Node2D" unique_id=1122283156]
 script = ExtResource("1_iaqvo")
+gunName = "Shotgun"
 bulletScene = ExtResource("2_iaqvo")
 altBulletScene = ExtResource("3_8xpl2")
 fireRate = 1.0
