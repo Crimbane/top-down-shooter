@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal hit
+signal healthChanged(currentHealth)
 
 var maxHealth: int = 5
 @onready var currentHealth: int = maxHealth
@@ -9,6 +10,8 @@ var speed = NORMAL_SPEED
 
 var damageBuffActive = false
 var shieldBuffActive = false
+
+var shootLocked: bool = false
 
 var currentGun: Node2D
 var rifleScene = preload("uid://4wwqaebiasr3")
@@ -44,12 +47,15 @@ func _process(_delta: float) -> void:
 		switchWeapon(2)
 	
 	if Input.is_action_pressed("Shoot"):
-		if currentGun:
+		if currentGun and not shootLocked:
 			currentGun.shoot()
 	
-	if Input.is_action_pressed("Shoot Alt"):
+	if Input.is_action_just_released("Shoot"):
+		shootLocked = false
+	
+	if Input.is_action_just_pressed("Change bullet"):
 		if currentGun:
-			currentGun.shootAlt()
+			currentGun.changeBullet()
 	
 	if Input.is_action_pressed("Reload"):
 		if currentGun:
@@ -128,6 +134,8 @@ func takeDamage(damage: int) -> void:
 	if damage > 0:
 		currentHealth -= damage
 	
+	healthChanged.emit(currentHealth)
+	
 	if currentHealth <= 0:
 		die()
 	print("Player health: ", currentHealth)
@@ -139,6 +147,8 @@ func heal(healing: int) -> void:
 	
 	if currentHealth >= maxHealth:
 		currentHealth = maxHealth
+	
+	healthChanged.emit(currentHealth)
 
 
 func damageBuff() -> void:

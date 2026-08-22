@@ -24,11 +24,15 @@ var bulletSpawnPosition: Vector2 = bulletSpawnRight
 var currentAmmo: int
 var currentAmmoAlt: int
 
-
+var usingAltBullet: bool = false
+const CHANGEBULLETTIME: float = 0.5
+var isSwitchingBullet: bool = false
+var isReloading: bool = false
+@export var reloadTime: float = 2.0
 
 var muzzleFlashOffset: Vector2 = Vector2(15, 0)
 
-var canShoot = true
+var canShoot: bool = true
 
 func _ready() -> void:
 	$"Muzzle Flash".animation_finished.connect(onMuzzleFlashFinished)
@@ -36,36 +40,59 @@ func _ready() -> void:
 	currentAmmoAlt = magazineSizeAlt
 	updateAmmoUI()
 	
+	var ui = get_tree().current_scene.get_node("UI/UI Manager")
+	ui.updateActiveBullet(usingAltBullet)
+	
 
 func shoot() -> void:
-	if not canShoot or currentAmmo == 0:
+	if isReloading or isSwitchingBullet:
+		return
+	
+	if not canShoot:
 		return
 	
 	canShoot = false
-	currentAmmo -= 1
-	updateAmmoUI()
 	
+	if usingAltBullet:
+		if currentAmmoAlt == 0:
+			canShoot = true
+			return
+		
+		currentAmmoAlt -= 1
+		
+		for i in bulletCountAlt:
+			shootBullet(altBulletScene, spreadAlt)
+	
+	else:
+		if currentAmmo == 0:
+			canShoot = true
+			return
+		
+		currentAmmo -= 1
+		
+		for i in bulletCount:
+			shootBullet(bulletScene, spread)
+	
+	updateAmmoUI()
 	muzzleFlash()
 	
-	for i in bulletCount:
-		shootBullet(bulletScene, spread)
-	
 	await get_tree().create_timer(fireRate).timeout
-	canShoot = true
+	if not isReloading and not isSwitchingBullet:
+		canShoot = true
 
-func shootAlt() -> void:
-	if not canShoot or currentAmmoAlt == 0:
-		return
-	
-	canShoot = false
-	currentAmmoAlt -= 1
-	updateAmmoUI()
-	
-	for i in bulletCountAlt:
-		shootBullet(altBulletScene, spreadAlt)
-	
-	await get_tree().create_timer(fireRate).timeout
-	canShoot = true
+#func shootAlt() -> void:
+	#if not canShoot or currentAmmoAlt == 0:
+		#return
+	#
+	#canShoot = false
+	#currentAmmoAlt -= 1
+	#updateAmmoUI()
+	#
+	#for i in bulletCountAlt:
+		#shootBullet(altBulletScene, spreadAlt)
+	#
+	#await get_tree().create_timer(fireRate).timeout
+	#canShoot = true
 
 func shootBullet(selectedBulletScene: PackedScene, bulletSpread: float) -> void:
 	var bullet = selectedBulletScene.instantiate()
@@ -94,7 +121,46 @@ func shootBullet(selectedBulletScene: PackedScene, bulletSpread: float) -> void:
 	get_tree().current_scene.add_child(bullet)
 
 
+func changeBullet() -> void:
+	if isReloading or isSwitchingBullet:
+		return
+	
+	canShoot = false
+	isSwitchingBullet = true
+	
+	
+	var ui = get_tree().current_scene.get_node("UI/UI Manager")
+	await ui.startActionProgress(CHANGEBULLETTIME)
+	
+	if usingAltBullet == true:
+		usingAltBullet = false
+	else:
+		usingAltBullet = true
+	
+	ui.updateActiveBullet(usingAltBullet)
+	updateAmmoUI()
+	
+	isSwitchingBullet = false
+	if not isReloading and not isSwitchingBullet:
+		canShoot = true
+	
+	var player = get_parent().get_parent()
+	player.shootLocked = Input.is_action_pressed("Shoot")
+
+
 func reload() -> void:
+	if isReloading or isSwitchingBullet:
+		return
+	
+	if currentAmmo == magazineSize and currentAmmoAlt == magazineSizeAlt:
+		return
+	
+	isReloading = true
+	canShoot = false
+	
+	var ui = get_tree().current_scene.get_node("UI/UI Manager")
+	await ui.startActionProgress(reloadTime)
+	
 	if maxAmmo > 0:
 		maxAmmo = maxAmmo - magazineSize + currentAmmo
 		currentAmmo = magazineSize
@@ -104,21 +170,19 @@ func reload() -> void:
 		currentAmmoAlt = magazineSizeAlt
 	
 	updateAmmoUI()
+	
+	isReloading = false
+	canShoot = true
+	
+	var player = get_parent().get_parent()
+	player.shootLocked = Input.is_action_pressed("Shoot")
 
 
 func updateAmmoUI() -> void:
-	var ammoBar = get_tree().current_scene.get_node("UI/UI Manager/HUD/Ammo Counter")
-	ammoBar.max_value = magazineSize
-	ammoBar.value = currentAmmo
-	
-	var ammoBarAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Ammo Counter Alt")
-	ammoBarAlt.max_value = magazineSizeAlt
-	ammoBarAlt.value = currentAmmoAlt
-	
-	var ammoCounterLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer/Ammo Counter Bottom")
+	var ammoCounterLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBox Bullet/Ammo Counter Bottom")
 	ammoCounterLabel.text = str(currentAmmo) + " / " + str(magazineSize)
 	
-	var ammoCounterLabelAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer2/Ammo Counter Bottom Alt")
+	var ammoCounterLabelAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBox Bullet Alt/Ammo Counter Bottom Alt")
 	ammoCounterLabelAlt.text = str(currentAmmoAlt) + " / " + str(magazineSizeAlt)
 	
 	var weaponNameLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Weapon Name")
@@ -128,8 +192,8 @@ func updateAmmoUI() -> void:
 	maxAmmoLabel.text = "Reserve Ammo: " + str(maxAmmo) + " / " + str(maxAmmoAlt)
 	
 	var weaponIcon = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Weapon Icon")
-	var bulletIcon = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer/Bullet Icon")
-	var bulletIconAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer2/Bullet Icon Alt")
+	var bulletIcon = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBox Bullet/Bullet Icon")
+	var bulletIconAlt = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBox Bullet Alt/Bullet Icon Alt")
 	
 	match gunName:
 		"Rifle":

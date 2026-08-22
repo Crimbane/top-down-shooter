@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b26oppxkejkig" path="res://Systems/UI/ui_manager.gd" id="1_22tvq"]
 [ext_resource type="Texture2D" uid="uid://c6xveg6xhk0jj" path="res://Assets/Placeholders/Progress bar arc left empty.png" id="2_g01m3"]
-[ext_resource type="Texture2D" uid="uid://dbbjbcueyg57m" path="res://Assets/Placeholders/Progress bar arc left full.png" id="3_mumph"]
-[ext_resource type="Texture2D" uid="uid://bpopnts0n4jrk" path="res://Assets/Placeholders/Progress bar arc right empty.png" id="4_mumph"]
-[ext_resource type="Texture2D" uid="uid://ocw1tu0smylt" path="res://Assets/Placeholders/Progress bar arc right full.png" id="5_o4wqe"]
-[ext_resource type="Texture2D" uid="uid://cy2ue5555y0r7" path="res://Assets/Crosshair.png" id="6_o4wqe"]
 [ext_resource type="Texture2D" uid="uid://dgi4ojqg7g3e2" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Icon.png" id="6_vovoe"]
+[ext_resource type="Texture2D" uid="uid://djusit51tros1" path="res://Assets/Placeholders/Reload progress bar.png" id="7_vovoe"]
 
 [node name="UI" type="CanvasLayer" unique_id=48622636]
 
@@ -60,34 +57,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Ammo Counter" type="TextureProgressBar" parent="UI Manager/HUD" unique_id=2108702290]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-value = 50.0
-fill_mode = 4
-radial_initial_angle = 180.0
-radial_fill_degrees = 180.0
-radial_center_offset = Vector2(6.5, 0)
-texture_under = ExtResource("2_g01m3")
-texture_progress = ExtResource("3_mumph")
-
-[node name="Ammo Counter Alt" type="TextureProgressBar" parent="UI Manager/HUD" unique_id=1483379860]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-value = 50.0
-fill_mode = 5
-radial_initial_angle = 180.0
-radial_fill_degrees = 180.0
-radial_center_offset = Vector2(-6.525, 0)
-texture_under = ExtResource("4_mumph")
-texture_progress = ExtResource("5_o4wqe")
-
 [node name="Ammo Counter Label" type="Label" parent="UI Manager/HUD" unique_id=154898401]
 visible = false
 layout_mode = 0
@@ -96,18 +65,30 @@ offset_bottom = 23.0
 text = "10/10"
 
 [node name="MarginContainer Top Bar" type="MarginContainer" parent="UI Manager/HUD" unique_id=1313901784]
-visible = false
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/HUD/MarginContainer Top Bar" unique_id=647392362]
+[node name="HBox Hearts" type="HBoxContainer" parent="UI Manager/HUD/MarginContainer Top Bar" unique_id=647392362]
 layout_mode = 2
 
-[node name="Health" type="ProgressBar" parent="UI Manager/HUD/MarginContainer Top Bar/HBoxContainer" unique_id=1053036694]
+[node name="Heart1" type="TextureRect" parent="UI Manager/HUD/MarginContainer Top Bar/HBox Hearts" unique_id=41956409]
 layout_mode = 2
-max_value = 5.0
-step = 1.0
+texture = ExtResource("2_g01m3")
+
+[node name="Heart2" type="TextureRect" parent="UI Manager/HUD/MarginContainer Top Bar/HBox Hearts" unique_id=1201939025]
+layout_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="UI Manager/HUD/MarginContainer Top Bar/HBox Hearts" unique_id=1015700485]
+layout_mode = 2
+
+[node name="Heart4" type="TextureRect" parent="UI Manager/HUD/MarginContainer Top Bar/HBox Hearts" unique_id=163244199]
+layout_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="UI Manager/HUD/MarginContainer Top Bar/HBox Hearts" unique_id=586278816]
+layout_mode = 2
 
 [node name="Bottom Left" type="MarginContainer" parent="UI Manager/HUD" unique_id=1183913404]
 layout_mode = 1
@@ -132,31 +113,58 @@ layout_mode = 2
 texture = ExtResource("6_vovoe")
 stretch_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=532515418]
+[node name="HBox Bullet" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=532515418]
 layout_mode = 2
 
-[node name="Bullet Icon" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer" unique_id=582425734]
+[node name="Bullet Icon" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox/HBox Bullet" unique_id=582425734]
 layout_mode = 2
 stretch_mode = 2
 
-[node name="Ammo Counter Bottom" type="Label" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer" unique_id=629666665]
+[node name="Ammo Counter Bottom" type="Label" parent="UI Manager/HUD/Bottom Left/VBox/HBox Bullet" unique_id=629666665]
 layout_mode = 2
 text = "10 / 10"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=2137708071]
+[node name="Action Progress 2" type="TextureProgressBar" parent="UI Manager/HUD/Bottom Left/VBox/HBox Bullet" unique_id=464722821]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+value = 50.0
+fill_mode = 4
+texture_progress = ExtResource("7_vovoe")
+
+[node name="HBox Bullet Alt" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=2137708071]
 layout_mode = 2
 
-[node name="Bullet Icon Alt" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer2" unique_id=1234562332]
+[node name="Bullet Icon Alt" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox/HBox Bullet Alt" unique_id=1234562332]
 layout_mode = 2
 stretch_mode = 2
 
-[node name="Ammo Counter Bottom Alt" type="Label" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer2" unique_id=1091501034]
+[node name="Ammo Counter Bottom Alt" type="Label" parent="UI Manager/HUD/Bottom Left/VBox/HBox Bullet Alt" unique_id=1091501034]
 layout_mode = 2
 text = "10 / 10 Alt"
+
+[node name="Action Progress 3" type="TextureProgressBar" parent="UI Manager/HUD/Bottom Left/VBox/HBox Bullet Alt" unique_id=2019810401]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+value = 50.0
+fill_mode = 4
+texture_progress = ExtResource("7_vovoe")
 
 [node name="Max Ammo" type="Label" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=1226336066]
 layout_mode = 2
 text = "Reserve Ammo: "
+
+[node name="Action Progress" type="TextureProgressBar" parent="UI Manager/HUD" unique_id=1437464724]
+visible = false
+layout_mode = 0
+offset_left = 122.0
+offset_right = 162.0
+offset_bottom = 40.0
+mouse_filter = 2
+value = 50.0
+fill_mode = 4
+texture_progress = ExtResource("7_vovoe")
 
 [node name="Pause Menu" type="Control" parent="UI Manager" unique_id=104725346]
 process_mode = 2
@@ -205,12 +213,3 @@ text = "Resume"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
-
-[node name="Software Mouse" type="Control" parent="UI Manager" unique_id=1351047924]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Cursor" type="Sprite2D" parent="UI Manager/Software Mouse" unique_id=1457149538]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_o4wqe")
