@@ -5,7 +5,7 @@ extends CharacterBody2D
 var SPEED = 30
 var reachedTarget = false
 
-@onready var target = get_parent().get_node("Player")
+@onready var target = get_tree().current_scene.get_node("Player")
 
 func _ready() -> void:
 	motion_mode = MOTION_MODE_FLOATING #Ignore floor and ceiling

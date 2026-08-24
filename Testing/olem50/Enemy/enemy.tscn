@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c2qmqslpqs4ub"]
+
+[ext_resource type="Script" uid="uid://cemjble4kvdta" path="res://Testing/olem50/Enemy/enemy.gd" id="1_fotma"]
+[ext_resource type="Texture2D" uid="uid://bof2beee21c6k" path="res://Entities/Player/Art/Player Front Facing.png" id="2_fotma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
+size = Vector2(32, 32)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1903621472]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_fotma")
+enemySize = "Medium"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1322592197]
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("2_fotma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812084088]
+position = Vector2(8.940697e-08, 2.9802322e-08)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_t1yug")
