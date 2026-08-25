@@ -7,7 +7,7 @@ var tilemap: TileMapLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	tilemap = get_tree().current_scene.get_node("TileMapLayer")
+	tilemap = get_tree().current_scene.get_node("Dungeon Map/BackgroundLayer")
 	setupGridSmall()
 	setupGridMedium()
 	
