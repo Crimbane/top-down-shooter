@@ -1,7 +1,83 @@
 [gd_scene format=3 uid="uid://c2qmqslpqs4ub"]
 
 [ext_resource type="Script" uid="uid://cemjble4kvdta" path="res://Testing/olem50/Enemy/enemy.gd" id="1_fotma"]
+[ext_resource type="Texture2D" uid="uid://coail43pobybf" path="res://Entities/Enemies/Slime/Art/Slime Animation Sprite Sheet.png" id="2_63tct"]
 [ext_resource type="Texture2D" uid="uid://bof2beee21c6k" path="res://Entities/Player/Art/Player Front Facing.png" id="2_fotma"]
+[ext_resource type="Texture2D" uid="uid://mrqf54ta14np" path="res://Entities/Enemies/Burning Skull/Art/Burning Skull Animation Sprite Sheet.png" id="3_12o65"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12o65"]
+atlas = ExtResource("2_63tct")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uneyw"]
+atlas = ExtResource("2_63tct")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di8na"]
+atlas = ExtResource("2_63tct")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_038n0"]
+atlas = ExtResource("2_63tct")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swehd"]
+atlas = ExtResource("3_12o65")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mgyn"]
+atlas = ExtResource("3_12o65")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm6br"]
+atlas = ExtResource("3_12o65")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axxma"]
+atlas = ExtResource("3_12o65")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1yug"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12o65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uneyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di8na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_038n0")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swehd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mgyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm6br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axxma")
+}],
+"loop": 1,
+"name": &"skull",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(32, 32)
@@ -13,7 +89,13 @@ collision_mask = 7
 script = ExtResource("1_fotma")
 enemySize = "Medium"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2135723407]
+sprite_frames = SubResource("SpriteFrames_t1yug")
+animation = &"move"
+autoplay = "move"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1322592197]
+visible = false
 modulate = Color(1, 1, 0, 1)
 texture = ExtResource("2_fotma")
 
@@ -21,3 +103,9 @@ texture = ExtResource("2_fotma")
 position = Vector2(8.940697e-08, 2.9802322e-08)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_t1yug")
+
+[node name="Line Of Sight Ray" type="RayCast2D" parent="." unique_id=2134486389]
+collision_mask = 3
+
+[node name="Line Of Sight Timer" type="Timer" parent="." unique_id=890732152]
+one_shot = true

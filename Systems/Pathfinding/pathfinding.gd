@@ -94,7 +94,6 @@ func findClosestWalkableTile(tile: Vector2i, size: String) -> Vector2i:
 				continue
 			
 			var distance = tile.distance_to(cell)
-			print(distance)
 			
 			if distance < closestDistance:
 				closestDistance = distance
