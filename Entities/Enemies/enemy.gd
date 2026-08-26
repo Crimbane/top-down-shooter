@@ -20,7 +20,7 @@ var pathfindingBecauseStuck = false
 @export var attackDamage: int = 1
 
 @onready var player = get_tree().current_scene.get_node("Player")
-@onready var pathfinding = get_tree().current_scene.get_node("Pathfinding")
+@onready var pathfinding = get_tree().current_scene.get_node("%Pathfinding")
 @onready var raycast = $"Line Of Sight Ray"
 
 @onready var healthBar = $"TextureProgressBar"
@@ -37,8 +37,7 @@ var healthBarOffsetHeight = 10
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	$"Line Of Sight Timer".timeout.connect(onLOSTimerTimeout)
-	calculatePath()
-	repathLoop()
+	call_deferred("startEnemy")
 	
 	placeHealthBar()
 	
@@ -46,6 +45,7 @@ func _ready() -> void:
 	$Area2D.body_entered.connect(changePathfindingOnStuck)
 
 func _physics_process(_delta: float) -> void:
+	print("chasing player: ", chasingPlayer)
 	if pathfindingBecauseStuck == false:
 		raycast.target_position = to_local(player.global_position)
 		raycast.force_raycast_update()
@@ -63,7 +63,7 @@ func _physics_process(_delta: float) -> void:
 			followPath()
 	else:
 		followPath()
-		#print("chasing player: ", chasingPlayer)
+		
 
 func placeHealthBar() -> void:
 	healthBar.max_value = maxHealth
@@ -145,3 +145,8 @@ func repathLoop() -> void:
 		if not chasingPlayer:
 			calculatePath()
 		await get_tree().create_timer(REPATH_TIME).timeout
+
+
+func startEnemy() -> void:
+	calculatePath()
+	repathLoop()
