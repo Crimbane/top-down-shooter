@@ -101,20 +101,6 @@ texture = ExtResource("1_3p1ow")
 7:5/0/z_index = 10
 0:6/0 = 0
 0:6/0/z_index = 10
-1:6/0 = 0
-1:6/0/z_index = 10
-2:6/0 = 0
-2:6/0/z_index = 10
-3:6/0 = 0
-3:6/0/z_index = 10
-4:6/0 = 0
-4:6/0/z_index = 10
-5:6/0 = 0
-5:6/0/z_index = 10
-6:6/0 = 0
-6:6/0/z_index = 10
-7:6/0 = 0
-7:6/0/z_index = 10
 10:6/0 = 0
 10:6/0/z_index = 10
 11:6/0 = 0
@@ -135,6 +121,20 @@ texture = ExtResource("1_3p1ow")
 13:7/0/z_index = 10
 14:7/0 = 0
 14:7/0/z_index = 10
+9:0/0 = 0
+9:0/0/z_index = 10
+9:1/0 = 0
+9:1/0/z_index = 10
+9:2/0 = 0
+9:2/0/z_index = 10
+6:7/0 = 0
+6:7/0/z_index = 10
+7:7/0 = 0
+7:7/0/z_index = 10
+15:6/0 = 0
+15:6/0/z_index = 10
+15:7/0 = 0
+15:7/0/z_index = 10
 
 [sub_resource type="TileSet" id="TileSet_nd5q1"]
 physics_layer_0/collision_layer = 2
@@ -290,6 +290,15 @@ texture = ExtResource("2_6v133")
 2:6/0/z_index = 10
 2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:6/0/custom_data_0 = "wall"
+15:7/0 = 0
+15:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 0, -8, 0)
+15:7/0/custom_data_0 = "wall"
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+9:1/0/custom_data_0 = "wall"
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+9:2/0/custom_data_0 = "wall"
 
 [sub_resource type="TileSet" id="TileSet_fjc7g"]
 physics_layer_0/collision_layer = 1
@@ -301,8 +310,6 @@ sources/0 = SubResource("TileSetAtlasSource_m3ntu")
 
 [node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=1731952784]
 tile_set = SubResource("TileSet_nd5q1")
-collision_visibility_mode = 1
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="." unique_id=1502668632]
 tile_set = SubResource("TileSet_fjc7g")
-collision_visibility_mode = 1
