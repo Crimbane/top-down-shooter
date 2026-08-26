@@ -1,14 +1,17 @@
 extends Node2D
 
+@export_category("Gun")
 @export var gunName: String
 @export var bulletScene: PackedScene
 @export var altBulletScene: PackedScene
+@export_group("Bullet Spawn")
 @export var bulletSpawnRight: Vector2 = Vector2(12, 0)
 @export var bulletSpawnLeft: Vector2 = Vector2(-12, 0)
 @export var bulletSpawnUp: Vector2 = Vector2(0, -12)
 @export var bulletSpawnDown: Vector2 = Vector2(0, 12)
 var bulletSpawnPosition: Vector2 = bulletSpawnRight
 
+@export_category("Stats")
 @export var fireRate: float = 0.5
 #@export var bulletDamage: int = 1
 #@export var bulletSpeed: int = 500

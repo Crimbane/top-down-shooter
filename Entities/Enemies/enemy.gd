@@ -1,4 +1,6 @@
+class_name BaseEnemy
 extends CharacterBody2D
+#Enemy Area2D collision has to be slightly bigger in all directions. Can be less than 1 pixel
 
 var path: Array[Vector2i]
 var pathIndex: int = 1
@@ -13,15 +15,23 @@ var pathfindingBecauseStuck = false
 		enemySize = value
 
 @export var speed: int = 40
-@export var health: int = 100
+@export var maxHealth: int = 100
+@onready var currentHealth: int = maxHealth
 @export var attackDamage: int = 1
 
 @onready var player = get_tree().current_scene.get_node("Player")
 @onready var pathfinding = get_tree().current_scene.get_node("Pathfinding")
 @onready var raycast = $"Line Of Sight Ray"
 
+@onready var healthBar = $"TextureProgressBar"
+@onready var collisionShape = $CollisionShape2D
+var healthBarSizeHeight = 5
+var healthBarOffsetHeight = 10
 
 
+#
+#TODO: flip animation, change animation
+#
 
 
 func _ready() -> void:
@@ -29,6 +39,8 @@ func _ready() -> void:
 	$"Line Of Sight Timer".timeout.connect(onLOSTimerTimeout)
 	calculatePath()
 	repathLoop()
+	
+	placeHealthBar()
 	
 	$Area2D.body_entered.connect(attack)
 	$Area2D.body_entered.connect(changePathfindingOnStuck)
@@ -53,6 +65,17 @@ func _physics_process(_delta: float) -> void:
 		followPath()
 		#print("chasing player: ", chasingPlayer)
 
+func placeHealthBar() -> void:
+	healthBar.max_value = maxHealth
+	healthBar.value = currentHealth
+	if collisionShape.shape is RectangleShape2D:
+		var collisionSizeWidth = collisionShape.shape.size.x
+		var collisionSizeHeight = collisionShape.shape.size.y
+		healthBar.size = Vector2(collisionSizeWidth, healthBarSizeHeight)
+		
+		healthBar.position.x = -healthBar.size.x / 2
+		healthBar.position.y = -collisionSizeHeight / 2 - healthBar.size.y - healthBarOffsetHeight
+
 
 func attack(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -69,10 +92,13 @@ func changePathfindingOnStuck(body: Node2D) -> void:
 
 
 func takeDamage(damage: int) -> void:
-	health -= damage
+	print("enemy take damage")
+	currentHealth -= damage
 	
-	if health <= 0:
+	if currentHealth <= 0:
 		die()
+	
+	healthBar.value = currentHealth
 
 
 func die() -> void:

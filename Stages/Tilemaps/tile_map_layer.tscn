@@ -138,7 +138,7 @@ texture = ExtResource("1_3p1ow")
 
 [sub_resource type="TileSet" id="TileSet_nd5q1"]
 physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 21
+physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_3lq2b")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3ntu"]
@@ -301,7 +301,8 @@ texture = ExtResource("2_6v133")
 9:2/0/custom_data_0 = "wall"
 
 [sub_resource type="TileSet" id="TileSet_fjc7g"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
 custom_data_layer_0/name = "type"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_m3ntu")
@@ -311,5 +312,5 @@ sources/0 = SubResource("TileSetAtlasSource_m3ntu")
 [node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=1731952784 groups=["World"]]
 tile_set = SubResource("TileSet_nd5q1")
 
-[node name="BackgroundLayer" type="TileMapLayer" parent="." unique_id=1502668632 groups=["World"]]
+[node name="BackgroundLayer" type="TileMapLayer" parent="." unique_id=1502668632]
 tile_set = SubResource("TileSet_fjc7g")
