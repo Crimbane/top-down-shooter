@@ -26,7 +26,7 @@ tile_map_data = PackedByteArray("AAARAPn/AAACAAMAAAARAPr/AAACAAMAAAASAPr/AAACAAM
 [node name="Pathfinding" parent="." unique_id=93237905 instance=ExtResource("2_hu0mq")]
 
 [node name="Player" parent="." unique_id=1625488090 instance=ExtResource("1_hu4gm")]
-position = Vector2(473, 0)
+position = Vector2(566, -5)
 
 [node name="Spawn Generator" parent="." unique_id=1144861929 instance=ExtResource("1_7ps02")]
 

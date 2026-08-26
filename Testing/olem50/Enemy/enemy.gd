@@ -5,6 +5,7 @@ var pathIndex: int = 1
 const REPATH_TIME: float = 0.2
 var targetDistance: int = 2
 var chasingPlayer: bool = true
+var pathfindingBecauseStuck = false
 
 # Enemy sizes: Small is 16x16 collision or smaller. Medium is up to 32x32
 @export_enum("Small", "Medium") var enemySize: String = "Small":
@@ -12,6 +13,8 @@ var chasingPlayer: bool = true
 		enemySize = value
 
 @export var speed: int = 40
+@export var health: int = 100
+@export var attackDamage: int = 1
 
 @onready var player = get_tree().current_scene.get_node("Player")
 @onready var pathfinding = get_tree().current_scene.get_node("Pathfinding")
@@ -26,22 +29,54 @@ func _ready() -> void:
 	$"Line Of Sight Timer".timeout.connect(onLOSTimerTimeout)
 	calculatePath()
 	repathLoop()
+	
+	$Area2D.body_entered.connect(attack)
+	$Area2D.body_entered.connect(changePathfindingOnStuck)
 
 func _physics_process(_delta: float) -> void:
-	raycast.target_position = to_local(player.global_position)
-	raycast.force_raycast_update()
-	
-	if raycast.is_colliding() and raycast.get_collider().is_in_group("Player"):
-		if $"Line Of Sight Timer".is_stopped():
-			$"Line Of Sight Timer".start()
-	else:
-		$"Line Of Sight Timer".stop()
-		chasingPlayer = false
+	if pathfindingBecauseStuck == false:
+		raycast.target_position = to_local(player.global_position)
+		raycast.force_raycast_update()
 		
-	if chasingPlayer == true:
-		chasePlayer()
+		if raycast.is_colliding() and raycast.get_collider().is_in_group("Player"):
+			if $"Line Of Sight Timer".is_stopped():
+				$"Line Of Sight Timer".start()
+		else:
+			$"Line Of Sight Timer".stop()
+			chasingPlayer = false
+			
+		if chasingPlayer == true:
+			chasePlayer()
+		else:
+			followPath()
 	else:
 		followPath()
+		#print("chasing player: ", chasingPlayer)
+
+
+func attack(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		body.takeDamage(attackDamage)
+
+
+func changePathfindingOnStuck(body: Node2D) -> void:
+	if body.is_in_group("World"):
+		pathfindingBecauseStuck = true
+		$"Line Of Sight Timer".stop()
+		chasingPlayer = false
+		await get_tree().create_timer(REPATH_TIME).timeout
+		pathfindingBecauseStuck = false
+
+
+func takeDamage(damage: int) -> void:
+	health -= damage
+	
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	queue_free()
 
 
 func onLOSTimerTimeout() -> void:

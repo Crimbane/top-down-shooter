@@ -69,6 +69,9 @@ func calculatePath(startPosition: Vector2, targetPosition: Vector2, size: String
 	if grid.is_point_solid(targetTile):
 		targetTile = findClosestWalkableTile(targetTile, size)
 	
+	if grid.is_point_solid(startTile):
+		startTile = findClosestWalkableTile(startTile, size)
+	
 	return grid.get_id_path(startTile, targetTile)
 
 
@@ -83,8 +86,8 @@ func findClosestWalkableTile(tile: Vector2i, size: String) -> Vector2i:
 		"Medium":
 			grid = astarGridMedium
 	
-	for x in range(-2, 3):
-		for y in range(-2, 3):
+	for x in range(-4, 5):
+		for y in range(-4, 5):
 			var cell = tile + Vector2i(x, y)
 			
 			if not grid.region.has_point(cell):

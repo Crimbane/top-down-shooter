@@ -306,10 +306,10 @@ custom_data_layer_0/name = "type"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_m3ntu")
 
-[node name="Dungeon Map" type="Node" unique_id=290898763]
+[node name="Dungeon Map" type="Node" unique_id=290898763 groups=["World"]]
 
-[node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=1731952784]
+[node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=1731952784 groups=["World"]]
 tile_set = SubResource("TileSet_nd5q1")
 
-[node name="BackgroundLayer" type="TileMapLayer" parent="." unique_id=1502668632]
+[node name="BackgroundLayer" type="TileMapLayer" parent="." unique_id=1502668632 groups=["World"]]
 tile_set = SubResource("TileSet_fjc7g")
