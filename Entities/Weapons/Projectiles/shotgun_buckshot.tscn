@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_wh8nl"]
 [ext_resource type="Texture2D" uid="uid://ck0kxbv1bpbvm" path="res://Entities/Weapons/Projectiles/Art/Shot Pellet Sprite Sheet.png" id="2_wh8nl"]
-[ext_resource type="Texture2D" uid="uid://dpp211iyiqfck" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Hit Impact Sprite Sheet.png" id="3_58c0f"]
+[ext_resource type="Texture2D" uid="uid://be16ir0rnljwj" path="res://Entities/Weapons/Projectiles/Art/Shotgun Pellet Hit Impact Sprite Sheet.png" id="3_58c0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(3, 3)

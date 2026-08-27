@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_26n2m"]
 [ext_resource type="Texture2D" uid="uid://bqjs0gvewsjbd" path="res://Entities/Weapons/Projectiles/Art/Shot Slug Sprite Sheet.png" id="2_26n2m"]
-[ext_resource type="Texture2D" uid="uid://dpp211iyiqfck" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Hit Impact Sprite Sheet.png" id="3_bt0oy"]
+[ext_resource type="Texture2D" uid="uid://c5u1nq3vy65wx" path="res://Entities/Weapons/Projectiles/Art/Shotgun Slug Hit Impact Sprite Sheet.png" id="3_bt0oy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(7, 3)
@@ -70,7 +70,6 @@ animations = [{
 }]
 
 [node name="Shotgun Slug" type="Area2D" unique_id=306783611]
-scale = Vector2(2, 2)
 collision_layer = 16
 collision_mask = 6
 script = ExtResource("1_26n2m")

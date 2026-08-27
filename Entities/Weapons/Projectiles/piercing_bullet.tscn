@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://decy0qvlbuxqf" path="res://Entities/Weapons/Projectiles/bullet.gd" id="1_3mucl"]
 [ext_resource type="Texture2D" uid="uid://cuul0u44iex7s" path="res://Entities/Weapons/Projectiles/Art/Shot Piercing Bullet Sprite Sheet.png" id="2_3mucl"]
-[ext_resource type="Texture2D" uid="uid://dpp211iyiqfck" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Hit Impact Sprite Sheet.png" id="3_3s6cr"]
+[ext_resource type="Texture2D" uid="uid://dgx23opet5w76" path="res://Entities/Weapons/Projectiles/Art/Piercing Bullet Hit Impact Sprite Sheet.png" id="3_3s6cr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(8, 3)

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://c7w8w5hgqwgyx"]
 
 [ext_resource type="Script" uid="uid://208ftxbd6tnn" path="res://Entities/Weapons/Projectiles/bouncing_bullet.gd" id="1_7a2t8"]
+[ext_resource type="PackedScene" uid="uid://b5crev0i8nfwy" path="res://Entities/Weapons/Projectiles/bouncy_bullet_impact.tscn" id="2_fvwe1"]
 [ext_resource type="Texture2D" uid="uid://bqhi1ydgumdx7" path="res://Entities/Weapons/Projectiles/Art/Shot Bouncy Bullet Sprite Sheet.png" id="2_gm3ta"]
-[ext_resource type="Texture2D" uid="uid://dpp211iyiqfck" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Hit Impact Sprite Sheet.png" id="3_eb0b1"]
+[ext_resource type="Texture2D" uid="uid://7y8f6162vbqk" path="res://Entities/Weapons/Projectiles/Art/Bouncy Bullet Hit Impact Sprite Sheet.png" id="3_eb0b1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(10, 4)
@@ -74,11 +75,11 @@ collision_layer = 16
 collision_mask = 6
 script = ExtResource("1_7a2t8")
 damage = 20
+impactScene = ExtResource("2_fvwe1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=945291055]
 shape = SubResource("RectangleShape2D_t1yug")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1340301059]
 sprite_frames = SubResource("SpriteFrames_t1yug")
-animation = &"impact"
 autoplay = "default"

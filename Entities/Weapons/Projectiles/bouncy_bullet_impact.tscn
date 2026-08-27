@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b5crev0i8nfwy"]
+
+[ext_resource type="Texture2D" uid="uid://7y8f6162vbqk" path="res://Entities/Weapons/Projectiles/Art/Bouncy Bullet Hit Impact Sprite Sheet.png" id="1_0ywbd"]
+[ext_resource type="Script" uid="uid://bvw3pc3g24pdw" path="res://Entities/Weapons/Projectiles/bouncy_bullet_impact.gd" id="2_mleo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kphbx"]
+atlas = ExtResource("1_0ywbd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dou5h"]
+atlas = ExtResource("1_0ywbd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8s2a"]
+atlas = ExtResource("1_0ywbd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8o02"]
+atlas = ExtResource("1_0ywbd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjc7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kphbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dou5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8s2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8o02")
+}],
+"loop": 0,
+"name": &"impact",
+"speed": 30.0
+}]
+
+[node name="BouncyBulletImpact" type="AnimatedSprite2D" unique_id=1784598542]
+sprite_frames = SubResource("SpriteFrames_fjc7g")
+animation = &"impact"
+script = ExtResource("2_mleo3")
