@@ -2,13 +2,14 @@ extends Control
 
 var cursorTexture = load("uid://cy2ue5555y0r7")
 
-@onready var hearts = $"HUD/MarginContainer Top Bar/HBox Hearts"
 @onready var player = get_tree().get_first_node_in_group("Player")
+@onready var hearts = $"HUD/MarginContainer Top Bar/HBox Hearts"
 
 @onready var actionProgress = $"HUD/Action Progress"
 @onready var actionProgress2 = $"HUD/Bottom Left/VBox/HBox Bullet/Action Progress 2"
 @onready var actionProgress3 = $"HUD/Bottom Left/VBox/HBox Bullet Alt/Action Progress 3"
 var actionTween: Tween
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +21,8 @@ func _ready() -> void:
 	player.healthChanged.connect(updateHearts)
 	
 	call_deferred("updateHearts")
+	
+	
 	
 	#resizeCursor()
 
@@ -51,9 +54,9 @@ func updateHearts(currentHealth: int = player.currentHealth) -> void:
 		var heart = hearts.get_child(i)
 		
 		if i < player.currentHealth:
-			heart.texture = preload("uid://c6xveg6xhk0jj")
+			heart.texture = preload("uid://bhotegj5c7q4b") #full heart
 		else:
-			heart.texture = preload("uid://dbbjbcueyg57m")
+			heart.texture = preload("uid://buyokg05s2wqc") #empty heart
 
 
 

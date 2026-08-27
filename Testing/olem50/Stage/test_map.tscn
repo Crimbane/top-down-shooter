@@ -44,12 +44,12 @@ position = Vector2(-314, 0)
 position = Vector2(-359, -194)
 
 [node name="Pickup" parent="." unique_id=2133711726 instance=ExtResource("7_dqrj4")]
-position = Vector2(-164, 45)
-pickupSprite = "Shield"
+position = Vector2(420, 103)
+pickupSprite = "Health"
 
 [node name="Pickup2" parent="." unique_id=1769232337 instance=ExtResource("7_dqrj4")]
-position = Vector2(-164, 93)
-pickupSprite = "Speed"
+position = Vector2(445, 71)
+pickupSprite = "Bullet"
 
 [node name="Enemy" parent="." unique_id=1376944566 instance=ExtResource("1_cq7ob")]
 position = Vector2(306, -77)

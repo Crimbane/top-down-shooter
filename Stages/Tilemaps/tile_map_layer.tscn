@@ -312,5 +312,5 @@ sources/0 = SubResource("TileSetAtlasSource_m3ntu")
 [node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=1731952784 groups=["World"]]
 tile_set = SubResource("TileSet_nd5q1")
 
-[node name="BackgroundLayer" type="TileMapLayer" parent="." unique_id=1502668632]
+[node name="BackgroundLayer" type="TileMapLayer" parent="." unique_id=1502668632 groups=["World"]]
 tile_set = SubResource("TileSet_fjc7g")

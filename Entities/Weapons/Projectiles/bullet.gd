@@ -34,7 +34,10 @@ func bulletHit(body: Node2D) -> void:
 		return
 	
 	if pierceCount > 0:
-		pierceCount -= 1
+		if body.is_in_group("World"):
+			pierceCount -= 100
+		else:
+			pierceCount -= 1
 	else:
 		hasHit = true
 		speed = 0

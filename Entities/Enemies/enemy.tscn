@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://c2qmqslpqs4ub"]
 
 [ext_resource type="Script" uid="uid://cemjble4kvdta" path="res://Entities/Enemies/enemy.gd" id="1_fotma"]
+[ext_resource type="Texture2D" uid="uid://cfojvwc37ykry" path="res://Systems/UI/Art/Enemy Healthbar Empty.png" id="3_4jf10"]
 [ext_resource type="Texture2D" uid="uid://mrqf54ta14np" path="res://Entities/Enemies/Burning Skull/Art/Burning Skull Animation Sprite Sheet.png" id="3_12o65"]
-[ext_resource type="Texture2D" uid="uid://fjvatv1w0yms" path="res://Assets/Placeholders/Progress bar.png" id="7_038n0"]
+[ext_resource type="Texture2D" uid="uid://dwa1hwklb2lnm" path="res://Systems/UI/Art/Enemy Healthbar Full.png" id="4_ihd1f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rqwt"]
 atlas = ExtResource("3_12o65")
@@ -114,8 +115,10 @@ collision_mask = 3
 shape = SubResource("RectangleShape2D_fyjvv")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1424703275]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 value = 100.0
 nine_patch_stretch = true
-texture_progress = ExtResource("7_038n0")
+texture_under = ExtResource("3_4jf10")
+texture_progress = ExtResource("4_ihd1f")

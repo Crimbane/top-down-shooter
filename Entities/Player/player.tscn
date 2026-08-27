@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byjfhb0mtm2q7" path="res://Entities/Player/Art/Player Idle Sprite Sheet.png" id="3_lu8i8"]
 [ext_resource type="Texture2D" uid="uid://0ye4t2h3c0dd" path="res://Entities/Player/Art/Player Move With Gun Sprite Sheet.png" id="3_tekja"]
 [ext_resource type="Texture2D" uid="uid://ctjna4udxlj2p" path="res://Entities/Player/Art/Player Idle With Gun Sprite Sheet.png" id="4_5c2io"]
-[ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="6_4wf4l"]
+[ext_resource type="Texture2D" uid="uid://bptln213s00cq" path="res://Systems/UI/Art/Shield Icon.png" id="6_4wf4l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1yug"]
 radius = 6.0
@@ -576,8 +576,11 @@ one_shot = true
 wait_time = 5.0
 one_shot = true
 
+[node name="Fire Rate Buff Timer" type="Timer" parent="Timers" unique_id=1861279438]
+wait_time = 10.0
+one_shot = true
+
 [node name="Shield Sprite" type="Sprite2D" parent="." unique_id=1678174494]
 visible = false
-modulate = Color(1, 1, 1, 0.9098039)
-scale = Vector2(0.155, 0.155)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_4wf4l")

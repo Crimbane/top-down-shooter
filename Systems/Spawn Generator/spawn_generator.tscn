@@ -5,6 +5,6 @@
 [node name="Spawn Generator" type="Node" unique_id=1144861929]
 script = ExtResource("1_2u5rt")
 
-[node name="Spawn Timer" type="Timer" parent="." unique_id=1920991958]
+[node name="Buff Spawn Timer" type="Timer" parent="." unique_id=1920991958]
 wait_time = 10.0
 autostart = true

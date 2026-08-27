@@ -3,7 +3,10 @@ extends Area2D
 
 @export var despawnTimer: int = 20
 
-@export_enum("Health", "Damage", "Shield", "Speed") var pickupSprite: String = "Health":
+@export_enum(
+	"Health", "Damage", "Shield", "Speed", "FireRate",
+	"Bullet", "PiercingBullet", "BouncingBullet", "ExplosiveBullet", 
+	"Buckshot", "Slug") var pickupSprite: String = "Health":
 	set(value):
 		pickupSprite = value
 		updateSprite()
@@ -13,6 +16,7 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(pickup)
 	updateSprite()
+	
 	
 	if not Engine.is_editor_hint():
 		await get_tree().create_timer(despawnTimer).timeout
@@ -34,6 +38,20 @@ func updateSprite() -> void:
 			animatedSprite.animation = "shield"
 		"Speed":
 			animatedSprite.animation = "speed"
+		"FireRate":
+			animatedSprite.animation = "firerate"
+		"Bullet":
+			animatedSprite.animation = "bullet"
+		"PiercingBullet":
+			animatedSprite.animation = "piercingbullet"
+		"Buckshot":
+			animatedSprite.animation = "buckshot"
+		"Slug":
+			animatedSprite.animation = "slug"
+		"ExplosiveBullet":
+			animatedSprite.animation = "explosivebullet"
+		"BouncingBullet":
+			animatedSprite.animation = "bouncingbullet"
 
 
 func pickup(body: CharacterBody2D) -> void:
@@ -46,4 +64,20 @@ func pickup(body: CharacterBody2D) -> void:
 			body.shieldBuff()
 		"Speed":
 			body.speedBuff()
+		"FireRate":
+			body.fireRateBuff()
+		
+		
+		"Bullet":
+			pass
+		"PiercingBullet":
+			pass
+		"Buckshot":
+			pass
+		"Slug":
+			pass
+		"ExplosiveBullet":
+			pass
+		"BouncingBullet":
+			pass
 	queue_free()

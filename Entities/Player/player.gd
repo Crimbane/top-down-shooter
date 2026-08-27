@@ -9,6 +9,7 @@ const NORMAL_SPEED = 300.0
 var speed = NORMAL_SPEED
 
 var damageBuffActive = false
+var fireRateBuffActive = false
 var shieldBuffActive = false
 
 var shootLocked: bool = false
@@ -159,6 +160,14 @@ func damageBuff() -> void:
 func onDamageBuffTimerTimeout() -> void:
 	damageBuffActive = false
 
+
+func fireRateBuff() -> void:
+	fireRateBuffActive = true
+	$"Timers/Fire Rate Buff Timer".start()
+
+
+func fireRateBuffTimerTimeout() -> void:
+	fireRateBuffActive = false
 
 func speedBuff() -> void:
 	speed = NORMAL_SPEED * 1.5

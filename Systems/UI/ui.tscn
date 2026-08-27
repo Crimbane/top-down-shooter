@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b26oppxkejkig" path="res://Systems/UI/ui_manager.gd" id="1_22tvq"]
 [ext_resource type="Texture2D" uid="uid://c6xveg6xhk0jj" path="res://Assets/Placeholders/Progress bar arc left empty.png" id="2_g01m3"]
-[ext_resource type="Texture2D" uid="uid://dgi4ojqg7g3e2" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Icon.png" id="6_vovoe"]
-[ext_resource type="Texture2D" uid="uid://djusit51tros1" path="res://Assets/Placeholders/Reload progress bar.png" id="7_vovoe"]
+[ext_resource type="Texture2D" uid="uid://d5l5vp385vig" path="res://Systems/UI/Art/Rifle Icon.png" id="3_mumph"]
+[ext_resource type="Texture2D" uid="uid://df3qylohx44vc" path="res://Systems/UI/Art/Reload Circle.png" id="4_mumph"]
+[ext_resource type="Texture2D" uid="uid://cp4jatq5b0qpc" path="res://Systems/UI/Art/Ammo Box Icon.png" id="5_mumph"]
 
 [node name="UI" type="CanvasLayer" unique_id=48622636]
 
@@ -32,6 +33,7 @@ offset_left = 554.0
 offset_right = 600.0
 offset_bottom = 31.0
 grow_horizontal = 0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 8
 text = "Exit game"
 
@@ -45,6 +47,7 @@ offset_top = 31.0
 offset_right = 600.0
 offset_bottom = 62.000046
 grow_horizontal = 0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 8
 text = "Restart game"
 
@@ -110,7 +113,7 @@ text = "Weapon Name"
 
 [node name="Weapon Icon" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=1406224599]
 layout_mode = 2
-texture = ExtResource("6_vovoe")
+texture = ExtResource("3_mumph")
 stretch_mode = 2
 
 [node name="HBox Bullet" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=532515418]
@@ -130,7 +133,7 @@ layout_mode = 2
 mouse_filter = 2
 value = 50.0
 fill_mode = 4
-texture_progress = ExtResource("7_vovoe")
+texture_progress = ExtResource("4_mumph")
 
 [node name="HBox Bullet Alt" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=2137708071]
 layout_mode = 2
@@ -149,11 +152,18 @@ layout_mode = 2
 mouse_filter = 2
 value = 50.0
 fill_mode = 4
-texture_progress = ExtResource("7_vovoe")
+texture_progress = ExtResource("4_mumph")
 
-[node name="Max Ammo" type="Label" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=1226336066]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Manager/HUD/Bottom Left/VBox" unique_id=208579836]
 layout_mode = 2
-text = "Reserve Ammo: "
+
+[node name="TextureRect" type="TextureRect" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer" unique_id=395174111]
+layout_mode = 2
+texture = ExtResource("5_mumph")
+
+[node name="Max Ammo" type="Label" parent="UI Manager/HUD/Bottom Left/VBox/HBoxContainer" unique_id=1226336066]
+layout_mode = 2
+text = "50 / 25"
 
 [node name="Action Progress" type="TextureProgressBar" parent="UI Manager/HUD" unique_id=1437464724]
 visible = false
@@ -164,7 +174,7 @@ offset_bottom = 40.0
 mouse_filter = 2
 value = 50.0
 fill_mode = 4
-texture_progress = ExtResource("7_vovoe")
+texture_progress = ExtResource("4_mumph")
 
 [node name="Pause Menu" type="Control" parent="UI Manager" unique_id=104725346]
 process_mode = 2
@@ -207,9 +217,11 @@ horizontal_alignment = 1
 [node name="Resume Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=1272603258]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 text = "Resume"
 
 [node name="Quit Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=313078946]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 text = "Quit"

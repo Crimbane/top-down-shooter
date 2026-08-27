@@ -25,8 +25,8 @@ var pathfindingBecauseStuck = false
 
 @onready var healthBar = $"TextureProgressBar"
 @onready var collisionShape = $CollisionShape2D
-var healthBarSizeHeight = 5
-var healthBarOffsetHeight = 10
+var healthBarSizeHeight = 20
+var healthBarOffsetHeight = 3
 
 
 #
@@ -99,6 +99,7 @@ func takeDamage(damage: int) -> void:
 		die()
 	
 	healthBar.value = currentHealth
+	healthBar.visible = true
 
 
 func die() -> void:

@@ -8,7 +8,7 @@ var player
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
-	$"Spawn Timer".timeout.connect(onSpawnBuffTimerTimeout)
+	$"Buff Spawn Timer".timeout.connect(onSpawnBuffTimerTimeout)
 	
 
 
@@ -27,7 +27,7 @@ func spawnPickups() -> void:
 		#await get_tree().create_timer(pickupSpawnTimer).timeout
 
 
-func createPickup() -> void:
+func createBuffPickup() -> void:
 	var pickup = pickupScene.instantiate()
 	
 	var pickupTypes = ["Health", "Damage", "Shield", "Speed"]
@@ -38,8 +38,20 @@ func createPickup() -> void:
 	pickup.global_position = player.global_position + randomOffset
 	
 	get_parent().call_deferred("add_child", pickup)
+
+
+func createAmmoPickup() -> void:
+	var pickup = pickupScene.instantiate()
 	
+	var pickupTypes = ["Health", "Damage", "Shield", "Speed"]
+	pickup.pickupSprite = pickupTypes.pick_random()
+	
+	var randomOffset = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 200) # circle
+	
+	pickup.global_position = player.global_position + randomOffset
+	
+	get_parent().call_deferred("add_child", pickup)
 
 
 func onSpawnBuffTimerTimeout() -> void:
-	createPickup()
+	createBuffPickup()

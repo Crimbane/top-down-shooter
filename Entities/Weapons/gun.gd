@@ -13,6 +13,8 @@ var bulletSpawnPosition: Vector2 = bulletSpawnRight
 
 @export_category("Stats")
 @export var fireRate: float = 0.5
+@onready var baseFireRate = fireRate
+@onready var fireRateBuffed = fireRate / 2
 #@export var bulletDamage: int = 1
 #@export var bulletSpeed: int = 500
 @export var bulletCount: int = 1
@@ -78,6 +80,12 @@ func shoot() -> void:
 	
 	updateAmmoUI()
 	muzzleFlash()
+	
+	var player = get_parent().get_parent()
+	if player.fireRateBuffActive == true:
+		fireRate = fireRateBuffed
+	else:
+		fireRate = baseFireRate
 	
 	await get_tree().create_timer(fireRate).timeout
 	if not isReloading and not isSwitchingBullet:
@@ -191,8 +199,8 @@ func updateAmmoUI() -> void:
 	var weaponNameLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Weapon Name")
 	weaponNameLabel.text = str(gunName)
 	
-	var maxAmmoLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Max Ammo")
-	maxAmmoLabel.text = "Reserve Ammo: " + str(maxAmmo) + " / " + str(maxAmmoAlt)
+	var maxAmmoLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBoxContainer/Max Ammo")
+	maxAmmoLabel.text = str(maxAmmo) + " / " + str(maxAmmoAlt)
 	
 	var weaponIcon = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/Weapon Icon")
 	var bulletIcon = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBox Bullet/Bullet Icon")
@@ -200,7 +208,7 @@ func updateAmmoUI() -> void:
 	
 	match gunName:
 		"Rifle":
-			weaponIcon.texture = load("uid://dgi4ojqg7g3e2")
+			weaponIcon.texture = load("uid://d5l5vp385vig")
 			bulletIcon.texture = load("uid://dgi4ojqg7g3e2")
 			bulletIconAlt.texture = load("uid://bu0finc31bw61")
 		"Shotgun":
