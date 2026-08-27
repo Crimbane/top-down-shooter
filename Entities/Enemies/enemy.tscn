@@ -83,7 +83,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyjvv"]
-size = Vector2(16.2, 16.2)
+size = Vector2(17, 17)
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1903621472 groups=["Enemy"]]
 z_index = 1
@@ -94,8 +94,7 @@ enemySize = "Medium"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_t1yug")
-animation = &"move"
-autoplay = "idle"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812084088]
 position = Vector2(0, 0.25)

@@ -28,42 +28,24 @@ var pathfindingBecauseStuck = false
 var healthBarSizeHeight = 20
 var healthBarOffsetHeight = 3
 
-
-#
-#TODO: flip animation, change animation
-#
-
-
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	$"Line Of Sight Timer".timeout.connect(onLOSTimerTimeout)
-	call_deferred("startEnemy")
+	call_deferred("startEnemyPathing")
 	
 	placeHealthBar()
 	
 	$Area2D.body_entered.connect(attack)
 	$Area2D.body_entered.connect(changePathfindingOnStuck)
 
+
+func _process(_delta) -> void:
+	animations()
+
+
 func _physics_process(_delta: float) -> void:
-	print("chasing player: ", chasingPlayer)
-	if pathfindingBecauseStuck == false:
-		raycast.target_position = to_local(player.global_position)
-		raycast.force_raycast_update()
-		
-		if raycast.is_colliding() and raycast.get_collider().is_in_group("Player"):
-			if $"Line Of Sight Timer".is_stopped():
-				$"Line Of Sight Timer".start()
-		else:
-			$"Line Of Sight Timer".stop()
-			chasingPlayer = false
-			
-		if chasingPlayer == true:
-			chasePlayer()
-		else:
-			followPath()
-	else:
-		followPath()
-		
+	movement()
+
 
 func placeHealthBar() -> void:
 	healthBar.max_value = maxHealth
@@ -92,7 +74,6 @@ func changePathfindingOnStuck(body: Node2D) -> void:
 
 
 func takeDamage(damage: int) -> void:
-	print("enemy take damage")
 	currentHealth -= damage
 	
 	if currentHealth <= 0:
@@ -141,6 +122,27 @@ func followPath() -> void:
 	move_and_slide()
 
 
+func movement() -> void: # moved from physics process
+	print("chasing player: ", chasingPlayer)
+	if pathfindingBecauseStuck == false:
+		raycast.target_position = to_local(player.global_position)
+		raycast.force_raycast_update()
+		
+		if raycast.is_colliding() and raycast.get_collider().is_in_group("Player"):
+			if $"Line Of Sight Timer".is_stopped():
+				$"Line Of Sight Timer".start()
+		else:
+			$"Line Of Sight Timer".stop()
+			chasingPlayer = false
+			
+		if chasingPlayer == true:
+			chasePlayer()
+		else:
+			followPath()
+	else:
+		followPath()
+
+
 func repathLoop() -> void:
 	while true:
 		if not chasingPlayer:
@@ -148,6 +150,18 @@ func repathLoop() -> void:
 		await get_tree().create_timer(REPATH_TIME).timeout
 
 
-func startEnemy() -> void:
+func startEnemyPathing() -> void:
 	calculatePath()
 	repathLoop()
+
+
+func animations() -> void:
+	if velocity.x > 0:
+		$AnimatedSprite2D.animation = "move"
+		$AnimatedSprite2D.flip_h = true
+	elif velocity.x < 0:
+		$AnimatedSprite2D.animation = "move"
+		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.animation = "idle"
+	$AnimatedSprite2D.play()

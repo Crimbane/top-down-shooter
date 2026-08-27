@@ -39,6 +39,11 @@ var muzzleFlashOffset: Vector2 = Vector2(15, 0)
 
 var canShoot: bool = true
 
+#
+#TODO: Make ammo persistent and not reset
+#
+
+
 func _ready() -> void:
 	$"Muzzle Flash".animation_finished.connect(onMuzzleFlashFinished)
 	currentAmmo = magazineSize
@@ -189,6 +194,15 @@ func reload() -> void:
 	player.shootLocked = Input.is_action_pressed("Shoot")
 
 
+func addAmmo(amount: int, alt: bool) -> void:
+	if alt:
+		maxAmmoAlt += amount
+	else:
+		maxAmmo += amount
+	
+	updateAmmoUI()
+
+
 func updateAmmoUI() -> void:
 	var ammoCounterLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBox Bullet/Ammo Counter Bottom")
 	ammoCounterLabel.text = str(currentAmmo) + " / " + str(magazineSize)
@@ -212,11 +226,11 @@ func updateAmmoUI() -> void:
 			bulletIcon.texture = load("uid://dgi4ojqg7g3e2")
 			bulletIconAlt.texture = load("uid://bu0finc31bw61")
 		"Shotgun":
-			weaponIcon.texture = load("uid://xehr7o8em82r")
+			weaponIcon.texture = load("uid://gqmw4winb62t")
 			bulletIcon.texture = load("uid://xehr7o8em82r")
 			bulletIconAlt.texture = load("uid://blwdun6u52mrb")
 		"C4-TT":
-			weaponIcon.texture = load("uid://bdwoh4vr4v8qv")
+			weaponIcon.texture = load("uid://cp2mssks0c6ty")
 			bulletIcon.texture = load("uid://bdwoh4vr4v8qv")
 			bulletIconAlt.texture = load("uid://dahb6wgmn2pps")
 

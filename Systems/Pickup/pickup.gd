@@ -12,13 +12,15 @@ extends Area2D
 		updateSprite()
 
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	body_entered.connect(pickup)
 	updateSprite()
 	
 	
 	if not Engine.is_editor_hint():
+		body_entered.connect(pickup)
 		await get_tree().create_timer(despawnTimer).timeout
 		queue_free()
 
@@ -55,6 +57,9 @@ func updateSprite() -> void:
 
 
 func pickup(body: CharacterBody2D) -> void:
+	var gun = body.get_node("GunHolder").get_child(1)
+	
+	
 	match pickupSprite:
 		"Health":
 			body.heal(5)
@@ -69,7 +74,7 @@ func pickup(body: CharacterBody2D) -> void:
 		
 		
 		"Bullet":
-			pass
+			gun.addAmmo(20, false)
 		"PiercingBullet":
 			pass
 		"Buckshot":
