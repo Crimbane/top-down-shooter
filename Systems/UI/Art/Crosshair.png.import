@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4jqet6sn714e"
-path="res://.godot/imported/Enemy Healthbar Sprite Sheet.png-0a548e207fcb227113574296fef363f1.ctex"
+uid="uid://cy2ue5555y0r7"
+path="res://.godot/imported/Crosshair.png-3b6025c08f248067ae3318ca13fda64c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Systems/UI/Art/Enemy Healthbar Sprite Sheet.png"
-dest_files=["res://.godot/imported/Enemy Healthbar Sprite Sheet.png-0a548e207fcb227113574296fef363f1.ctex"]
+source_file="res://Systems/UI/Art/Crosshair.png"
+dest_files=["res://.godot/imported/Crosshair.png-3b6025c08f248067ae3318ca13fda64c.ctex"]
 
 [params]
 
