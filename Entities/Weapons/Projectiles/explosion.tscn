@@ -71,6 +71,7 @@ animations = [{
 }]
 
 [node name="Explosion" type="Area2D" unique_id=1676358427]
+z_index = 11
 collision_layer = 16
 collision_mask = 6
 script = ExtResource("1_x25w0")

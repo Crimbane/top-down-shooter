@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://fhtgwtvi7ttk"]
 
 [ext_resource type="PackedScene" uid="uid://duy5jol7jojhh" path="res://Systems/UI/ui.tscn" id="1_ir0yj"]
-[ext_resource type="PackedScene" uid="uid://daabb6xf7ax0u" path="res://Stages/Tilemaps/tile_map_layer.tscn" id="3_ebba0"]
+[ext_resource type="PackedScene" uid="uid://daabb6xf7ax0u" path="res://Stages/Tilemaps/Red Dungeon Tileset.tscn" id="3_ebba0"]
 [ext_resource type="PackedScene" uid="uid://ur5sxjyuysuj" path="res://Entities/Player/player.tscn" id="5_m2e6b"]
 
 [node name="Test Map" type="Node" unique_id=1372446901]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cnfs0hjpwp47v" path="res://Testing/olem50/Enemy/Short/short.tscn" id="1_8g4ct"]
 [ext_resource type="PackedScene" uid="uid://c2qmqslpqs4ub" path="res://Entities/Enemies/enemy.tscn" id="1_cq7ob"]
 [ext_resource type="PackedScene" uid="uid://ur5sxjyuysuj" path="res://Entities/Player/player.tscn" id="1_hu4gm"]
-[ext_resource type="PackedScene" uid="uid://daabb6xf7ax0u" path="res://Stages/Tilemaps/tile_map_layer.tscn" id="1_xgctj"]
+[ext_resource type="PackedScene" uid="uid://daabb6xf7ax0u" path="res://Stages/Tilemaps/Red Dungeon Tileset.tscn" id="1_xgctj"]
 [ext_resource type="PackedScene" uid="uid://duy5jol7jojhh" path="res://Systems/UI/ui.tscn" id="2_4aig8"]
 [ext_resource type="PackedScene" uid="uid://dkleqbgfkwqmw" path="res://Systems/Pathfinding/pathfinding.tscn" id="2_hu0mq"]
 [ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="3_oqh76"]
