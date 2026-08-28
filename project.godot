@@ -30,6 +30,17 @@ window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://b07206vhmgjyw"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Config/": "orange",
+"res://Entities/": "yellow",
+"res://Stages/": "green",
+"res://Systems/": "blue",
+"res://Testing/": "purple"
+}
+
 [global_group]
 
 Enemy=""

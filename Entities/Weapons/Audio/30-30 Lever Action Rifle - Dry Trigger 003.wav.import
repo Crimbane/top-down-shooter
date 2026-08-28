@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmdg406wthtlj"
+path="res://.godot/imported/30-30 Lever Action Rifle - Dry Trigger 003.wav-cda0c7f2aa8b42e66445219382125df5.sample"
+
+[deps]
+
+source_file="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Dry Trigger 003.wav"
+dest_files=["res://.godot/imported/30-30 Lever Action Rifle - Dry Trigger 003.wav-cda0c7f2aa8b42e66445219382125df5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

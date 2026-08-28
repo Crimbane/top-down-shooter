@@ -18,7 +18,6 @@ extends Area2D
 func _ready() -> void:
 	updateSprite()
 	
-	
 	if not Engine.is_editor_hint():
 		body_entered.connect(pickup)
 		await get_tree().create_timer(despawnTimer).timeout
@@ -42,6 +41,7 @@ func updateSprite() -> void:
 			animatedSprite.animation = "speed"
 		"FireRate":
 			animatedSprite.animation = "firerate"
+			
 		"Bullet":
 			animatedSprite.animation = "bullet"
 		"PiercingBullet":

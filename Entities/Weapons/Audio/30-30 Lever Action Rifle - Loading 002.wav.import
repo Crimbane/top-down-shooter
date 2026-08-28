@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5ho2xgsr0nur"
+path="res://.godot/imported/30-30 Lever Action Rifle - Loading 002.wav-611a68be9003b52b2a62d2016b2b086f.sample"
+
+[deps]
+
+source_file="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Loading 002.wav"
+dest_files=["res://.godot/imported/30-30 Lever Action Rifle - Loading 002.wav-611a68be9003b52b2a62d2016b2b086f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

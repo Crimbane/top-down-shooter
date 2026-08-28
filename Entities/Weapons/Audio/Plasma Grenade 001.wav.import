@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://yarciaedq1al"
+path="res://.godot/imported/Plasma Grenade 001.wav-bce72f2b4936ca7f282cd0c2f5869335.sample"
+
+[deps]
+
+source_file="res://Entities/Weapons/Audio/Plasma Grenade 001.wav"
+dest_files=["res://.godot/imported/Plasma Grenade 001.wav-bce72f2b4936ca7f282cd0c2f5869335.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

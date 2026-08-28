@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnps250x1u2fu"
+path="res://.godot/imported/12ga Pump Shotgun - Load Shells 003.wav-e9c345b583907c721c7024907f3823b8.sample"
+
+[deps]
+
+source_file="res://Entities/Weapons/Audio/12ga Pump Shotgun - Load Shells 003.wav"
+dest_files=["res://.godot/imported/12ga Pump Shotgun - Load Shells 003.wav-e9c345b583907c721c7024907f3823b8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

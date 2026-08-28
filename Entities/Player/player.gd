@@ -51,7 +51,9 @@ var ammoInventoryMax = {
 
 
 
-
+#
+#TODO: player hit animation
+#
 
 func _ready() -> void:
 	hit.connect(onHit)
@@ -59,24 +61,32 @@ func _ready() -> void:
 	$"Timers/Speed Buff Timer".timeout.connect(onSpeedBuffTimerTimeout)
 	$"Timers/Shield Buff Timer".timeout.connect(onShieldBuffTimerTimeout)
 	switchWeapon(0)
-	repathLoop()
 
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Weapon 1"):
 		switchWeapon(0)
+		currentGun.currentAmmo = ammoInventoryCurrent["bullets"]
+		currentGun.currentAmmoAlt = ammoInventoryCurrent["piercing bullets"]
+		
 		currentGun.maxAmmo = ammoInventoryMax["bullets"]
 		currentGun.maxAmmoAlt = ammoInventoryMax["piercing bullets"]
 		currentGun.updateAmmoUI()
 	
 	if Input.is_action_just_pressed("Weapon 2"):
 		switchWeapon(1)
+		currentGun.currentAmmo = ammoInventoryCurrent["buckshot"]
+		currentGun.currentAmmoAlt = ammoInventoryCurrent["slugs"]
+		
 		currentGun.maxAmmo = ammoInventoryMax["buckshot"]
 		currentGun.maxAmmoAlt = ammoInventoryMax["slugs"]
 		currentGun.updateAmmoUI()
 	
 	if Input.is_action_just_pressed("Weapon 3"):
 		switchWeapon(2)
+		currentGun.currentAmmo = ammoInventoryCurrent["explosive bullets"]
+		currentGun.currentAmmoAlt = ammoInventoryCurrent["bouncing bullets"]
+		
 		currentGun.maxAmmo = ammoInventoryMax["explosive bullets"]
 		currentGun.maxAmmoAlt = ammoInventoryMax["bouncing bullets"]
 		currentGun.updateAmmoUI()
@@ -112,13 +122,6 @@ func _physics_process(_delta: float) -> void:
 func updateInventory(itemName, amount: int) -> void:
 	ammoInventoryMax[itemName] += amount
 	currentGun.updateAmmoUI()
-	
-
-
-func repathLoop() -> void:
-	while true:
-		await get_tree().create_timer(3).timeout
-		print(ammoInventoryMax)
 
 
 func onHit() -> void:
