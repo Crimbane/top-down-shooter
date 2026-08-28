@@ -19,9 +19,12 @@ grow_vertical = 2
 script = ExtResource("1_22tvq")
 
 [node name="Dev" type="Control" parent="UI Manager" unique_id=876355745]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Quit Button" type="Button" parent="UI Manager/Dev" unique_id=77528866]
 z_index = 2
@@ -29,8 +32,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 554.0
-offset_right = 600.0
+offset_left = -46.0
 offset_bottom = 31.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
@@ -42,9 +44,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 540.0
+offset_left = -60.0
 offset_top = 31.0
-offset_right = 600.0
 offset_bottom = 62.000046
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
