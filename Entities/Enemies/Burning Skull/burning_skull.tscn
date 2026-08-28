@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -74,7 +74,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6r34w"]
@@ -84,9 +84,11 @@ size = Vector2(11, 14)
 size = Vector2(13, 16)
 
 [node name="Burning Skull" unique_id=1903621472 instance=ExtResource("1_ferbm")]
+speed = 50
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_h05y6")
+animation = &"move"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
 position = Vector2(0.49999997, 4.9999995)

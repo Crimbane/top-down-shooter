@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,7 +84,7 @@ size = Vector2(24, 31)
 size = Vector2(26, 32)
 
 [node name="Squid" unique_id=1903621472 instance=ExtResource("1_m3dtw")]
-speed = 20
+speed = 30
 maxHealth = 300
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]

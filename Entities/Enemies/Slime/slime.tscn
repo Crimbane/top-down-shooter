@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -74,7 +74,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3an5"]
@@ -84,14 +84,12 @@ size = Vector2(12, 9)
 size = Vector2(14, 11)
 
 [node name="Slime" unique_id=1903621472 instance=ExtResource("1_1bc26")]
-speed = 50
+speed = 30
 maxHealth = 50
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_6f406")
 animation = &"move"
-frame = 3
-frame_progress = 0.12270674
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
 position = Vector2(0, -1.4999998)

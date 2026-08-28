@@ -27,6 +27,14 @@ region = Rect2(128, 64, 32, 32)
 atlas = ExtResource("2_hqbie")
 region = Rect2(160, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs77c"]
+atlas = ExtResource("2_hqbie")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqbie"]
+atlas = ExtResource("2_hqbie")
+region = Rect2(0, 64, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j73nd"]
 atlas = ExtResource("2_hqbie")
 region = Rect2(0, 0, 32, 32)
@@ -129,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xqyvp")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_2y82d")
 }, {
 "duration": 1.0,
@@ -143,10 +151,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ethw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs77c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqbie")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -187,7 +201,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -228,7 +242,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gx6kc"]
@@ -238,12 +252,11 @@ size = Vector2(20, 15)
 size = Vector2(22, 17)
 
 [node name="Wasp" unique_id=1903621472 instance=ExtResource("1_vs77c")]
-speed = 60
+speed = 80
 maxHealth = 60
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_1upha")
-animation = &"move"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
 position = Vector2(0, 1.5)
