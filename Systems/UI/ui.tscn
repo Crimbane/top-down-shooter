@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://duy5jol7jojhh"]
 
 [ext_resource type="Script" uid="uid://b26oppxkejkig" path="res://Systems/UI/ui_manager.gd" id="1_22tvq"]
-[ext_resource type="Texture2D" uid="uid://c6xveg6xhk0jj" path="res://Assets/Placeholders/Progress bar arc left empty.png" id="2_g01m3"]
+[ext_resource type="Texture2D" uid="uid://bhotegj5c7q4b" path="res://Systems/UI/Art/Heart Full Icon.png" id="2_mumph"]
 [ext_resource type="Texture2D" uid="uid://d5l5vp385vig" path="res://Systems/UI/Art/Rifle Icon.png" id="3_mumph"]
 [ext_resource type="Texture2D" uid="uid://df3qylohx44vc" path="res://Systems/UI/Art/Reload Circle.png" id="4_mumph"]
 [ext_resource type="Texture2D" uid="uid://cp4jatq5b0qpc" path="res://Systems/UI/Art/Ammo Box Icon.png" id="5_mumph"]
@@ -80,7 +80,7 @@ layout_mode = 2
 
 [node name="Heart1" type="TextureRect" parent="UI Manager/HUD/MarginContainer Top Bar/HBox Hearts" unique_id=41956409]
 layout_mode = 2
-texture = ExtResource("2_g01m3")
+texture = ExtResource("2_mumph")
 
 [node name="Heart2" type="TextureRect" parent="UI Manager/HUD/MarginContainer Top Bar/HBox Hearts" unique_id=1201939025]
 layout_mode = 2

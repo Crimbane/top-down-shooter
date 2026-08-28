@@ -3,15 +3,19 @@ extends CharacterBody2D
 signal hit
 signal healthChanged(currentHealth)
 
+var lastDirection: String = "down"
+
 var maxHealth: int = 5
 @onready var currentHealth: int = maxHealth
 const NORMAL_SPEED = 300.0
 var speed = NORMAL_SPEED
+var iFrameTimer: float = 0.5
 
 var damageBuffActive = false
 var fireRateBuffActive = false
 var shieldBuffActive = false
 
+var damageTakenRecently = false
 var shootLocked: bool = false
 
 var currentGun: Node2D
@@ -27,7 +31,27 @@ var weaponScenes: Array[PackedScene] = [
 	C4_TTScene
 ]
 
-var lastDirection: String = "down"
+var ammoInventoryCurrent = {
+	"bullets": 10,
+	"piercing bullets": 0,
+	"buckshot": 0,
+	"slugs": 0,
+	"explosive bullets": 0,
+	"bouncing bullets": 0
+}
+
+var ammoInventoryMax = {
+	"bullets": 999,
+	"piercing bullets": 0,
+	"buckshot": 0,
+	"slugs": 0,
+	"explosive bullets": 0,
+	"bouncing bullets": 0
+}
+
+
+
+
 
 func _ready() -> void:
 	hit.connect(onHit)
@@ -35,17 +59,27 @@ func _ready() -> void:
 	$"Timers/Speed Buff Timer".timeout.connect(onSpeedBuffTimerTimeout)
 	$"Timers/Shield Buff Timer".timeout.connect(onShieldBuffTimerTimeout)
 	switchWeapon(0)
+	repathLoop()
 
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Weapon 1"):
 		switchWeapon(0)
+		currentGun.maxAmmo = ammoInventoryMax["bullets"]
+		currentGun.maxAmmoAlt = ammoInventoryMax["piercing bullets"]
+		currentGun.updateAmmoUI()
 	
 	if Input.is_action_just_pressed("Weapon 2"):
 		switchWeapon(1)
+		currentGun.maxAmmo = ammoInventoryMax["buckshot"]
+		currentGun.maxAmmoAlt = ammoInventoryMax["slugs"]
+		currentGun.updateAmmoUI()
 	
 	if Input.is_action_just_pressed("Weapon 3"):
 		switchWeapon(2)
+		currentGun.maxAmmo = ammoInventoryMax["explosive bullets"]
+		currentGun.maxAmmoAlt = ammoInventoryMax["bouncing bullets"]
+		currentGun.updateAmmoUI()
 	
 	if Input.is_action_pressed("Shoot"):
 		if currentGun and not shootLocked:
@@ -73,6 +107,18 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	animations()
+
+
+func updateInventory(itemName, amount: int) -> void:
+	ammoInventoryMax[itemName] += amount
+	currentGun.updateAmmoUI()
+	
+
+
+func repathLoop() -> void:
+	while true:
+		await get_tree().create_timer(3).timeout
+		print(ammoInventoryMax)
 
 
 func onHit() -> void:
@@ -130,6 +176,8 @@ func takeDamage(damage: int) -> void:
 	if shieldBuffActive:
 		print("Shield blocked damage")
 		return
+	if damageTakenRecently == true:
+		return
 	
 	print("Player took ", damage, " damage")
 	if damage > 0:
@@ -140,6 +188,8 @@ func takeDamage(damage: int) -> void:
 	if currentHealth <= 0:
 		die()
 	print("Player health: ", currentHealth)
+	
+	iFramesWhenHit()
 
 
 func heal(healing: int) -> void:
@@ -176,6 +226,25 @@ func speedBuff() -> void:
 
 func onSpeedBuffTimerTimeout() -> void:
 	speed = NORMAL_SPEED
+
+
+func iFramesWhenHit() -> void:
+	damageTakenRecently = true
+	
+	# damage animation
+	match lastDirection:
+		"right":
+			pass
+		"left":
+			pass
+		"up":
+			pass
+		"down":
+			pass
+	
+	await get_tree().create_timer(iFrameTimer).timeout
+	damageTakenRecently = false
+	
 
 
 func shieldBuff() -> void:

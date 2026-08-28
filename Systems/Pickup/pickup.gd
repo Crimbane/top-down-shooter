@@ -72,17 +72,16 @@ func pickup(body: CharacterBody2D) -> void:
 		"FireRate":
 			body.fireRateBuff()
 		
-		
 		"Bullet":
-			gun.addAmmo(20, false)
+			body.updateInventory("bullets", 20)
 		"PiercingBullet":
-			pass
+			body.updateInventory("piercing bullets", 20)
 		"Buckshot":
-			pass
+			body.updateInventory("buckshot", 12)
 		"Slug":
-			pass
+			body.updateInventory("slugs", 8)
 		"ExplosiveBullet":
-			pass
+			body.updateInventory("explosive bullets", 8)
 		"BouncingBullet":
-			pass
+			body.updateInventory("bouncing bullets", 8)
 	queue_free()

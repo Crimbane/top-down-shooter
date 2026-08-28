@@ -193,13 +193,6 @@ func reload() -> void:
 	var player = get_parent().get_parent()
 	player.shootLocked = Input.is_action_pressed("Shoot")
 
-
-func addAmmo(amount: int, alt: bool) -> void:
-	if alt:
-		maxAmmoAlt += amount
-	else:
-		maxAmmo += amount
-	
 	updateAmmoUI()
 
 
