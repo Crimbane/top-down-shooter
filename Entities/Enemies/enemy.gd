@@ -3,14 +3,14 @@ extends CharacterBody2D
 #Enemy Area2D collision has to be slightly bigger in all directions. Can be less than 1 pixel
 
 var path: Array[Vector2i]
-var pathIndex: int = 1
+var pathIndex: int = 1 # 0 is tile enemy is on
 const REPATH_TIME: float = 0.2
 var targetDistance: int = 2
 var chasingPlayer: bool = true
 var pathfindingBecauseStuck = false
 
 # Enemy sizes: Small is 16x16 collision or smaller. Medium is up to 32x32
-@export_enum("Small", "Medium") var enemySize: String = "Small":
+@export_enum("Small", "Medium", "Big") var enemySize: String = "Medium":
 	set(value):
 		enemySize = value
 
@@ -19,7 +19,8 @@ var pathfindingBecauseStuck = false
 @onready var currentHealth: int = maxHealth
 @export var attackDamage: int = 1
 
-@onready var player = get_tree().current_scene.get_node("Player")
+
+@onready var player = get_tree().get_first_node_in_group("Player")
 @onready var pathfinding = get_tree().current_scene.get_node("%Pathfinding")
 @onready var raycast = $"Line Of Sight Ray"
 
@@ -123,7 +124,7 @@ func followPath() -> void:
 
 
 func movement() -> void: # moved from physics process
-	print("chasing player: ", chasingPlayer)
+	#print("chasing player: ", chasingPlayer)
 	if pathfindingBecauseStuck == false:
 		raycast.target_position = to_local(player.global_position)
 		raycast.force_raycast_update()

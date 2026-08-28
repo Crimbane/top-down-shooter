@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://d55jypu8k4aa"]
+
+[ext_resource type="PackedScene" uid="uid://c2qmqslpqs4ub" path="res://Entities/Enemies/enemy.tscn" id="1_m3dtw"]
+[ext_resource type="Texture2D" uid="uid://ctxnrl0dbnb6d" path="res://Entities/Enemies/Squid/Art/Squid Animation Sprite Sheet.png" id="2_w5wpt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6gvu"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyscy"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvjnp"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa0u6"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7efi"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7mdo"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kl3l"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suqve"]
+atlas = ExtResource("2_w5wpt")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hk2f7"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6gvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyscy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvjnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa0u6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7efi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7mdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kl3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suqve")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra4kf"]
+size = Vector2(24, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v3gd"]
+size = Vector2(26, 32)
+
+[node name="Squid" unique_id=1903621472 instance=ExtResource("1_m3dtw")]
+speed = 20
+maxHealth = 300
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
+sprite_frames = SubResource("SpriteFrames_hk2f7")
+animation = &"move"
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_ra4kf")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+shape = SubResource("RectangleShape2D_5v3gd")

@@ -55,12 +55,23 @@ func createBuffPickup() -> void:
 func createAmmoPickup() -> void:
 	var pickup = pickupScene.instantiate()
 	
-	var pickupTypes = ["Health", "Damage", "Shield", "Speed"]
+	var pickupTypes = ["Bullet", "PiercingBullet", "BouncingBullet", "ExplosiveBullet", 
+	"Buckshot", "Slug"]
 	pickup.pickupSprite = pickupTypes.pick_random()
 	
-	var randomOffset = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 200) # circle
+	var keepLooping = true
+	var randomPosition: Vector2
 	
-	pickup.global_position = player.global_position + randomOffset
+	while keepLooping:
+		var randomOffset = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 200) # circle
+		var localRandomPosition = player.position + randomOffset
+		var cellGridPosition = tilemap.local_to_map(localRandomPosition)
+		var cell = tilemap.get_cell_tile_data(cellGridPosition)
+		if cell and cell.get_custom_data("type") == "floor":
+			randomPosition = player.global_position + randomOffset
+			keepLooping = false
+	
+	pickup.global_position = randomPosition
 	
 	get_parent().call_deferred("add_child", pickup)
 

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dho5w8p6imdn"]
+
+[ext_resource type="PackedScene" uid="uid://c2qmqslpqs4ub" path="res://Entities/Enemies/enemy.tscn" id="1_0etef"]
+[ext_resource type="Texture2D" uid="uid://2h6r30qqqt03" path="res://Entities/Enemies/Ghost/Art/Ghost Animation Sprite Sheet.png" id="2_ix2ci"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqgrj"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcida"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hil1s"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqf88"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dko33"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_001iq"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5byu2"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucul7"]
+atlas = ExtResource("2_ix2ci")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_npw2k"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqgrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcida")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hil1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqf88")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dko33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_001iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5byu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucul7")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fras"]
+size = Vector2(12, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ruo5"]
+size = Vector2(14, 28)
+
+[node name="Ghost" unique_id=1903621472 instance=ExtResource("1_0etef")]
+maxHealth = 120
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
+sprite_frames = SubResource("SpriteFrames_npw2k")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_4fras")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+shape = SubResource("RectangleShape2D_8ruo5")

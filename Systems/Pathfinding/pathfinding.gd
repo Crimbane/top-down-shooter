@@ -18,7 +18,7 @@ func setupGridSmall() -> void:
 	
 	astarGridSmall.jumping_enabled = false
 	astarGridSmall.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ALWAYS
-	astarGridSmall.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+	astarGridSmall.default_estimate_heuristic = AStarGrid2D.HEURISTIC_CHEBYSHEV
 	
 	astarGridSmall.update()
 	
@@ -37,7 +37,7 @@ func setupGridMedium() -> void:
 	
 	astarGridMedium.jumping_enabled = false
 	astarGridMedium.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ALWAYS
-	astarGridMedium.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+	astarGridMedium.default_estimate_heuristic = AStarGrid2D.HEURISTIC_CHEBYSHEV
 	
 	astarGridMedium.update()
 	

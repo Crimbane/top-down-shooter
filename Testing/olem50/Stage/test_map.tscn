@@ -7,9 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://daabb6xf7ax0u" path="res://Stages/Tilemaps/Red Dungeon Tileset.tscn" id="1_xgctj"]
 [ext_resource type="PackedScene" uid="uid://duy5jol7jojhh" path="res://Systems/UI/ui.tscn" id="2_4aig8"]
 [ext_resource type="PackedScene" uid="uid://dkleqbgfkwqmw" path="res://Systems/Pathfinding/pathfinding.tscn" id="2_hu0mq"]
+[ext_resource type="PackedScene" uid="uid://b53fvqlcjftyl" path="res://Entities/Enemies/Slime/slime.tscn" id="2_xgctj"]
 [ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="3_oqh76"]
 [ext_resource type="PackedScene" uid="uid://d2yui0kay4kfj" path="res://Testing/olem50/Enemy/Bird/bird.tscn" id="5_oqh76"]
 [ext_resource type="PackedScene" uid="uid://b1v2i1jgbgqj2" path="res://Systems/Pickup/pickup.tscn" id="7_dqrj4"]
+[ext_resource type="PackedScene" uid="uid://6gag2tkwmhyu" path="res://Entities/Enemies/Burning Skull/burning_skull.tscn" id="12_e6c4a"]
+[ext_resource type="PackedScene" uid="uid://dw0jdnvdxhce0" path="res://Entities/Enemies/Wasp/wasp.tscn" id="13_grgnl"]
+[ext_resource type="PackedScene" uid="uid://d55jypu8k4aa" path="res://Entities/Enemies/Squid/squid.tscn" id="14_mv8rv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(128, 126)
@@ -51,10 +55,7 @@ pickupSprite = "Health"
 position = Vector2(445, 71)
 pickupSprite = "Bullet"
 
-[node name="Enemy" parent="." unique_id=1376944566 instance=ExtResource("1_cq7ob")]
-position = Vector2(306, -77)
-
-[node name="BaseEnemy" parent="." unique_id=1903621472 instance=ExtResource("1_cq7ob")]
+[node name="BaseEnemy" parent="." unique_id=932177136 instance=ExtResource("1_cq7ob")]
 position = Vector2(320, 0)
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1007030334]
@@ -70,5 +71,17 @@ shape = SubResource("RectangleShape2D_t1yug")
 position = Vector2(-222, 45)
 scale = Vector2(0.09375, 1)
 texture = ExtResource("3_oqh76")
+
+[node name="Burning Skull" parent="." unique_id=1170740573 instance=ExtResource("12_e6c4a")]
+position = Vector2(355, -58)
+
+[node name="Slime" parent="." unique_id=1903621472 instance=ExtResource("2_xgctj")]
+position = Vector2(335, 77)
+
+[node name="Wasp" parent="." unique_id=780320392 instance=ExtResource("13_grgnl")]
+position = Vector2(307, 112)
+
+[node name="Squid" parent="." unique_id=401474811 instance=ExtResource("14_mv8rv")]
+position = Vector2(368, 35)
 
 [editable path="Dungeon Map"]

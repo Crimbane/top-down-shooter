@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://6gag2tkwmhyu"]
+
+[ext_resource type="PackedScene" uid="uid://c2qmqslpqs4ub" path="res://Entities/Enemies/enemy.tscn" id="1_ferbm"]
+[ext_resource type="Texture2D" uid="uid://mrqf54ta14np" path="res://Entities/Enemies/Burning Skull/Art/Burning Skull Animation Sprite Sheet.png" id="2_8v7jm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rqwt"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jf10"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihd1f"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1grr"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftopr"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk8g3"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sawca"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqk4q"]
+atlas = ExtResource("2_8v7jm")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h05y6"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rqwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jf10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihd1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1grr")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftopr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk8g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sawca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqk4q")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r34w"]
+size = Vector2(11, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m8tt"]
+size = Vector2(13, 16)
+
+[node name="Burning Skull" unique_id=1903621472 instance=ExtResource("1_ferbm")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
+sprite_frames = SubResource("SpriteFrames_h05y6")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
+position = Vector2(0.49999997, 4.9999995)
+shape = SubResource("RectangleShape2D_6r34w")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+position = Vector2(0.5, 5)
+shape = SubResource("RectangleShape2D_2m8tt")
