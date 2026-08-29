@@ -4,6 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c7upwuv7l3c1p" path="res://Entities/Weapons/Projectiles/shotgun_buckshot.tscn" id="2_iaqvo"]
 [ext_resource type="PackedScene" uid="uid://cmumnfsyy3ysh" path="res://Entities/Weapons/Projectiles/shotgun_slug.tscn" id="3_8xpl2"]
 [ext_resource type="Texture2D" uid="uid://kyiawaeg3bq2" path="res://Entities/Weapons/Art/Shotgun Muzzle Flash Sprite Sheet.png" id="4_2msgq"]
+[ext_resource type="AudioStream" uid="uid://cou86jlp4kf4j" path="res://Entities/Weapons/Audio/Buckshot - 12ga Pump Shotgun - Gunshot B 005.wav" id="5_8x3ps"]
+[ext_resource type="AudioStream" uid="uid://cs04jjp3sds6d" path="res://Entities/Weapons/Audio/Slug shot - 7Mag Bolt Action Rifle - Gunshot A 001.wav" id="6_lsgqj"]
+[ext_resource type="AudioStream" uid="uid://cmdg406wthtlj" path="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Dry Trigger 003.wav" id="7_1esp6"]
+[ext_resource type="AudioStream" uid="uid://cnps250x1u2fu" path="res://Entities/Weapons/Audio/12ga Pump Shotgun - Load Shells 003.wav" id="8_rj7xm"]
+[ext_resource type="AudioStream" uid="uid://js8518i5iecr" path="res://Entities/Weapons/Audio/12ga Pump Shotgun - Load Shells 001.wav" id="8_ypxm3"]
+[ext_resource type="AudioStream" uid="uid://d4csmsbkfeakb" path="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Loading 001.wav" id="9_ypxm3"]
+[ext_resource type="AudioStream" uid="uid://dx085v8ytfg1c" path="res://Entities/Weapons/Audio/12ga Pump Shotgun - Pump 001.wav" id="10_lsgqj"]
+[ext_resource type="AudioStream" uid="uid://cw833g4pn8air" path="res://Entities/Weapons/Audio/12ga Pump Shotgun - Load Shells 004.wav" id="10_qs6dt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kcup"]
 atlas = ExtResource("4_2msgq")
@@ -70,3 +78,27 @@ magazineSize = 6
 visible = false
 position = Vector2(15, 0)
 sprite_frames = SubResource("SpriteFrames_t1yug")
+
+[node name="Shoot Buckshot Sound" type="AudioStreamPlayer2D" parent="." unique_id=802636973]
+stream = ExtResource("5_8x3ps")
+
+[node name="Shoot Slug Sound" type="AudioStreamPlayer2D" parent="." unique_id=1906141044]
+stream = ExtResource("6_lsgqj")
+
+[node name="Dry Fire Sound" type="AudioStreamPlayer2D" parent="." unique_id=1435502407]
+stream = ExtResource("7_1esp6")
+
+[node name="Reload Sound 1" type="AudioStreamPlayer2D" parent="." unique_id=551083258]
+stream = ExtResource("8_ypxm3")
+
+[node name="Reload Sound 2" type="AudioStreamPlayer2D" parent="." unique_id=1993912121]
+stream = ExtResource("8_rj7xm")
+
+[node name="Reload Sound 3" type="AudioStreamPlayer2D" parent="." unique_id=254222343]
+stream = ExtResource("10_qs6dt")
+
+[node name="Change Bullet Sound" type="AudioStreamPlayer2D" parent="." unique_id=1117634937]
+stream = ExtResource("9_ypxm3")
+
+[node name="Pump Sound" type="AudioStreamPlayer2D" parent="." unique_id=1586116265]
+stream = ExtResource("10_lsgqj")

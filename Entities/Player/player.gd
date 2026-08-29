@@ -34,11 +34,11 @@ var weaponScenes: Array[PackedScene] = [
 
 var ammoInventoryCurrent = {
 	"bullets": 10,
-	"piercing bullets": 0,
-	"buckshot": 0,
-	"slugs": 0,
-	"explosive bullets": 0,
-	"bouncing bullets": 0
+	"piercing bullets": 5,
+	"buckshot": 3,
+	"slugs": 2,
+	"explosive bullets": 2,
+	"bouncing bullets": 2
 }
 
 var ammoInventoryMax = {

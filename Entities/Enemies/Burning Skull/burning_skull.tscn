@@ -83,8 +83,12 @@ size = Vector2(11, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m8tt"]
 size = Vector2(13, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ferbm"]
+size = Vector2(15, 17)
+
 [node name="Burning Skull" unique_id=1903621472 instance=ExtResource("1_ferbm")]
 speed = 50
+killScore = 2
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_h05y6")
@@ -94,6 +98,10 @@ animation = &"move"
 position = Vector2(0.49999997, 4.9999995)
 shape = SubResource("RectangleShape2D_6r34w")
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+[node name="CollisionShape2D" parent="Area2D Pathfinding" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
 position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_2m8tt")
+
+[node name="CollisionShape2D" parent="Area2D Attack" parent_id_path=PackedInt32Array(1367624743) index="0" unique_id=1001917874]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_ferbm")

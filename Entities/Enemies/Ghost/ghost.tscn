@@ -83,8 +83,12 @@ size = Vector2(12, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ruo5"]
 size = Vector2(14, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0etef"]
+size = Vector2(14, 27)
+
 [node name="Ghost" unique_id=1903621472 instance=ExtResource("1_0etef")]
 maxHealth = 120
+killScore = 4
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_npw2k")
@@ -93,5 +97,9 @@ sprite_frames = SubResource("SpriteFrames_npw2k")
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_4fras")
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+[node name="CollisionShape2D" parent="Area2D Pathfinding" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
 shape = SubResource("RectangleShape2D_8ruo5")
+
+[node name="CollisionShape2D" parent="Area2D Attack" parent_id_path=PackedInt32Array(1367624743) index="0" unique_id=1001917874]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0etef")

@@ -61,7 +61,17 @@ func shoot() -> void:
 	if not canShoot:
 		return
 	
+	if usingAltBullet and currentAmmoAlt == 0:
+		playDryFireSound()
+		return
+	elif not usingAltBullet and currentAmmo == 0:
+		playDryFireSound()
+		return
+		
+	
 	canShoot = false
+	
+	playShootSound()
 	
 	if usingAltBullet:
 		if currentAmmoAlt == 0:
@@ -144,6 +154,7 @@ func changeBullet() -> void:
 	canShoot = false
 	isSwitchingBullet = true
 	
+	playChangeBulletSound()
 	
 	var ui = get_tree().current_scene.get_node("UI/UI Manager")
 	await ui.startActionProgress(CHANGEBULLETTIME)
@@ -173,6 +184,8 @@ func reload() -> void:
 	
 	isReloading = true
 	canShoot = false
+	
+	playReloadSound()
 	
 	var ui = get_tree().current_scene.get_node("UI/UI Manager")
 	await ui.startActionProgress(reloadTime)
@@ -251,3 +264,64 @@ func muzzleFlash() -> void:
 
 func onMuzzleFlashFinished() -> void:
 	$"Muzzle Flash".visible = false
+
+
+func playShootSound() -> void:
+	match gunName:
+		"Rifle":
+			if usingAltBullet:
+				$"Piercing Shoot Sound".play()
+			else:
+				$"Bullet Shoot Sound".play()
+		"Shotgun":
+			if usingAltBullet:
+				$"Shoot Slug Sound".play()
+				await get_tree().create_timer(0.35).timeout
+				$"Pump Sound".play()
+			else:
+				$"Shoot Buckshot Sound".play()
+				await get_tree().create_timer(0.35).timeout
+				$"Pump Sound".play()
+		"C4-TT":
+			if usingAltBullet:
+				$"Shoot Bouncing Sound".play()
+			else:
+				$"Shoot Explosive Sound".play()
+				await get_tree().create_timer(0.25).timeout
+				$"Shoot Explosive Sound".stop()
+
+func playReloadSound() -> void:
+	match gunName:
+		"Rifle":
+			while isReloading:
+				$"Reload Sound 2".play()
+				await get_tree().create_timer(0.6).timeout
+				if isReloading:
+					$"Reload Sound 1".play()
+					await get_tree().create_timer(0.5).timeout
+				if isReloading:
+					$"Reload Sound 3".play()
+					await get_tree().create_timer(0.6).timeout
+		
+		"Shotgun":
+			while isReloading:
+				$"Reload Sound 1".play()
+				await get_tree().create_timer(0.75).timeout
+				if isReloading:
+					$"Reload Sound 2".play()
+					await get_tree().create_timer(0.75).timeout
+				if isReloading:
+					$"Reload Sound 3".play()
+					await get_tree().create_timer(0.75).timeout
+		
+		"C4-TT":
+			$"Reload Sound 1".play()
+			await get_tree().create_timer(1.2).timeout
+			$"Reload Sound 2".play()
+
+func playDryFireSound() -> void:
+	$"Dry Fire Sound".play()
+
+
+func playChangeBulletSound() -> void:
+	$"Change Bullet Sound".play()

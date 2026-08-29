@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://b6etqfxs3ophg" path="res://Entities/Weapons/Projectiles/explosive_bullet.tscn" id="2_pqclf"]
 [ext_resource type="PackedScene" uid="uid://c7w8w5hgqwgyx" path="res://Entities/Weapons/Projectiles/bouncing_bullet.tscn" id="3_un1m5"]
 [ext_resource type="Texture2D" uid="uid://dk05ohms5mofe" path="res://Entities/Weapons/Art/Grenade Launcher Muzzle Flash Sprite Sheet.png" id="4_60wd3"]
+[ext_resource type="AudioStream" uid="uid://5kok66t5ytxi" path="res://Entities/Weapons/Audio/Explosive bullet shooting - Air Glyph 002.wav" id="5_x8gpb"]
+[ext_resource type="AudioStream" uid="uid://yarciaedq1al" path="res://Entities/Weapons/Audio/Plasma Grenade 001.wav" id="6_u68yt"]
+[ext_resource type="AudioStream" uid="uid://cmdg406wthtlj" path="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Dry Trigger 003.wav" id="7_l3cwd"]
+[ext_resource type="AudioStream" uid="uid://dc324u482vbap" path="res://Entities/Weapons/Audio/C4TT reload 1 - Ammo Crate Close 001.wav" id="8_ustcv"]
+[ext_resource type="AudioStream" uid="uid://dj8txv4s50cf6" path="res://Entities/Weapons/Audio/C4TT reload 2 - Ammo Crate Open 001.wav" id="9_pqi4s"]
+[ext_resource type="AudioStream" uid="uid://d4csmsbkfeakb" path="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Loading 001.wav" id="10_6p4hh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2dlv"]
 atlas = ExtResource("4_60wd3")
@@ -67,3 +73,21 @@ spreadAlt = 4.0
 [node name="Muzzle Flash" type="AnimatedSprite2D" parent="." unique_id=1943690747]
 visible = false
 sprite_frames = SubResource("SpriteFrames_t1yug")
+
+[node name="Shoot Explosive Sound" type="AudioStreamPlayer2D" parent="." unique_id=2004050209]
+stream = ExtResource("5_x8gpb")
+
+[node name="Shoot Bouncing Sound" type="AudioStreamPlayer2D" parent="." unique_id=2091045181]
+stream = ExtResource("6_u68yt")
+
+[node name="Dry Fire Sound" type="AudioStreamPlayer2D" parent="." unique_id=701976705]
+stream = ExtResource("7_l3cwd")
+
+[node name="Reload Sound 1" type="AudioStreamPlayer2D" parent="." unique_id=2055904744]
+stream = ExtResource("8_ustcv")
+
+[node name="Reload Sound 2" type="AudioStreamPlayer2D" parent="." unique_id=1212887313]
+stream = ExtResource("9_pqi4s")
+
+[node name="Change Bullet Sound" type="AudioStreamPlayer2D" parent="." unique_id=754993264]
+stream = ExtResource("10_6p4hh")

@@ -80,10 +80,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
-size = Vector2(16, 16)
+size = Vector2(15, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyjvv"]
 size = Vector2(17, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onxlf"]
+size = Vector2(18, 20)
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1903621472 groups=["Enemy"]]
 z_index = 1
@@ -96,7 +99,7 @@ sprite_frames = SubResource("SpriteFrames_t1yug")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812084088]
-position = Vector2(0, 0.25)
+position = Vector2(0.5, 0.25)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_t1yug")
 
@@ -106,10 +109,10 @@ collision_mask = 3
 [node name="Line Of Sight Timer" type="Timer" parent="." unique_id=890732152]
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1488407102]
+[node name="Area2D Pathfinding" type="Area2D" parent="." unique_id=1488407102]
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=666793766]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D Pathfinding" unique_id=666793766]
 shape = SubResource("RectangleShape2D_fyjvv")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1424703275]
@@ -120,3 +123,9 @@ value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_4jf10")
 texture_progress = ExtResource("4_ihd1f")
+
+[node name="Area2D Attack" type="Area2D" parent="." unique_id=1367624743]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D Attack" unique_id=1001917874]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_onxlf")

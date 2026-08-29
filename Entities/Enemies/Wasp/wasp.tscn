@@ -251,17 +251,26 @@ size = Vector2(20, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1nud"]
 size = Vector2(22, 17)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vs77c"]
+size = Vector2(22, 18)
+
 [node name="Wasp" unique_id=1903621472 instance=ExtResource("1_vs77c")]
 speed = 80
 maxHealth = 60
+killScore = 3
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_1upha")
+animation = &"move"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_gx6kc")
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+[node name="CollisionShape2D" parent="Area2D Pathfinding" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_j1nud")
+
+[node name="CollisionShape2D" parent="Area2D Attack" parent_id_path=PackedInt32Array(1367624743) index="0" unique_id=1001917874]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_vs77c")

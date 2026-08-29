@@ -19,6 +19,8 @@ var pathfindingBecauseStuck = false
 @onready var currentHealth: int = maxHealth
 @export var attackDamage: int = 1
 
+@export var killScore: int = 1
+
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var pathfinding = get_tree().current_scene.get_node("%Pathfinding")
@@ -36,8 +38,8 @@ func _ready() -> void:
 	
 	placeHealthBar()
 	
-	$Area2D.body_entered.connect(attack)
-	$Area2D.body_entered.connect(changePathfindingOnStuck)
+	$"Area2D Attack".body_entered.connect(attack)
+	$"Area2D Pathfinding".body_entered.connect(changePathfindingOnStuck)
 
 
 func _process(_delta) -> void:
@@ -85,6 +87,7 @@ func takeDamage(damage: int) -> void:
 
 
 func die() -> void:
+	# increase score by killScore
 	queue_free()
 
 

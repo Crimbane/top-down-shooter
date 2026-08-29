@@ -77,23 +77,35 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra4kf"]
-size = Vector2(24, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5wpt"]
+size = Vector2(20, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v3gd"]
-size = Vector2(26, 32)
+size = Vector2(21, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3dtw"]
+size = Vector2(19, 42)
 
 [node name="Squid" unique_id=1903621472 instance=ExtResource("1_m3dtw")]
+collision_mask = 4
 speed = 30
 maxHealth = 300
+killScore = 5
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
 sprite_frames = SubResource("SpriteFrames_hk2f7")
 animation = &"move"
+frame = 3
+frame_progress = 0.12932968
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=812084088]
-position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_ra4kf")
+position = Vector2(0, 2.4999998)
+shape = SubResource("RectangleShape2D_w5wpt")
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+[node name="CollisionShape2D" parent="Area2D Pathfinding" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_5v3gd")
+
+[node name="CollisionShape2D" parent="Area2D Attack" parent_id_path=PackedInt32Array(1367624743) index="0" unique_id=1001917874]
+position = Vector2(-1.5, 2)
+shape = SubResource("RectangleShape2D_m3dtw")

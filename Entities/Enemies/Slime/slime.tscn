@@ -83,6 +83,9 @@ size = Vector2(12, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cymo"]
 size = Vector2(14, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lovs"]
+size = Vector2(16, 13)
+
 [node name="Slime" unique_id=1903621472 instance=ExtResource("1_1bc26")]
 speed = 30
 maxHealth = 50
@@ -95,6 +98,10 @@ animation = &"move"
 position = Vector2(0, -1.4999998)
 shape = SubResource("RectangleShape2D_y3an5")
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
+[node name="CollisionShape2D" parent="Area2D Pathfinding" parent_id_path=PackedInt32Array(1488407102) index="0" unique_id=666793766]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_1cymo")
+
+[node name="CollisionShape2D" parent="Area2D Attack" parent_id_path=PackedInt32Array(1367624743) index="0" unique_id=1001917874]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_0lovs")
