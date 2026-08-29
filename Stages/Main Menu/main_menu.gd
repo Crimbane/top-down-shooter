@@ -6,7 +6,7 @@ var highScore: int = 0
 var survivalScore: int = 0
 
 const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
-const GAME_SCENE = preload("res://Stages/Maps/red_dungeon_map.tscn")
+@export_file("*.tscn") var gamePath: String
 
 @onready var highScoreLabel = $"Button Container/MarginContainer/VBoxContainer/Highest Score"
 @onready var survivalScoreLabel = $"Button Container/MarginContainer/VBoxContainer/Survival Time"
@@ -43,8 +43,8 @@ func quitGame() -> void:
 	get_tree().quit()
 
 func loadScene() -> void:
-	if GAME_SCENE.resource_path != "":
-		get_tree().change_scene_to_packed(GAME_SCENE)
+	if gamePath != "":
+		get_tree().change_scene_to_file(gamePath)
 
 func loadSaveFile() -> void:
 	if FileAccess.file_exists(saveFilePath):

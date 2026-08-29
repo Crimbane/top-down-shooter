@@ -21,6 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_22tvq")
+mainMenuPath = "uid://cmb2as5hd36lj"
 
 [node name="Dev" type="Control" parent="UI Manager" unique_id=876355745]
 layout_mode = 1

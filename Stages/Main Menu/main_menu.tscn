@@ -35,6 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bfnqi")
+gamePath = "uid://bss8w2oy0qbad"
 
 [node name="Background" type="Panel" parent="." unique_id=686256322]
 layout_mode = 1
