@@ -2,6 +2,10 @@ extends Node
 
 const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
 
+var highScore: int = 0
+var survivalScore: int = 0
+
+
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(BUTTTON_MOUSEOVER_CURSOR, Input.CURSOR_POINTING_HAND, Vector2(16,16))
 	pass # Replace with function body.

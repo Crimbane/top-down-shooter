@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cmb2as5hd36lj"]
+
+[ext_resource type="Script" uid="uid://8q67807dutq3" path="res://Stages/Main Menu/main_menu.gd" id="1_bfnqi"]
+[ext_resource type="Texture2D" uid="uid://rer1mx0twbxx" path="res://Stages/Main Menu/Art/Main Menu Background.png" id="1_kutm6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjc7g"]
+texture = ExtResource("1_kutm6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kutm6"]
+bg_color = Color(0.14117648, 0.15686275, 0.18039216, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5bvh"]
+bg_color = Color(0.2282683, 0.2504318, 0.28367692, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfnqi"]
+bg_color = Color(0.07875142, 0.08954189, 0.10572759, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Main Menu" type="Control" unique_id=2008388545]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfnqi")
+
+[node name="Background" type="Panel" parent="." unique_id=686256322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fjc7g")
+
+[node name="Button Container" type="VBoxContainer" parent="." unique_id=820468604]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.40625
+anchor_right = 0.296875
+anchor_bottom = 0.875
+offset_top = -10.0
+offset_bottom = 20.0
+grow_vertical = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Button Container" unique_id=579348051]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button Container/MarginContainer" unique_id=71679206]
+layout_mode = 2
+
+[node name="Highest Score" type="Label" parent="Button Container/MarginContainer/VBoxContainer" unique_id=1539492265]
+layout_mode = 2
+text = "Highscore"
+horizontal_alignment = 1
+
+[node name="Survival Time" type="Label" parent="Button Container/MarginContainer/VBoxContainer" unique_id=1370220461]
+layout_mode = 2
+text = "SurvivalScore"
+horizontal_alignment = 1
+
+[node name="Start Game" type="Button" parent="Button Container" unique_id=1307460950]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="Button Container" unique_id=1834569070]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
+text = "Settings"
+
+[node name="Credits" type="Button" parent="Button Container" unique_id=1899578330]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Button Container" unique_id=100530060]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
+text = "Quit"

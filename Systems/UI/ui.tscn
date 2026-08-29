@@ -287,6 +287,12 @@ size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 text = "Resume"
 
+[node name="Main Menu Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=824257460]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+text = "Main Menu"
+
 [node name="Quit Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=313078946]
 layout_mode = 2
 size_flags_vertical = 3
