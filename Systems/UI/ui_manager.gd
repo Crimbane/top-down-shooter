@@ -1,5 +1,9 @@
 extends Control
 
+
+const ARROW_CURSOR = preload("res://Systems/UI/Art/Crosshair-resized-ps.png")
+const MAIN_MENU = preload("res://Stages/Main Menu/main_menu.tscn")
+
 var cursorTexture = load("uid://cy2ue5555y0r7")
 
 @onready var player = get_tree().get_first_node_in_group("Player")
@@ -21,9 +25,11 @@ var actionTween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(ARROW_CURSOR, Input.CURSOR_ARROW, Vector2(16,16))
 	$"Dev/Quit Button".pressed.connect(exitGame)
 	$"Dev/Restart Button".pressed.connect(restartScene)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Resume Button".pressed.connect(resumeGame)
+	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Main Menu Button".pressed.connect(mainMenu)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".pressed.connect(exitGame)
 	player.healthChanged.connect(updateHearts)
 	
@@ -64,11 +70,17 @@ func pauseGame() -> void:
 	$"Pause Menu".visible = true
 	get_tree().paused = true
 
+func mainMenu() -> void:
+	call_deferred("loadScene")
 
 func resumeGame() -> void:
 	get_tree().paused = false
 	$"Pause Menu".visible = false
 
+func loadScene() -> void:
+	if MAIN_MENU.resource_path != "":
+		get_tree().paused = false
+		get_tree().change_scene_to_packed(MAIN_MENU)
 
 func updateHearts(currentHealth: int = player.currentHealth) -> void:
 	for i in range(hearts.get_child_count()):
