@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dpq2d6v3h2kps"]
+
+[ext_resource type="Script" uid="uid://bkwfpfipn55ha" path="res://Systems/Spawn Generator/enemy_spawner.gd" id="1_idmul"]
+
+[node name="EnemySpawner" type="Area2D" unique_id=1428444744]
+script = ExtResource("1_idmul")
+
+[node name="Timer" type="Timer" parent="." unique_id=1170912371]
+autostart = true
+
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=1195175995]
+
+[node name="SpawnArea" type="CollisionShape2D" parent="." unique_id=1288615420]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

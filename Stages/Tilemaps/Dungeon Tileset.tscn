@@ -414,7 +414,7 @@ custom_data_layer_0/name = "type"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_m3ntu")
 
-[node name="Red Dungeon Tileset" type="Node" unique_id=290898763 groups=["World"]]
+[node name="Dungeon Tileset" type="Node" unique_id=290898763 groups=["World"]]
 
 [node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=1731952784 groups=["World"]]
 tile_set = SubResource("TileSet_nd5q1")
