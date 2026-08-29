@@ -57,9 +57,6 @@ func updateSprite() -> void:
 
 
 func pickup(body: CharacterBody2D) -> void:
-	var gun = body.get_node("GunHolder").get_child(1)
-	
-	
 	match pickupSprite:
 		"Health":
 			body.heal(5)

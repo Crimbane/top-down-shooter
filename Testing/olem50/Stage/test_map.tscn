@@ -10,10 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cc7wat15by0dh" path="res://icon.svg" id="3_oqh76"]
 [ext_resource type="PackedScene" uid="uid://d2yui0kay4kfj" path="res://Testing/olem50/Enemy/Bird/bird.tscn" id="5_oqh76"]
 [ext_resource type="PackedScene" uid="uid://b1v2i1jgbgqj2" path="res://Systems/Pickup/pickup.tscn" id="7_dqrj4"]
+[ext_resource type="PackedScene" uid="uid://dpq2d6v3h2kps" path="res://Systems/Spawn Generator/enemy_spawner.tscn" id="12_grgnl"]
+[ext_resource type="PackedScene" uid="uid://b53fvqlcjftyl" path="res://Entities/Enemies/Slime/slime.tscn" id="13_mv8rv"]
 [ext_resource type="PackedScene" uid="uid://d55jypu8k4aa" path="res://Entities/Enemies/Squid/squid.tscn" id="14_mv8rv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(128, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhbx0"]
 
 [node name="Test Map" type="Node" unique_id=1372446901]
 
@@ -46,11 +50,9 @@ position = Vector2(-359, -194)
 
 [node name="Pickup" parent="." unique_id=2133711726 instance=ExtResource("7_dqrj4")]
 position = Vector2(420, 103)
-pickupSprite = "Health"
 
 [node name="Pickup2" parent="." unique_id=1769232337 instance=ExtResource("7_dqrj4")]
 position = Vector2(445, 71)
-pickupSprite = "BouncingBullet"
 
 [node name="BaseEnemy" parent="." unique_id=932177136 instance=ExtResource("1_cq7ob")]
 position = Vector2(320, 0)
@@ -71,5 +73,10 @@ texture = ExtResource("3_oqh76")
 
 [node name="Squid" parent="." unique_id=1903621472 instance=ExtResource("14_mv8rv")]
 position = Vector2(340, 85)
+
+[node name="EnemySpawner" parent="." unique_id=1428444744 instance=ExtResource("12_grgnl")]
+position = Vector2(301, -76)
+spawnShape = SubResource("RectangleShape2D_uhbx0")
+enemy = Array[PackedScene]([ExtResource("13_mv8rv")])
 
 [editable path="Dungeon Tileset"]

@@ -11,6 +11,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	tilemap = get_tree().current_scene.get_node("Dungeon Tileset/BackgroundLayer")
 	$"Buff Spawn Timer".timeout.connect(onSpawnBuffTimerTimeout)
+	$"Ammo Spawn Timer".timeout.connect(onSpawnAmmoTimerTimeout)
 	
 
 
@@ -55,6 +56,10 @@ func createAmmoPickup() -> void:
 
 func onSpawnBuffTimerTimeout() -> void:
 	createBuffPickup()
+
+
+func onSpawnAmmoTimerTimeout() -> void:
+	createAmmoPickup()
 
 
 func randomValidPosition() -> Vector2:

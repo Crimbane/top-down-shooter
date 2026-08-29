@@ -10,6 +10,13 @@ var cursorTexture = load("uid://cy2ue5555y0r7")
 @onready var actionProgress3 = $"HUD/Bottom Left/VBox/HBox Bullet Alt/Action Progress 3"
 var actionTween: Tween
 
+@onready var damageBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/Damage/Timer Bar"
+@onready var shieldBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/Shield/Timer Bar"
+@onready var speedBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/Speed/Timer Bar"
+@onready var fireRateBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/FireRate/Timer Bar"
+
+
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,34 +27,48 @@ func _ready() -> void:
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".pressed.connect(exitGame)
 	player.healthChanged.connect(updateHearts)
 	
+	damageBuff.value = 0
+	speedBuff.value = 0
+	shieldBuff.value = 0
+	fireRateBuff.value = 0
+	
+	
 	call_deferred("updateHearts")
-	
-	
-	
 	#resizeCursor()
+
 
 func _process(_delta: float) -> void:
 	var mousePosition = get_global_mouse_position()
 	actionProgress.global_position = mousePosition + Vector2(5,5)
 	
+	updateBuffTimer(damageBuff, player.get_node("Timers/Damage Buff Timer"))
+	updateBuffTimer(speedBuff, player.get_node("Timers/Speed Buff Timer"))
+	updateBuffTimer(shieldBuff, player.get_node("Timers/Shield Buff Timer"))
+	updateBuffTimer(fireRateBuff, player.get_node("Timers/Fire Rate Buff Timer"))
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Escape"):
 		pauseGame()
 
+
 func exitGame() -> void:
 	get_tree().quit()
 
+
 func restartScene() -> void:
 	get_tree().reload_current_scene()
+
 
 func pauseGame() -> void:
 	$"Pause Menu".visible = true
 	get_tree().paused = true
 
+
 func resumeGame() -> void:
 	get_tree().paused = false
 	$"Pause Menu".visible = false
+
 
 func updateHearts(currentHealth: int = player.currentHealth) -> void:
 	for i in range(hearts.get_child_count()):
@@ -57,7 +78,6 @@ func updateHearts(currentHealth: int = player.currentHealth) -> void:
 			heart.texture = preload("uid://bhotegj5c7q4b") #full heart
 		else:
 			heart.texture = preload("uid://buyokg05s2wqc") #empty heart
-
 
 
 func updateActiveBullet(usingAltBullet: bool) -> void:
@@ -87,6 +107,13 @@ func startActionProgress(reloadTime: float) -> void:
 	actionProgress.visible = false
 	actionProgress2.visible = false
 	actionProgress3.visible = false
+
+
+func updateBuffTimer(buffIcon: TextureProgressBar, timer: Timer) -> void:
+	if timer.is_stopped():
+		buffIcon.value = 0
+	else:
+		buffIcon.value = (timer.time_left / timer.wait_time) * 100.0
 
 
 func resizeCursor() -> void:

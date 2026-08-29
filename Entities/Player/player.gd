@@ -11,11 +11,12 @@ const NORMAL_SPEED = 300.0
 var speed = NORMAL_SPEED
 var iFrameTimer: float = 0.5
 
-var damageBuffActive = false
-var fireRateBuffActive = false
-var shieldBuffActive = false
+var damageBuffActive: bool = false
+var fireRateBuffActive: bool = false
+var shieldBuffActive: bool = false
 
-var damageTakenRecently = false
+var damageTakenRecently: bool = false
+var playingDamageAnimation: bool = false
 var shootLocked: bool = false
 
 var currentGun: Node2D
@@ -49,12 +50,6 @@ var ammoInventoryMax = {
 	"bouncing bullets": 0
 }
 
-
-
-#
-#TODO: player hit animation
-#
-
 func _ready() -> void:
 	hit.connect(onHit)
 	$"Timers/Damage Buff Timer".timeout.connect(onDamageBuffTimerTimeout)
@@ -66,30 +61,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Weapon 1"):
 		switchWeapon(0)
-		currentGun.currentAmmo = ammoInventoryCurrent["bullets"]
-		currentGun.currentAmmoAlt = ammoInventoryCurrent["piercing bullets"]
 		
-		currentGun.maxAmmo = ammoInventoryMax["bullets"]
-		currentGun.maxAmmoAlt = ammoInventoryMax["piercing bullets"]
-		currentGun.updateAmmoUI()
 	
 	if Input.is_action_just_pressed("Weapon 2"):
 		switchWeapon(1)
-		currentGun.currentAmmo = ammoInventoryCurrent["buckshot"]
-		currentGun.currentAmmoAlt = ammoInventoryCurrent["slugs"]
-		
-		currentGun.maxAmmo = ammoInventoryMax["buckshot"]
-		currentGun.maxAmmoAlt = ammoInventoryMax["slugs"]
-		currentGun.updateAmmoUI()
 	
 	if Input.is_action_just_pressed("Weapon 3"):
 		switchWeapon(2)
-		currentGun.currentAmmo = ammoInventoryCurrent["explosive bullets"]
-		currentGun.currentAmmoAlt = ammoInventoryCurrent["bouncing bullets"]
-		
-		currentGun.maxAmmo = ammoInventoryMax["explosive bullets"]
-		currentGun.maxAmmoAlt = ammoInventoryMax["bouncing bullets"]
-		currentGun.updateAmmoUI()
 	
 	if Input.is_action_pressed("Shoot"):
 		if currentGun and not shootLocked:
@@ -121,6 +99,32 @@ func _physics_process(_delta: float) -> void:
 
 func updateInventory(itemName, amount: int) -> void:
 	ammoInventoryMax[itemName] += amount
+	
+	match itemName:
+		"bullets":
+			if currentWeaponIndex == 0:
+				currentGun.maxAmmo = ammoInventoryMax[itemName]
+		
+		"piercing bullets":
+			if currentWeaponIndex == 0:
+				currentGun.maxAmmoAlt = ammoInventoryMax[itemName]
+		
+		"buckshot":
+			if currentWeaponIndex == 1:
+				currentGun.maxAmmo = ammoInventoryMax[itemName]
+		
+		"slugs":
+			if currentWeaponIndex == 1:
+				currentGun.maxAmmoAlt = ammoInventoryMax[itemName]
+		
+		"explosive bullets":
+			if currentWeaponIndex == 2:
+				currentGun.maxAmmo = ammoInventoryMax[itemName]
+		
+		"bouncing bullets":
+			if currentWeaponIndex == 2:
+				currentGun.maxAmmoAlt = ammoInventoryMax[itemName]
+	
 	currentGun.updateAmmoUI()
 
 
@@ -133,6 +137,11 @@ func restartGame() -> void:
 
 
 func animations() -> void:
+	if playingDamageAnimation:
+		return
+	
+	$AnimatedSprite2D.flip_h = false
+	
 	if currentGun == null:
 		if velocity.x > 0 or Input.is_action_pressed("Move Right"):
 			$AnimatedSprite2D.play("right")
@@ -233,20 +242,24 @@ func onSpeedBuffTimerTimeout() -> void:
 
 func iFramesWhenHit() -> void:
 	damageTakenRecently = true
+	playingDamageAnimation= true
 	
-	# damage animation
 	match lastDirection:
 		"right":
-			pass
+			$AnimatedSprite2D.play("damaged right")
+			$AnimatedSprite2D.flip_h = true
 		"left":
-			pass
+			$AnimatedSprite2D.play("damaged left")
+			$AnimatedSprite2D.flip_h = false
 		"up":
-			pass
+			$AnimatedSprite2D.play("damaged up")
 		"down":
-			pass
+			$AnimatedSprite2D.play("damaged down")
 	
 	await get_tree().create_timer(iFrameTimer).timeout
+	
 	damageTakenRecently = false
+	playingDamageAnimation= false
 	
 
 
@@ -264,16 +277,6 @@ func onShieldBuffTimerTimeout() -> void:
 func die() -> void:
 	#load death screen
 	call_deferred("restartGame")
-
-
-func equipGun(gunScene: PackedScene) -> void:
-	if currentGun:
-		currentGun.queue_free()
-
-	currentGun = gunScene.instantiate()
-	$GunHolder.add_child(currentGun)
-	
-	$"GunHolder/Bullet Spawn".position = currentGun.bulletSpawnPosition
 
 
 func getBulletSpawnPosition() -> Vector2:
@@ -307,7 +310,32 @@ func updateFacingDirection() -> void:
 
 
 func switchWeapon(index: int) -> void:
+	if currentGun and currentWeaponIndex == index:
+		return
+	
 	if currentGun:
+		match currentWeaponIndex:
+			0:
+				ammoInventoryCurrent["bullets"] = currentGun.currentAmmo
+				ammoInventoryCurrent["piercing bullets"] = currentGun.currentAmmoAlt
+				
+				ammoInventoryMax["bullets"] = currentGun.maxAmmo
+				ammoInventoryMax["piercing bullets"] = currentGun.maxAmmoAlt
+			
+			1:
+				ammoInventoryCurrent["buckshot"] = currentGun.currentAmmo
+				ammoInventoryCurrent["slugs"] = currentGun.currentAmmoAlt
+				
+				ammoInventoryMax["buckshot"] = currentGun.maxAmmo
+				ammoInventoryMax["slugs"] = currentGun.maxAmmoAlt
+			
+			2:
+				ammoInventoryCurrent["explosive bullets"] = currentGun.currentAmmo
+				ammoInventoryCurrent["bouncing bullets"] = currentGun.currentAmmoAlt
+				
+				ammoInventoryMax["explosive bullets"] = currentGun.maxAmmo
+				ammoInventoryMax["bouncing bullets"] = currentGun.maxAmmoAlt
+				
 		currentGun.queue_free()
 	
 	currentGun = weaponScenes[index].instantiate()
@@ -315,6 +343,27 @@ func switchWeapon(index: int) -> void:
 	
 	$"GunHolder/Bullet Spawn".position = currentGun.bulletSpawnPosition
 	
-	currentGun.updateAmmoUI()
+	match index:
+		0:
+			currentGun.currentAmmo = ammoInventoryCurrent["bullets"]
+			currentGun.currentAmmoAlt = ammoInventoryCurrent["piercing bullets"]
+			
+			currentGun.maxAmmo = ammoInventoryMax["bullets"]
+			currentGun.maxAmmoAlt = ammoInventoryMax["piercing bullets"]
+		
+		1:
+			currentGun.currentAmmo = ammoInventoryCurrent["buckshot"]
+			currentGun.currentAmmoAlt = ammoInventoryCurrent["slugs"]
+			
+			currentGun.maxAmmo = ammoInventoryMax["buckshot"]
+			currentGun.maxAmmoAlt = ammoInventoryMax["slugs"]
+		
+		2:
+			currentGun.currentAmmo = ammoInventoryCurrent["explosive bullets"]
+			currentGun.currentAmmoAlt = ammoInventoryCurrent["bouncing bullets"]
+			
+			currentGun.maxAmmo = ammoInventoryMax["explosive bullets"]
+			currentGun.maxAmmoAlt = ammoInventoryMax["bouncing bullets"]
 	
+	currentGun.updateAmmoUI()
 	currentWeaponIndex = index

@@ -8,3 +8,7 @@ script = ExtResource("1_2u5rt")
 [node name="Buff Spawn Timer" type="Timer" parent="." unique_id=1920991958]
 wait_time = 10.0
 autostart = true
+
+[node name="Ammo Spawn Timer" type="Timer" parent="." unique_id=1264579394]
+wait_time = 5.0
+autostart = true
