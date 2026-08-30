@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bf04kqf3oddpr" path="res://Systems/UI/Art/Firerate Buff Icon.png" id="9_fxfak"]
 [ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="10_xo8aq"]
 [ext_resource type="Shader" uid="uid://71nj16psjw17" path="res://Systems/UI/ui.gdshader" id="11_uhltn"]
-[ext_resource type="Texture2D" uid="uid://cjueddbvl2re6" path="res://Systems/UI/Art/Death Title.png" id="12_fxfak"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjc7g"]
 shader = ExtResource("11_uhltn")
@@ -19,46 +18,8 @@ shader_parameter/vignette_color = Color(0, 0, 0, 1)
 shader_parameter/vignette_radius = 2.0
 shader_parameter/vignette_softness = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2tau"]
-bg_color = Color(0, 0, 0, 0.26666668)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
-shadow_color = Color(0, 0, 0, 0.2784314)
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxfak"]
-bg_color = Color(0, 0, 0, 0.28235295)
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kutm6"]
-bg_color = Color(0.14117648, 0.15686275, 0.18039216, 0.78431374)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5bvh"]
-bg_color = Color(0.22745098, 0.2509804, 0.28235295, 0.78431374)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfnqi"]
-bg_color = Color(0.078431375, 0.09019608, 0.105882354, 0.78431374)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrqo6"]
-bg_color = Color(0.22745098, 0.2509804, 0.28235295, 0.78431374)
+[sub_resource type="LabelSettings" id="LabelSettings_t1yug"]
+font_color = Color(1, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" unique_id=48622636]
 
@@ -335,21 +296,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="UI Manager/Pause Menu" unique_id=1078738331]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -678.0
-offset_top = -580.0
-offset_right = 678.0
-offset_bottom = 580.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.7058824)
-
 [node name="CenterContainer" type="CenterContainer" parent="UI Manager/Pause Menu" unique_id=77244345]
 layout_mode = 1
 anchors_preset = 8
@@ -365,48 +311,35 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UI Manager/Pause Menu/CenterContainer" unique_id=2120086499]
-custom_minimum_size = Vector2(150, 170)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2tau")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer" unique_id=1843114570]
 layout_mode = 2
 
 [node name="Pause Label" type="Label" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=955942878]
-custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.5
-theme_override_styles/normal = SubResource("StyleBoxFlat_fxfak")
 text = "Game Paused"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Resume Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=1272603258]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Resume"
 
 [node name="Main Menu Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=824257460]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Main Menu"
 
 [node name="Quit Button" type="Button" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=313078946]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Quit"
 
 [node name="Button Sound" type="AudioStreamPlayer2D" parent="UI Manager" unique_id=1914521992]
@@ -429,22 +362,14 @@ offset_right = 96.5
 offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="UI Manager/Death Screen" unique_id=2117383820]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -678.0
-offset_top = -580.0
-offset_right = 678.0
-offset_bottom = 580.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.7058824)
+layout_mode = 0
+offset_left = -603.5
+offset_top = -520.0
+offset_right = 752.5
+offset_bottom = 640.0
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Death Screen" unique_id=804514277]
 layout_mode = 1
@@ -453,31 +378,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -151.0
-offset_right = 150.0
-offset_bottom = 147.5
+offset_left = -48.0
+offset_top = -128.5
+offset_right = 48.0
+offset_bottom = 128.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 4
-alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UI Manager/Death Screen/VBoxContainer" unique_id=2098261481]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI Manager/Death Screen/VBoxContainer/MarginContainer" unique_id=1751154564]
-modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
-custom_maximum_size = Vector2(300, 80)
+[node name="You Died" type="Label" parent="UI Manager/Death Screen/VBoxContainer/MarginContainer" unique_id=98552666]
 layout_mode = 2
-texture = ExtResource("12_fxfak")
+size_flags_horizontal = 4
+text = "You Died"
+label_settings = SubResource("LabelSettings_t1yug")
 
 [node name="Scoring" type="Control" parent="UI Manager/Death Screen/VBoxContainer" unique_id=1356149609]
 custom_minimum_size = Vector2(0, 160)
-custom_maximum_size = Vector2(-1, 120)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="Panel" parent="UI Manager/Death Screen/VBoxContainer/Scoring" unique_id=1363567890]
+[node name="ColorRect" type="ColorRect" parent="UI Manager/Death Screen/VBoxContainer/Scoring" unique_id=1861542674]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -485,12 +407,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -96.5
-offset_top = -54.5
+offset_top = -67.0
 offset_right = 96.5
-offset_bottom = 52.5
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h2tau")
+color = Color(0.3254902, 0, 0.6745098, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Death Screen/VBoxContainer/Scoring" unique_id=1083827558]
 layout_mode = 1
@@ -500,76 +422,39 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -86.5
-offset_top = -48.0
+offset_top = -57.0
 offset_right = 86.5
-offset_bottom = 48.0
+offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 2
-alignment = 1
 
 [node name="Score" type="Label" parent="UI Manager/Death Screen/VBoxContainer/Scoring/VBoxContainer" unique_id=135996859]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
 text = "Score: 1"
-horizontal_alignment = 1
 
 [node name="Survival Score" type="Label" parent="UI Manager/Death Screen/VBoxContainer/Scoring/VBoxContainer" unique_id=1972826009]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
 text = "Time survived: 5"
-horizontal_alignment = 1
-
-[node name="Panel" type="Panel" parent="UI Manager/Death Screen/VBoxContainer/Scoring/VBoxContainer" unique_id=1439071933]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nrqo6")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI Manager/Death Screen/VBoxContainer/Scoring/VBoxContainer" unique_id=780082119]
 layout_mode = 2
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_top = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Death Screen/VBoxContainer/Scoring/VBoxContainer/MarginContainer" unique_id=209714658]
 layout_mode = 2
 
 [node name="Highscore" type="Label" parent="UI Manager/Death Screen/VBoxContainer/Scoring/VBoxContainer/MarginContainer/VBoxContainer" unique_id=261615311]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
 text = "Highscore: 15"
-horizontal_alignment = 1
 
 [node name="Best Survival Score" type="Label" parent="UI Manager/Death Screen/VBoxContainer/Scoring/VBoxContainer/MarginContainer/VBoxContainer" unique_id=42786033]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
 text = "Best Time survived: 27"
-horizontal_alignment = 1
 
 [node name="Death Try Again Button" type="Button" parent="UI Manager/Death Screen/VBoxContainer" unique_id=1487508338]
-custom_minimum_size = Vector2(150, 0)
-custom_maximum_size = Vector2(150, -1)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Try Again"
 
 [node name="Death Main Menu Button" type="Button" parent="UI Manager/Death Screen/VBoxContainer" unique_id=797215636]
-custom_minimum_size = Vector2(150, 0)
-custom_maximum_size = Vector2(150, -1)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Main Menu"
-
-[node name="Death Quit Button" type="Button" parent="UI Manager/Death Screen/VBoxContainer" unique_id=1616034898]
-custom_minimum_size = Vector2(150, 0)
-custom_maximum_size = Vector2(150, -1)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
-text = "Quit"
