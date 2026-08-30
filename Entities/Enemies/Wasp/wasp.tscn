@@ -255,7 +255,8 @@ size = Vector2(22, 17)
 size = Vector2(22, 18)
 
 [node name="Wasp" unique_id=1903621472 instance=ExtResource("1_vs77c")]
-speed = 80
+collision_mask = 2
+speed = 120
 maxHealth = 60
 killScore = 3
 

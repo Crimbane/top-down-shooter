@@ -87,7 +87,8 @@ size = Vector2(13, 16)
 size = Vector2(15, 17)
 
 [node name="Burning Skull" unique_id=1903621472 instance=ExtResource("1_ferbm")]
-speed = 50
+collision_mask = 2
+speed = 80
 killScore = 2
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2135723407]
