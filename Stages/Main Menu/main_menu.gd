@@ -4,6 +4,7 @@ extends Control
 
 const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
 @export_file("*.tscn") var gamePath: String
+@export_file("*.tscn") var settingsPath: String
 
 @onready var highScoreLabel = $"Main/MarginContainer/VBoxContainer/Highest Score"
 @onready var survivalScoreLabel = $"Main/MarginContainer/VBoxContainer/Survival Time"
@@ -44,17 +45,25 @@ func _ready() -> void:
 	$"Main/Settings".mouse_entered.connect(onButtonHover)
 	$"Main/Credits".mouse_entered.connect(onButtonHover)
 	$"Main/Quit".mouse_entered.connect(onButtonHover)
+	$Settings/Controls.mouse_entered.connect(onButtonHover)
+	$Settings/Back.mouse_entered.connect(onButtonHover)
 	
 	$"Settings/MarginContainer/VBoxContainer/SFX Container/SFX Volume".drag_ended.connect(onSliderDragEnded)
+	
+	$"Settings/MarginContainer/VBoxContainer/Master Container/Master Volume".mouse_entered.connect(onButtonHover)
+	$"Settings/MarginContainer/VBoxContainer/Music Container/Music Volume".mouse_entered.connect(onButtonHover)
+	$"Settings/MarginContainer/VBoxContainer/SFX Container/SFX Volume".mouse_entered.connect(onButtonHover)
 
 
 func resetScore() -> void:
 	GameManager.playButtonSound()
 	GameManager.resetScore()
+	highScoreLabel.text = "Best Score: 0"
+	survivalScoreLabel.text = "Best Time: 0s"
 
 func startGame() -> void:
 	GameManager.playButtonSound()
-	call_deferred("loadScene")
+	call_deferred("loadScene", gamePath)
 
 func openSettings() -> void:
 	GameManager.playButtonSound()
@@ -70,6 +79,7 @@ func quitGame() -> void:
 
 func openControls() -> void:
 	GameManager.playButtonSound()
+	call_deferred("loadScene", settingsPath)
 
 func exitSettings() -> void:
 	GameManager.playButtonSound()
@@ -83,7 +93,9 @@ func onButtonHover() -> void:
 func onSliderDragEnded(_value_changed: bool) -> void:
 	$VolumeTestSound.play()
 
-func loadScene() -> void:
-	if gamePath != "":
+func loadScene(scene: String) -> void:
+	if scene == "uid://bss8w2oy0qbad":
 		GameManager.startRun()
 		get_tree().change_scene_to_file(gamePath)
+	elif scene == "uid://bv12yf7opnqpt":
+		get_tree().change_scene_to_file(settingsPath)
