@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dpq2d6v3h2kps" path="res://Systems/Spawn Generator/enemy_spawner.tscn" id="12_grgnl"]
 [ext_resource type="PackedScene" uid="uid://b53fvqlcjftyl" path="res://Entities/Enemies/Slime/slime.tscn" id="13_mv8rv"]
 [ext_resource type="PackedScene" uid="uid://d55jypu8k4aa" path="res://Entities/Enemies/Squid/squid.tscn" id="14_mv8rv"]
+[ext_resource type="PackedScene" uid="uid://d2ntywfmm8ki7" path="res://Systems/Spawn Generator/item_spawner.tscn" id="14_uhbx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
 size = Vector2(128, 126)
@@ -79,5 +80,8 @@ position = Vector2(340, 85)
 position = Vector2(301, -76)
 spawnShape = SubResource("RectangleShape2D_uhbx0")
 enemy = Array[PackedScene]([ExtResource("13_mv8rv")])
+
+[node name="Item Spawner" parent="." unique_id=14491672 instance=ExtResource("14_uhbx0")]
+position = Vector2(618, -90)
 
 [editable path="Dungeon Tileset"]

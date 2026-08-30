@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cofvnh7xginyw"]
+
+[ext_resource type="Script" uid="uid://b4u18hq2g7p6d" path="res://Assets/Music/music_manager.gd" id="1_tugln"]
+[ext_resource type="AudioStream" uid="uid://ccy4wtwqhxc8h" path="res://Assets/Music/Game Music/Metal Vol3 Double Barrel Main.wav" id="2_csri5"]
+[ext_resource type="AudioStream" uid="uid://btolipntabksf" path="res://Assets/Music/Main Menu Music/Metal Vol3 Beakers Intensity 2.wav" id="2_eijo7"]
+[ext_resource type="AudioStream" uid="uid://wdxsbw6f14yl" path="res://Assets/Music/Game Music/Metal Vol3 Happy Feet Main.wav" id="3_eijo7"]
+[ext_resource type="AudioStream" uid="uid://dftuxm3p6b0rf" path="res://Assets/Music/Game Music/Metal Vol3 Sleeveless Main.wav" id="4_fmojm"]
+
+[node name="Music Manager" type="Node" unique_id=1807440890]
+process_mode = 3
+script = ExtResource("1_tugln")
+menuMusic = ExtResource("2_eijo7")
+gameMusic = ExtResource("2_csri5")
+gameMusic2 = ExtResource("3_eijo7")
+gameMusic3 = ExtResource("4_fmojm")
+
+[node name="Music Player" type="AudioStreamPlayer" parent="." unique_id=1506469367]
+volume_db = -15.0
+bus = &"music"

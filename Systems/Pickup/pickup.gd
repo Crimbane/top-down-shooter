@@ -14,9 +14,6 @@ var ammoMultiplier: float = 1.0
 		updateSprite()
 
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	updateSprite()
 	
@@ -73,21 +70,21 @@ func pickup(body: CharacterBody2D) -> void:
 			body.fireRateBuff()
 		
 		"Bullet":
-			body.updateInventory("bullets", 20 * ammoMultiplier)
+			body.updateInventory("bullets", 10 * ammoMultiplier) #ammo is added to current and max
 			GameManager.playPickupSound()
 		"PiercingBullet":
-			body.updateInventory("piercing bullets", 20 * ammoMultiplier)
+			body.updateInventory("piercing bullets", 10 * ammoMultiplier)
 			GameManager.playPickupSound()
 		"Buckshot":
-			body.updateInventory("buckshot", 12 * ammoMultiplier)
+			body.updateInventory("buckshot", 6 * ammoMultiplier)
 			GameManager.playPickupSound()
 		"Slug":
-			body.updateInventory("slugs", 8 * ammoMultiplier)
+			body.updateInventory("slugs", 4 * ammoMultiplier)
 			GameManager.playPickupSound()
 		"ExplosiveBullet":
-			body.updateInventory("explosive bullets", 8 * ammoMultiplier)
+			body.updateInventory("explosive bullets", 4 * ammoMultiplier)
 			GameManager.playPickupSound()
 		"BouncingBullet":
-			body.updateInventory("bouncing bullets", 8 * ammoMultiplier)
+			body.updateInventory("bouncing bullets", 4 * ammoMultiplier)
 			GameManager.playPickupSound()
 	queue_free()

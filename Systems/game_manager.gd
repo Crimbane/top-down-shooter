@@ -92,14 +92,21 @@ func playDifficultyEffect() -> void:
 	circle.playEffect()
 
 func startRun() -> void:
+	MusicManager.playGameMusic()
 	score = 0
 	survivalScore = 0.0
 	survivalActive = true
 	difficultyMultiplier = 1.0
 	difficultyLevel = 0
 
+func pauseRun() -> void:
+	survivalActive = false
+
+func unPauseRun() -> void:
+	survivalActive = true
 
 func endRun() -> void:
+	MusicManager.lowerPitchMusicPlayer()
 	survivalActive = false
 	difficultyMultiplier = 1.0
 	difficultyLevel = 0

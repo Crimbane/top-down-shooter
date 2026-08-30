@@ -152,7 +152,7 @@ animations = [{
 radius = 6.0
 
 [node name="Pickup" type="Area2D" unique_id=2133711726]
-z_index = 1
+z_index = 2
 collision_layer = 8
 script = ExtResource("1_lsu1q")
 pickupSprite = "Damage"

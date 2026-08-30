@@ -37,20 +37,20 @@ var weaponScenes: Array[PackedScene] = [
 
 var ammoInventoryCurrent = {
 	"bullets": 10,
-	"piercing bullets": 5,
-	"buckshot": 3,
-	"slugs": 2,
-	"explosive bullets": 2,
-	"bouncing bullets": 2
+	"piercing bullets": 0,
+	"buckshot": 0,
+	"slugs": 0,
+	"explosive bullets": 0,
+	"bouncing bullets": 0
 }
 
 var ammoInventoryMax = {
-	"bullets": 999,
-	"piercing bullets": 99,
-	"buckshot": 99,
-	"slugs": 99,
-	"explosive bullets": 99,
-	"bouncing bullets": 99
+	"bullets": 99,
+	"piercing bullets": 0,
+	"buckshot": 0,
+	"slugs": 0,
+	"explosive bullets": 0,
+	"bouncing bullets": 0
 }
 
 func _ready() -> void:
@@ -102,31 +102,38 @@ func _physics_process(_delta: float) -> void:
 
 func updateInventory(itemName, amount: int) -> void:
 	ammoInventoryMax[itemName] += amount
+	ammoInventoryCurrent[itemName] += amount
 	
 	match itemName:
 		"bullets":
 			if currentWeaponIndex == 0:
 				currentGun.maxAmmo = ammoInventoryMax[itemName]
+				currentGun.currentAmmo = ammoInventoryCurrent[itemName]
 		
 		"piercing bullets":
 			if currentWeaponIndex == 0:
 				currentGun.maxAmmoAlt = ammoInventoryMax[itemName]
+				currentGun.currentAmmoAlt = ammoInventoryCurrent[itemName]
 		
 		"buckshot":
 			if currentWeaponIndex == 1:
 				currentGun.maxAmmo = ammoInventoryMax[itemName]
+				currentGun.currentAmmo = ammoInventoryCurrent[itemName]
 		
 		"slugs":
 			if currentWeaponIndex == 1:
 				currentGun.maxAmmoAlt = ammoInventoryMax[itemName]
+				currentGun.currentAmmoAlt = ammoInventoryCurrent[itemName]
 		
 		"explosive bullets":
 			if currentWeaponIndex == 2:
 				currentGun.maxAmmo = ammoInventoryMax[itemName]
+				currentGun.currentAmmo = ammoInventoryCurrent[itemName]
 		
 		"bouncing bullets":
 			if currentWeaponIndex == 2:
 				currentGun.maxAmmoAlt = ammoInventoryMax[itemName]
+				currentGun.currentAmmoAlt = ammoInventoryCurrent[itemName]
 	
 	currentGun.updateAmmoUI()
 

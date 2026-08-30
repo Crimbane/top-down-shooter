@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dftuxm3p6b0rf"
+path="res://.godot/imported/Metal Vol3 Sleeveless Main.wav-83dcf236e675ec2b427e5bebd7fae77e.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Game Music/Metal Vol3 Sleeveless Main.wav"
+dest_files=["res://.godot/imported/Metal Vol3 Sleeveless Main.wav-83dcf236e675ec2b427e5bebd7fae77e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

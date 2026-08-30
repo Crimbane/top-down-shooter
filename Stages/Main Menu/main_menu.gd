@@ -28,7 +28,7 @@ func _ready() -> void:
 	elif timeScore / 60 > 60:
 		timeString = str(int(timeScore / 3600)) + "h " + str(timeOverflowMinutes) + "m " + str(timeOverflowSeconds) + "s"
 	
-	highScoreLabel.text = "Best Score: " + str(GameManager.highScore)
+	highScoreLabel.text = "Highscore: " + str(GameManager.highScore)
 	survivalScoreLabel.text = "Best Time: " + timeString
 	
 	

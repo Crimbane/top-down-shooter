@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dho5w8p6imdn" path="res://Entities/Enemies/Ghost/ghost.tscn" id="8_nqybl"]
 [ext_resource type="PackedScene" uid="uid://6gag2tkwmhyu" path="res://Entities/Enemies/Burning Skull/burning_skull.tscn" id="10_0lntu"]
 [ext_resource type="PackedScene" uid="uid://b1v2i1jgbgqj2" path="res://Systems/Pickup/pickup.tscn" id="11_0lntu"]
+[ext_resource type="PackedScene" uid="uid://d2ntywfmm8ki7" path="res://Systems/Spawn Generator/item_spawner.tscn" id="13_d4x7u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lntu"]
 radius = 150.0
@@ -132,11 +133,40 @@ spawnShape = SubResource("RectangleShape2D_nqybl")
 enemy = Array[PackedScene]([ExtResource("6_36544")])
 enemyLimit = 1
 
+[node name="Item Spawners" type="Node" parent="." unique_id=1311816042]
+
 [node name="Pickup" parent="." unique_id=2133711726 instance=ExtResource("11_0lntu")]
 position = Vector2(177, 504)
 
 [node name="Map Center Marker2D" type="Marker2D" parent="." unique_id=1904270802]
 unique_name_in_owner = true
 position = Vector2(512, 504)
+
+[node name="Item Spawner" parent="." unique_id=14491672 instance=ExtResource("13_d4x7u")]
+position = Vector2(510, -193)
+
+[node name="Item Spawner2" parent="." unique_id=521830819 instance=ExtResource("13_d4x7u")]
+position = Vector2(1221, 502)
+
+[node name="Item Spawner3" parent="." unique_id=1056429642 instance=ExtResource("13_d4x7u")]
+position = Vector2(515, 1206)
+
+[node name="Item Spawner4" parent="." unique_id=1559317140 instance=ExtResource("13_d4x7u")]
+position = Vector2(-193, 498)
+
+[node name="Item Spawner5" parent="." unique_id=1712048681 instance=ExtResource("13_d4x7u")]
+position = Vector2(94, 94)
+
+[node name="Item Spawner6" parent="." unique_id=360590312 instance=ExtResource("13_d4x7u")]
+position = Vector2(934, 91)
+
+[node name="Item Spawner7" parent="." unique_id=1765076958 instance=ExtResource("13_d4x7u")]
+position = Vector2(924, 924)
+
+[node name="Item Spawner8" parent="." unique_id=1266259094 instance=ExtResource("13_d4x7u")]
+position = Vector2(98, 924)
+
+[node name="Item Spawner9" parent="." unique_id=1444936013 instance=ExtResource("13_d4x7u")]
+position = Vector2(511, 510)
 
 [editable path="Dungeon Tileset"]

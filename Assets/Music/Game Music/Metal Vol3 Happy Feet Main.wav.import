@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wdxsbw6f14yl"
+path="res://.godot/imported/Metal Vol3 Happy Feet Main.wav-adeea749e1bacb1aab20d535d2dac177.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Game Music/Metal Vol3 Happy Feet Main.wav"
+dest_files=["res://.godot/imported/Metal Vol3 Happy Feet Main.wav-adeea749e1bacb1aab20d535d2dac177.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
