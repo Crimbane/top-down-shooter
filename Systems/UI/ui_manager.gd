@@ -42,12 +42,16 @@ func _ready() -> void:
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".pressed.connect(exitGame)
 	$"Death Screen/VBoxContainer/Death Try Again Button".pressed.connect(tryAgain)
 	$"Death Screen/VBoxContainer/Death Main Menu Button".pressed.connect(mainMenu)
+	$"Death Screen/VBoxContainer/Death Quit Button".pressed.connect(exitGame)
 	
 	$"Dev/Quit Button".mouse_entered.connect(onButtonHover)
 	$"Dev/Restart Button".mouse_entered.connect(onButtonHover)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Resume Button".mouse_entered.connect(onButtonHover)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Main Menu Button".mouse_entered.connect(onButtonHover)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".mouse_entered.connect(onButtonHover)
+	$"Death Screen/VBoxContainer/Death Try Again Button".mouse_entered.connect(onButtonHover)
+	$"Death Screen/VBoxContainer/Death Main Menu Button".mouse_entered.connect(onButtonHover)
+	$"Death Screen/VBoxContainer/Death Quit Button".mouse_entered.connect(onButtonHover)
 	
 	player.healthChanged.connect(updateHearts)
 	
@@ -92,11 +96,13 @@ func restartScene() -> void:
 
 func pauseGame() -> void:
 	$"Pause Menu".visible = true
+	GameManager.pauseRun()
 	get_tree().paused = true
 
 
 func mainMenu() -> void:
 	GameManager.playButtonSound()
+	MusicManager.normalPitchMusicPlayer()
 	get_tree().paused = false
 	call_deferred("loadScene")
 
@@ -105,6 +111,7 @@ func resumeGame() -> void:
 	get_tree().paused = false
 	GameManager.playButtonSound()
 	$"Pause Menu".visible = false
+	GameManager.unPauseRun()
 
 
 func onButtonHover() -> void:
@@ -119,6 +126,7 @@ func loadScene() -> void:
 
 
 func tryAgain() -> void:
+	GameManager.playButtonSound()
 	if dungeonPath != "":
 		get_tree().paused = false
 		GameManager.startRun()
@@ -128,14 +136,29 @@ func tryAgain() -> void:
 func showScore() -> void:
 	GameManager.endRun()
 	$"Death Screen".visible = true
+	$HUD.visible = false
 	get_tree().paused = true
 	
+	
 	scoreLabel.text = "Score: " + str(GameManager.score)
-	timeScoreLabel.text = "Survival Time: " + str(int(GameManager.survivalScore))
+	timeScoreLabel.text = "Time: " + timeUnitBreakdown(GameManager.survivalScore)
 	
 	highScoreLabel.text = "Highscore: " + str(GameManager.highScore)
-	bestTimeScoreLabel.text = "Best Survival Time: " + str(int(GameManager.bestSurvivalScore))
+	bestTimeScoreLabel.text = "Best Time: " + timeUnitBreakdown(GameManager.bestSurvivalScore)
 
+func timeUnitBreakdown(timeScore: float) -> String:
+	var timeString: String
+	var timeOverflowSeconds = int(timeScore) % 60
+	var timeOverflowMinutes = int(timeScore - timeOverflowSeconds) % 3600
+	
+	if timeScore < 60:
+		timeString = str(int(timeScore)) + "s"
+	elif timeScore / 60 < 60:
+		timeString = str(int(timeScore / 60)) + "m " + str(timeOverflowSeconds) + "s"
+	elif timeScore / 60 > 60:
+		timeString = str(int(timeScore / 3600)) + "h " + str(timeOverflowMinutes) + "m " + str(timeOverflowSeconds) + "s"
+	
+	return timeString
 
 func updateHearts(currentHealth: int = player.currentHealth) -> void:
 	for i in range(hearts.get_child_count()):
