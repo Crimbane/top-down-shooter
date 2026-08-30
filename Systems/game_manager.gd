@@ -13,7 +13,7 @@ var bestSurvivalScore: float = 0.0
 var survivalActive: bool = false
 
 var difficultyMultiplier: float = 1.0
-var difficultyTimerInterval: float = 10.0
+var difficultyTimerInterval: float = 30.0
 var difficultyLevel: int = 0
 
 const SAVE_PATH = "user://savegame.json"

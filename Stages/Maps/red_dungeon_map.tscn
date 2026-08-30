@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dw0jdnvdxhce0" path="res://Entities/Enemies/Wasp/wasp.tscn" id="7_ygu4f"]
 [ext_resource type="PackedScene" uid="uid://dho5w8p6imdn" path="res://Entities/Enemies/Ghost/ghost.tscn" id="8_nqybl"]
 [ext_resource type="PackedScene" uid="uid://6gag2tkwmhyu" path="res://Entities/Enemies/Burning Skull/burning_skull.tscn" id="10_0lntu"]
-[ext_resource type="PackedScene" uid="uid://b1v2i1jgbgqj2" path="res://Systems/Pickup/pickup.tscn" id="11_0lntu"]
 [ext_resource type="PackedScene" uid="uid://d2ntywfmm8ki7" path="res://Systems/Spawn Generator/item_spawner.tscn" id="13_d4x7u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lntu"]
@@ -134,9 +133,6 @@ enemy = Array[PackedScene]([ExtResource("6_36544")])
 enemyLimit = 1
 
 [node name="Item Spawners" type="Node" parent="." unique_id=1311816042]
-
-[node name="Pickup" parent="." unique_id=2133711726 instance=ExtResource("11_0lntu")]
-position = Vector2(177, 504)
 
 [node name="Map Center Marker2D" type="Marker2D" parent="." unique_id=1904270802]
 unique_name_in_owner = true

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2ntywfmm8ki7"]
 
 [ext_resource type="Script" uid="uid://du03stu8er4bf" path="res://Systems/Spawn Generator/item_spawner.gd" id="1_t1a7q"]
+[ext_resource type="Texture2D" uid="uid://sndl5navo8ih" path="res://Systems/Spawn Generator/Art/Pickup Spawner.png" id="2_stknr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1yug"]
 
@@ -22,3 +23,4 @@ autostart = true
 shape = SubResource("CircleShape2D_t1yug")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=783529655]
+texture = ExtResource("2_stknr")

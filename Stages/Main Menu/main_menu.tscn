@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8q67807dutq3" path="res://Stages/Main Menu/main_menu.gd" id="1_bfnqi"]
 [ext_resource type="Texture2D" uid="uid://dyqvb5p8coh7k" path="res://Stages/Main Menu/Art/Main Menu Background2.png" id="2_y5bvh"]
 [ext_resource type="PackedScene" uid="uid://c88c0dqgldy75" path="res://Systems/UI/volume_slider.tscn" id="3_ihivm"]
-[ext_resource type="AudioStream" uid="uid://btolipntabksf" path="res://Stages/Main Menu/Audio/Metal Vol3 Beakers Intensity 2.wav" id="3_y5bvh"]
+[ext_resource type="AudioStream" uid="uid://btolipntabksf" path="res://Assets/Music/Main Menu Music/Metal Vol3 Beakers Intensity 2.wav" id="3_y5bvh"]
 [ext_resource type="AudioStream" uid="uid://bijhyvxl61tqx" path="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Gunshot A 001.wav" id="5_r7bji"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjc7g"]
