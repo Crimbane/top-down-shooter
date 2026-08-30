@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c88c0dqgldy75"]
+
+[ext_resource type="Script" uid="uid://dgrq2a7bd1qgf" path="res://Systems/UI/volume_slider.gd" id="1_53c26"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj3ao"]
+bg_color = Color(0.29219002, 0.29219005, 0.29218993, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Volume Slider" type="HSlider" unique_id=793943257]
+offset_right = 8.0
+offset_bottom = 16.0
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_tj3ao")
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_53c26")

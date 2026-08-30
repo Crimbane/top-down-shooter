@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://8q67807dutq3" path="res://Stages/Main Menu/main_menu.gd" id="1_bfnqi"]
 [ext_resource type="Texture2D" uid="uid://dyqvb5p8coh7k" path="res://Stages/Main Menu/Art/Main Menu Background2.png" id="2_y5bvh"]
+[ext_resource type="PackedScene" uid="uid://c88c0dqgldy75" path="res://Systems/UI/volume_slider.tscn" id="3_ihivm"]
 [ext_resource type="AudioStream" uid="uid://btolipntabksf" path="res://Stages/Main Menu/Audio/Metal Vol3 Beakers Intensity 2.wav" id="3_y5bvh"]
+[ext_resource type="AudioStream" uid="uid://bijhyvxl61tqx" path="res://Entities/Weapons/Audio/30-30 Lever Action Rifle - Gunshot A 001.wav" id="5_r7bji"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjc7g"]
 texture = ExtResource("2_y5bvh")
@@ -47,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fjc7g")
 
-[node name="Button Container" type="VBoxContainer" parent="." unique_id=820468604]
+[node name="Main" type="VBoxContainer" parent="." unique_id=820468604]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -60,24 +62,24 @@ grow_vertical = 0
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Button Container" unique_id=579348051]
+[node name="MarginContainer" type="MarginContainer" parent="Main" unique_id=579348051]
 layout_mode = 2
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Button Container/MarginContainer" unique_id=71679206]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer" unique_id=71679206]
 layout_mode = 2
 
-[node name="Highest Score" type="Label" parent="Button Container/MarginContainer/VBoxContainer" unique_id=1539492265]
+[node name="Highest Score" type="Label" parent="Main/MarginContainer/VBoxContainer" unique_id=1539492265]
 layout_mode = 2
 text = "Highscore"
 horizontal_alignment = 1
 
-[node name="Survival Time" type="Label" parent="Button Container/MarginContainer/VBoxContainer" unique_id=1370220461]
+[node name="Survival Time" type="Label" parent="Main/MarginContainer/VBoxContainer" unique_id=1370220461]
 layout_mode = 2
 text = "SurvivalScore"
 horizontal_alignment = 1
 
-[node name="Start Game" type="Button" parent="Button Container" unique_id=1307460950]
+[node name="Start Game" type="Button" parent="Main" unique_id=1307460950]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
@@ -86,7 +88,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Start Game"
 
-[node name="Settings" type="Button" parent="Button Container" unique_id=1834569070]
+[node name="Settings" type="Button" parent="Main" unique_id=1834569070]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
@@ -95,7 +97,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Settings"
 
-[node name="Credits" type="Button" parent="Button Container" unique_id=1899578330]
+[node name="Credits" type="Button" parent="Main" unique_id=1899578330]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
@@ -104,7 +106,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Credits"
 
-[node name="Quit" type="Button" parent="Button Container" unique_id=100530060]
+[node name="Quit" type="Button" parent="Main" unique_id=100530060]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
@@ -113,7 +115,100 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Quit"
 
+[node name="Settings" type="VBoxContainer" parent="." unique_id=1687526308]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.40625
+anchor_right = 0.296875
+anchor_bottom = 0.875
+offset_top = -10.0
+offset_bottom = 20.0
+grow_vertical = 0
+theme_override_constants/separation = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings" unique_id=1495209421]
+layout_mode = 2
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer" unique_id=848815313]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Settings Label" type="Label" parent="Settings/MarginContainer/VBoxContainer" unique_id=2044755115]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="Master Container" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer" unique_id=599143699]
+layout_mode = 2
+alignment = 2
+
+[node name="Master Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/Master Container" unique_id=1212943022]
+layout_mode = 2
+text = "Master"
+
+[node name="Master Volume" parent="Settings/MarginContainer/VBoxContainer/Master Container" unique_id=793943257 instance=ExtResource("3_ihivm")]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_vertical = 4
+busName = "Master"
+
+[node name="Music Container" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer" unique_id=77172886]
+layout_mode = 2
+alignment = 2
+
+[node name="Music Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/Music Container" unique_id=1733060999]
+layout_mode = 2
+text = "Music"
+
+[node name="Music Volume" parent="Settings/MarginContainer/VBoxContainer/Music Container" unique_id=1776336439 instance=ExtResource("3_ihivm")]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_vertical = 4
+busName = "music"
+
+[node name="SFX Container" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer" unique_id=2122540936]
+layout_mode = 2
+alignment = 2
+
+[node name="SFX Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/SFX Container" unique_id=636619275]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFX Volume" parent="Settings/MarginContainer/VBoxContainer/SFX Container" unique_id=1966282907 instance=ExtResource("3_ihivm")]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_vertical = 4
+busName = "sfx"
+
+[node name="Controls" type="Button" parent="Settings" unique_id=536560212]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
+text = "Controls"
+
+[node name="Back" type="Button" parent="Settings" unique_id=1240403580]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
+text = "Back"
+
 [node name="Main Menu Music" type="AudioStreamPlayer2D" parent="." unique_id=912239017]
 stream = ExtResource("3_y5bvh")
 volume_db = -5.778
 autoplay = true
+bus = &"music"
+
+[node name="VolumeTestSound" type="AudioStreamPlayer2D" parent="." unique_id=745805643]
+stream = ExtResource("5_r7bji")
+bus = &"sfx"

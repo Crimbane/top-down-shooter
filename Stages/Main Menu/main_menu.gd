@@ -5,8 +5,10 @@ extends Control
 const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
 @export_file("*.tscn") var gamePath: String
 
-@onready var highScoreLabel = $"Button Container/MarginContainer/VBoxContainer/Highest Score"
-@onready var survivalScoreLabel = $"Button Container/MarginContainer/VBoxContainer/Survival Time"
+@onready var main = $Main
+@onready var settings = $Settings
+@onready var highScoreLabel = $"Main/MarginContainer/VBoxContainer/Highest Score"
+@onready var survivalScoreLabel = $"Main/MarginContainer/VBoxContainer/Survival Time"
 
 var timeString: String
 var timeOverflowSeconds: int = 0
@@ -31,15 +33,19 @@ func _ready() -> void:
 	survivalScoreLabel.text = "Best Time: " + timeString
 	
 	
-	$"Button Container/Start Game".pressed.connect(startGame)
-	$"Button Container/Settings".pressed.connect(openSettings)
-	$"Button Container/Credits".pressed.connect(rollCredits)
-	$"Button Container/Quit".pressed.connect(quitGame)
+	$"Main/Start Game".pressed.connect(startGame)
+	$"Main/Settings".pressed.connect(openSettings)
+	$"Main/Credits".pressed.connect(rollCredits)
+	$"Main/Quit".pressed.connect(quitGame)
+	$Settings/Controls.pressed.connect(openControls)
+	$Settings/Back.pressed.connect(exitSettings)
 	
-	$"Button Container/Start Game".mouse_entered.connect(onButtonHover)
-	$"Button Container/Settings".mouse_entered.connect(onButtonHover)
-	$"Button Container/Credits".mouse_entered.connect(onButtonHover)
-	$"Button Container/Quit".mouse_entered.connect(onButtonHover)
+	$"Main/Start Game".mouse_entered.connect(onButtonHover)
+	$"Main/Settings".mouse_entered.connect(onButtonHover)
+	$"Main/Credits".mouse_entered.connect(onButtonHover)
+	$"Main/Quit".mouse_entered.connect(onButtonHover)
+	
+	$"Settings/MarginContainer/VBoxContainer/SFX Container/SFX Volume".drag_ended.connect(onSliderDragEnded)
 
 
 func startGame() -> void:
@@ -48,6 +54,8 @@ func startGame() -> void:
 
 func openSettings() -> void:
 	GameManager.playButtonSound()
+	main.visible = false
+	settings.visible = true
 
 func rollCredits() -> void:
 	GameManager.playButtonSound()
@@ -55,8 +63,19 @@ func rollCredits() -> void:
 func quitGame() -> void:
 	get_tree().quit()
 
+func openControls() -> void:
+	GameManager.playButtonSound()
+
+func exitSettings() -> void:
+	GameManager.playButtonSound()
+	main.visible = true
+	settings.visible = false
+
 func onButtonHover() -> void:
 	GameManager.playButtonHoverSound()
+
+func onSliderDragEnded(_value_changed: bool) -> void:
+	$VolumeTestSound.play()
 
 func loadScene() -> void:
 	if gamePath != "":
