@@ -10,8 +10,23 @@
 [ext_resource type="Texture2D" uid="uid://uaaatn0ry4ft" path="res://Systems/UI/Art/Walkspeed Buff Icon.png" id="8_uhltn"]
 [ext_resource type="Texture2D" uid="uid://bf04kqf3oddpr" path="res://Systems/UI/Art/Firerate Buff Icon.png" id="9_fxfak"]
 [ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="10_xo8aq"]
+[ext_resource type="Shader" uid="uid://71nj16psjw17" path="res://Systems/UI/ui.gdshader" id="11_uhltn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjc7g"]
+shader = ExtResource("11_uhltn")
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+shader_parameter/vignette_radius = 2.0
+shader_parameter/vignette_softness = 1.0
 
 [node name="UI" type="CanvasLayer" unique_id=48622636]
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=1895478935]
+material = SubResource("ShaderMaterial_fjc7g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="UI Manager" type="Control" parent="." unique_id=704845746]
 z_index = 10

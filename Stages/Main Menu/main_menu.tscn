@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cmb2as5hd36lj"]
 
 [ext_resource type="Script" uid="uid://8q67807dutq3" path="res://Stages/Main Menu/main_menu.gd" id="1_bfnqi"]
-[ext_resource type="Texture2D" uid="uid://rer1mx0twbxx" path="res://Stages/Main Menu/Art/Main Menu Background.png" id="1_kutm6"]
-[ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="3_y5bvh"]
+[ext_resource type="Texture2D" uid="uid://dyqvb5p8coh7k" path="res://Stages/Main Menu/Art/Main Menu Background2.png" id="2_y5bvh"]
+[ext_resource type="AudioStream" uid="uid://btolipntabksf" path="res://Stages/Main Menu/Audio/Metal Vol3 Beakers Intensity 2.wav" id="3_y5bvh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjc7g"]
-texture = ExtResource("1_kutm6")
+texture = ExtResource("2_y5bvh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kutm6"]
 bg_color = Color(0.14117648, 0.15686275, 0.18039216, 1)
@@ -113,5 +113,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Quit"
 
-[node name="Button Sound" type="AudioStreamPlayer2D" parent="." unique_id=643080260]
+[node name="Main Menu Music" type="AudioStreamPlayer2D" parent="." unique_id=912239017]
 stream = ExtResource("3_y5bvh")
+volume_db = -5.778
+autoplay = true
