@@ -159,8 +159,7 @@ pickupSprite = "Damage"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1481813929]
 sprite_frames = SubResource("SpriteFrames_t1yug")
-animation = &"buckshot"
-frame_progress = 0.5401416
+animation = &"damage"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1962728380]
 shape = SubResource("CircleShape2D_rmcqt")

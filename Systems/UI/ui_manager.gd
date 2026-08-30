@@ -24,6 +24,9 @@ var actionTween: Tween
 @onready var highScoreLabel: Label = $Scoring/VBoxContainer/MarginContainer/VBoxContainer/Highscore
 @onready var bestTimeScoreLabel: Label = $"Scoring/VBoxContainer/MarginContainer/VBoxContainer/Best Survival Score"
 
+@onready var devDifficultyLabel: Label = $Dev/Difficulty
+@onready var devScoreLabel: Label = $Dev/Score
+
 
 
 
@@ -52,7 +55,7 @@ func _ready() -> void:
 	shieldBuff.value = 0
 	fireRateBuff.value = 0
 	
-	showScore()
+	#showScore()
 	
 	call_deferred("updateHearts")
 	#resizeCursor()
@@ -67,6 +70,8 @@ func _process(_delta: float) -> void:
 	updateBuffTimer(shieldBuff, player.get_node("Timers/Shield Buff Timer"))
 	updateBuffTimer(fireRateBuff, player.get_node("Timers/Fire Rate Buff Timer"))
 	
+	devDifficultyLabel.text = "Difficulty: " + str(GameManager.difficultyMultiplier)
+	devScoreLabel.text = "Score: " + str(GameManager.score)
 	#showScore()
 
 
@@ -153,6 +158,8 @@ func updateBuffTimer(buffIcon: TextureProgressBar, timer: Timer) -> void:
 
 
 func showScore() -> void:
+	$Scoring.visible = true
+	
 	scoreLabel.text = "Score: " + str(GameManager.score)
 	timeScoreLabel.text = "Survival Time: " + str(int(GameManager.survivalScore))
 	

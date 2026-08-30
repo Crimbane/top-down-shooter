@@ -43,11 +43,11 @@ var ammoInventoryCurrent = {
 
 var ammoInventoryMax = {
 	"bullets": 999,
-	"piercing bullets": 0,
-	"buckshot": 0,
-	"slugs": 0,
-	"explosive bullets": 0,
-	"bouncing bullets": 0
+	"piercing bullets": 99,
+	"buckshot": 99,
+	"slugs": 99,
+	"explosive bullets": 99,
+	"bouncing bullets": 99
 }
 
 func _ready() -> void:

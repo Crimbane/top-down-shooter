@@ -10,16 +10,20 @@ var chasingPlayer: bool = true
 var pathfindingBecauseStuck = false
 
 # Enemy sizes: Small is 16x16 collision or smaller. Medium is up to 32x32
-@export_enum("Small", "Medium", "Big") var enemySize: String = "Medium":
+@export_enum("Small", "Medium") var enemySize: String = "Medium":
 	set(value):
 		enemySize = value
 
 @export var speed: int = 40
 @export var maxHealth: int = 100
-@onready var currentHealth: int = maxHealth
+var currentHealth: int = maxHealth
 @export var attackDamage: int = 1
 
+@onready var baseSpeed: int
+@onready var baseMaxHealth: int
+
 @export var killScore: int = 1
+@onready var baseKillScore: int
 
 
 @onready var player = get_tree().get_first_node_in_group("Player")
@@ -34,15 +38,31 @@ var healthBarOffsetHeight = 3
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	$"Line Of Sight Timer".timeout.connect(onLOSTimerTimeout)
-	call_deferred("startEnemyPathing")
 	
-	placeHealthBar()
 	
 	$"Area2D Attack".body_entered.connect(attack)
 	$"Area2D Pathfinding".body_entered.connect(changePathfindingOnStuck)
+	
+	baseSpeed = speed
+	baseMaxHealth = maxHealth
+	baseKillScore = killScore
+	
+	killScore = baseKillScore * GameManager.difficultyMultiplier
+	
+	maxHealth = baseMaxHealth * GameManager.difficultyMultiplier
+	currentHealth = maxHealth
+	
+	placeHealthBar()
+	
+	call_deferred("startEnemyPathing")
 
-
+var increaseDifficulty: bool = true
 func _process(_delta) -> void:
+	speed = baseSpeed * GameManager.difficultyMultiplier
+	
+	if speed > 155:
+		speed = 155
+	
 	animations()
 
 

@@ -87,9 +87,8 @@ size = Vector2(14, 28)
 size = Vector2(14, 27)
 
 [node name="Ghost" unique_id=1903621472 instance=ExtResource("1_0etef")]
-collision_mask = 2
 speed = 60
-maxHealth = 120
+maxHealth = 110
 attackDamage = 2
 killScore = 4
 

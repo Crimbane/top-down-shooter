@@ -76,18 +76,24 @@ sprite_frames = SubResource("SpriteFrames_t1yug")
 
 [node name="Shoot Explosive Sound" type="AudioStreamPlayer2D" parent="." unique_id=2004050209]
 stream = ExtResource("5_x8gpb")
+bus = &"sfx"
 
 [node name="Shoot Bouncing Sound" type="AudioStreamPlayer2D" parent="." unique_id=2091045181]
 stream = ExtResource("6_u68yt")
+bus = &"sfx"
 
 [node name="Dry Fire Sound" type="AudioStreamPlayer2D" parent="." unique_id=701976705]
 stream = ExtResource("7_l3cwd")
+bus = &"sfx"
 
 [node name="Reload Sound 1" type="AudioStreamPlayer2D" parent="." unique_id=2055904744]
 stream = ExtResource("8_ustcv")
+bus = &"sfx"
 
 [node name="Reload Sound 2" type="AudioStreamPlayer2D" parent="." unique_id=1212887313]
 stream = ExtResource("9_pqi4s")
+bus = &"sfx"
 
 [node name="Change Bullet Sound" type="AudioStreamPlayer2D" parent="." unique_id=754993264]
 stream = ExtResource("10_6p4hh")
+bus = &"sfx"

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://syapby5j0mt4" path="res://Systems/game_manager.gd" id="1_jhwwc"]
 [ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="2_i43wb"]
 [ext_resource type="AudioStream" uid="uid://ceh14nqtwqq2x" path="res://Systems/UI/Audio/Binder Clip Opening.wav" id="3_i43wb"]
+[ext_resource type="AudioStream" uid="uid://b68rf5rshipiq" path="res://Systems/Spawn Generator/Audio/Evil Dungeon Chanting C.wav" id="4_i56rn"]
+[ext_resource type="AudioStream" uid="uid://kh2jfb6avmr0" path="res://Systems/Pickup/Audio/Pick Up Equipment A.wav" id="5_scra7"]
 
 [node name="Game Manager" type="Node" unique_id=1442005331]
 process_mode = 3
@@ -10,7 +12,18 @@ script = ExtResource("1_jhwwc")
 
 [node name="Button Sound" type="AudioStreamPlayer2D" parent="." unique_id=1607237455]
 stream = ExtResource("2_i43wb")
+bus = &"sfx"
 
 [node name="ButtonHover Sound" type="AudioStreamPlayer2D" parent="." unique_id=1432072180]
 stream = ExtResource("3_i43wb")
 volume_db = -5.778
+bus = &"sfx"
+
+[node name="Difficulty Increase Sound" type="AudioStreamPlayer2D" parent="." unique_id=799220389]
+stream = ExtResource("4_i56rn")
+volume_db = 10.0
+bus = &"sfx"
+
+[node name="Pickup Sound" type="AudioStreamPlayer2D" parent="." unique_id=263470405]
+stream = ExtResource("5_scra7")
+bus = &"sfx"

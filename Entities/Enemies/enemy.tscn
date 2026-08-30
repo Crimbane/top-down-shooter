@@ -110,7 +110,8 @@ collision_mask = 3
 one_shot = true
 
 [node name="Area2D Pathfinding" type="Area2D" parent="." unique_id=1488407102]
-collision_mask = 3
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D Pathfinding" unique_id=666793766]
 shape = SubResource("RectangleShape2D_fyjvv")
@@ -125,6 +126,7 @@ texture_under = ExtResource("3_4jf10")
 texture_progress = ExtResource("4_ihd1f")
 
 [node name="Area2D Attack" type="Area2D" parent="." unique_id=1367624743]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D Attack" unique_id=1001917874]
 position = Vector2(1, 4)

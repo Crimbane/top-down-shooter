@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dyn6yts7bmn7b"]
+
+[ext_resource type="Script" uid="uid://qaxty0e2gw0i" path="res://Systems/UI/difficulty_arc.gd" id="1_3rm8c"]
+
+[node name="Difficulty Arc" type="Node2D" unique_id=1077266524]
+z_index = 2000
+script = ExtResource("1_3rm8c")

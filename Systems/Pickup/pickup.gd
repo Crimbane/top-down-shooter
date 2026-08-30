@@ -3,6 +3,8 @@ extends Area2D
 
 @export var despawnTimer: int = 20
 
+var ammoMultiplier: float = 1.0
+
 @export_enum(
 	"Health", "Damage", "Shield", "Speed", "FireRate",
 	"Bullet", "PiercingBullet", "BouncingBullet", "ExplosiveBullet", 
@@ -20,8 +22,9 @@ func _ready() -> void:
 	
 	if not Engine.is_editor_hint():
 		body_entered.connect(pickup)
-		await get_tree().create_timer(despawnTimer).timeout
-		queue_free()
+		if pickupSprite == "Health" or pickupSprite == "Damage" or pickupSprite == "Shield" or pickupSprite == "Speed" or pickupSprite == "FireRate":
+			await get_tree().create_timer(despawnTimer).timeout
+			queue_free()
 
 
 func updateSprite() -> void:
@@ -70,15 +73,21 @@ func pickup(body: CharacterBody2D) -> void:
 			body.fireRateBuff()
 		
 		"Bullet":
-			body.updateInventory("bullets", 20)
+			body.updateInventory("bullets", 20 * ammoMultiplier)
+			GameManager.playPickupSound()
 		"PiercingBullet":
-			body.updateInventory("piercing bullets", 20)
+			body.updateInventory("piercing bullets", 20 * ammoMultiplier)
+			GameManager.playPickupSound()
 		"Buckshot":
-			body.updateInventory("buckshot", 12)
+			body.updateInventory("buckshot", 12 * ammoMultiplier)
+			GameManager.playPickupSound()
 		"Slug":
-			body.updateInventory("slugs", 8)
+			body.updateInventory("slugs", 8 * ammoMultiplier)
+			GameManager.playPickupSound()
 		"ExplosiveBullet":
-			body.updateInventory("explosive bullets", 8)
+			body.updateInventory("explosive bullets", 8 * ammoMultiplier)
+			GameManager.playPickupSound()
 		"BouncingBullet":
-			body.updateInventory("bouncing bullets", 8)
+			body.updateInventory("bouncing bullets", 8 * ammoMultiplier)
+			GameManager.playPickupSound()
 	queue_free()

@@ -89,3 +89,4 @@ animation = &"explosion"
 
 [node name="Explosion Sound" type="AudioStreamPlayer2D" parent="." unique_id=1113013212]
 stream = ExtResource("3_s0h8k")
+bus = &"sfx"
