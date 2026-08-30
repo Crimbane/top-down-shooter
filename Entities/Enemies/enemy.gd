@@ -88,6 +88,7 @@ func takeDamage(damage: int) -> void:
 
 func die() -> void:
 	# increase score by killScore
+	GameManager.increaseScore(killScore)
 	queue_free()
 
 

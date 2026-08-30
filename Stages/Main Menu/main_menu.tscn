@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8q67807dutq3" path="res://Stages/Main Menu/main_menu.gd" id="1_bfnqi"]
 [ext_resource type="Texture2D" uid="uid://rer1mx0twbxx" path="res://Stages/Main Menu/Art/Main Menu Background.png" id="1_kutm6"]
+[ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="3_y5bvh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjc7g"]
 texture = ExtResource("1_kutm6")
@@ -111,3 +112,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_kutm6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y5bvh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bfnqi")
 text = "Quit"
+
+[node name="Button Sound" type="AudioStreamPlayer2D" parent="." unique_id=643080260]
+stream = ExtResource("3_y5bvh")

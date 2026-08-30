@@ -8,12 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://d55jypu8k4aa" path="res://Entities/Enemies/Squid/squid.tscn" id="6_36544"]
 [ext_resource type="PackedScene" uid="uid://b53fvqlcjftyl" path="res://Entities/Enemies/Slime/slime.tscn" id="6_ygu4f"]
 [ext_resource type="PackedScene" uid="uid://dw0jdnvdxhce0" path="res://Entities/Enemies/Wasp/wasp.tscn" id="7_ygu4f"]
+[ext_resource type="PackedScene" uid="uid://dho5w8p6imdn" path="res://Entities/Enemies/Ghost/ghost.tscn" id="8_nqybl"]
+[ext_resource type="PackedScene" uid="uid://6gag2tkwmhyu" path="res://Entities/Enemies/Burning Skull/burning_skull.tscn" id="10_0lntu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lntu"]
 radius = 150.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihbab"]
 size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orbj4"]
 
 [node name="Red Dungeon Map" type="Node" unique_id=1763579092]
 
@@ -39,6 +43,25 @@ metadata/_edit_lock_ = true
 position = Vector2(-193, 496)
 spawnShape = SubResource("CircleShape2D_0lntu")
 enemy = Array[PackedScene]([ExtResource("6_36544"), ExtResource("7_ygu4f")])
+spawnTime = 8
+
+[node name="EnemySpawner9" parent="." unique_id=1884839554 instance=ExtResource("5_ee4ym")]
+position = Vector2(1221, 502)
+spawnShape = SubResource("CircleShape2D_0lntu")
+enemy = Array[PackedScene]([ExtResource("6_36544"), ExtResource("7_ygu4f")])
+spawnTime = 8
+
+[node name="EnemySpawner7" parent="." unique_id=2000565347 instance=ExtResource("5_ee4ym")]
+position = Vector2(515, 1206)
+spawnShape = SubResource("CircleShape2D_0lntu")
+enemy = Array[PackedScene]([ExtResource("7_ygu4f"), ExtResource("8_nqybl"), ExtResource("6_ygu4f"), ExtResource("7_ygu4f"), ExtResource("7_ygu4f")])
+spawnTime = 8
+
+[node name="EnemySpawner8" parent="." unique_id=277027875 instance=ExtResource("5_ee4ym")]
+position = Vector2(510, -194)
+spawnShape = SubResource("CircleShape2D_0lntu")
+enemy = Array[PackedScene]([ExtResource("7_ygu4f"), ExtResource("8_nqybl"), ExtResource("6_ygu4f")])
+spawnTime = 8
 
 [node name="EnemySpawner2" parent="." unique_id=460434652 instance=ExtResource("5_ee4ym")]
 position = Vector2(318, 608)
@@ -46,5 +69,25 @@ spawnShape = SubResource("RectangleShape2D_ihbab")
 enemy = Array[PackedScene]([ExtResource("6_ygu4f")])
 spawnTime = 3
 enemyLimit = 5
+
+[node name="EnemySpawner3" parent="." unique_id=1636160730 instance=ExtResource("5_ee4ym")]
+position = Vector2(95, 90)
+spawnShape = SubResource("RectangleShape2D_orbj4")
+enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu")])
+
+[node name="EnemySpawner4" parent="." unique_id=2068026658 instance=ExtResource("5_ee4ym")]
+position = Vector2(935, 88)
+spawnShape = SubResource("RectangleShape2D_orbj4")
+enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu")])
+
+[node name="EnemySpawner5" parent="." unique_id=1178785978 instance=ExtResource("5_ee4ym")]
+position = Vector2(924, 925)
+spawnShape = SubResource("RectangleShape2D_orbj4")
+enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu")])
+
+[node name="EnemySpawner6" parent="." unique_id=1420433478 instance=ExtResource("5_ee4ym")]
+position = Vector2(98, 921)
+spawnShape = SubResource("RectangleShape2D_orbj4")
+enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu")])
 
 [editable path="Dungeon Tileset"]

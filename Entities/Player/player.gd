@@ -7,7 +7,7 @@ var lastDirection: String = "down"
 
 var maxHealth: int = 5
 @onready var currentHealth: int = maxHealth
-const NORMAL_SPEED = 300.0
+const NORMAL_SPEED = 150
 var speed = NORMAL_SPEED
 var iFrameTimer: float = 0.5
 
@@ -276,6 +276,8 @@ func onShieldBuffTimerTimeout() -> void:
 
 func die() -> void:
 	#load death screen
+	GameManager.endRun()
+	
 	call_deferred("restartGame")
 
 

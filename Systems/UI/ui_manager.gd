@@ -19,6 +19,10 @@ var actionTween: Tween
 @onready var speedBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/Speed/Timer Bar"
 @onready var fireRateBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/FireRate/Timer Bar"
 
+@onready var scoreLabel: Label = $Scoring/VBoxContainer/Score
+@onready var timeScoreLabel: Label = $"Scoring/VBoxContainer/Survival Score"
+@onready var highScoreLabel: Label = $Scoring/VBoxContainer/MarginContainer/VBoxContainer/Highscore
+@onready var bestTimeScoreLabel: Label = $"Scoring/VBoxContainer/MarginContainer/VBoxContainer/Best Survival Score"
 
 
 
@@ -33,11 +37,14 @@ func _ready() -> void:
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".pressed.connect(exitGame)
 	player.healthChanged.connect(updateHearts)
 	
+	$Scoring.visible = false
+	
 	damageBuff.value = 0
 	speedBuff.value = 0
 	shieldBuff.value = 0
 	fireRateBuff.value = 0
 	
+	showScore()
 	
 	call_deferred("updateHearts")
 	#resizeCursor()
@@ -51,6 +58,8 @@ func _process(_delta: float) -> void:
 	updateBuffTimer(speedBuff, player.get_node("Timers/Speed Buff Timer"))
 	updateBuffTimer(shieldBuff, player.get_node("Timers/Shield Buff Timer"))
 	updateBuffTimer(fireRateBuff, player.get_node("Timers/Fire Rate Buff Timer"))
+	
+	#showScore()
 
 
 func _input(event: InputEvent) -> void:
@@ -71,16 +80,20 @@ func pauseGame() -> void:
 	get_tree().paused = true
 
 func mainMenu() -> void:
+	GameManager.playButtonSound()
 	call_deferred("loadScene")
 
 func resumeGame() -> void:
 	get_tree().paused = false
+	GameManager.playButtonSound()
 	$"Pause Menu".visible = false
 
 func loadScene() -> void:
 	if mainMenuPath != "":
 		get_tree().paused = false
+		GameManager.endRun()
 		get_tree().change_scene_to_file(mainMenuPath)
+
 
 func updateHearts(currentHealth: int = player.currentHealth) -> void:
 	for i in range(hearts.get_child_count()):
@@ -126,6 +139,14 @@ func updateBuffTimer(buffIcon: TextureProgressBar, timer: Timer) -> void:
 		buffIcon.value = 0
 	else:
 		buffIcon.value = (timer.time_left / timer.wait_time) * 100.0
+
+
+func showScore() -> void:
+	scoreLabel.text = "Score: " + str(GameManager.score)
+	timeScoreLabel.text = "Survival Time: " + str(int(GameManager.survivalScore))
+	
+	highScoreLabel.text = "Highscore: " + str(GameManager.highScore)
+	bestTimeScoreLabel.text = "Best Survival Time: " + str(int(GameManager.bestSurvivalScore))
 
 
 func resizeCursor() -> void:

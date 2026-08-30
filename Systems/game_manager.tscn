@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b7ery5h6ltxye"]
+
+[ext_resource type="Script" uid="uid://syapby5j0mt4" path="res://Systems/game_manager.gd" id="1_jhwwc"]
+[ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="2_i43wb"]
+
+[node name="Game Manager" type="Node" unique_id=1442005331]
+script = ExtResource("1_jhwwc")
+
+[node name="Button Sound" type="AudioStreamPlayer2D" parent="." unique_id=1607237455]
+stream = ExtResource("2_i43wb")

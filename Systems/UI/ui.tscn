@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ntnfwle6d3ti" path="res://Systems/UI/Art/Shield Buff Icon.png" id="7_xo8aq"]
 [ext_resource type="Texture2D" uid="uid://uaaatn0ry4ft" path="res://Systems/UI/Art/Walkspeed Buff Icon.png" id="8_uhltn"]
 [ext_resource type="Texture2D" uid="uid://bf04kqf3oddpr" path="res://Systems/UI/Art/Firerate Buff Icon.png" id="9_fxfak"]
+[ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="10_xo8aq"]
 
 [node name="UI" type="CanvasLayer" unique_id=48622636]
 
@@ -299,3 +300,69 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 text = "Quit"
+
+[node name="Button Sound" type="AudioStreamPlayer2D" parent="UI Manager" unique_id=1914521992]
+stream = ExtResource("10_xo8aq")
+
+[node name="Scoring" type="Control" parent="UI Manager" unique_id=1356149609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = -57.0
+offset_right = 86.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI Manager/Scoring" unique_id=1861542674]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -67.0
+offset_right = 96.5
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3254902, 0, 0.6745098, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Scoring" unique_id=1083827558]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.5
+offset_right = 86.5
+offset_bottom = 114.0
+grow_horizontal = 2
+
+[node name="Score" type="Label" parent="UI Manager/Scoring/VBoxContainer" unique_id=135996859]
+layout_mode = 2
+text = "Score: 1"
+
+[node name="Survival Score" type="Label" parent="UI Manager/Scoring/VBoxContainer" unique_id=1972826009]
+layout_mode = 2
+text = "Time survived: 5"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Manager/Scoring/VBoxContainer" unique_id=780082119]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Scoring/VBoxContainer/MarginContainer" unique_id=209714658]
+layout_mode = 2
+
+[node name="Highscore" type="Label" parent="UI Manager/Scoring/VBoxContainer/MarginContainer/VBoxContainer" unique_id=261615311]
+layout_mode = 2
+text = "Highscore: 15"
+
+[node name="Best Survival Score" type="Label" parent="UI Manager/Scoring/VBoxContainer/MarginContainer/VBoxContainer" unique_id=42786033]
+layout_mode = 2
+text = "Best Time survived: 27"
