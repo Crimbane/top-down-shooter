@@ -27,6 +27,9 @@ func _process(delta: float) -> void:
 func playButtonSound() -> void:
 	$"Button Sound".play()
 
+func playButtonHoverSound() -> void:
+	$"ButtonHover Sound".play()
+
 
 func increaseScore(amount: int) -> void:
 	score += amount

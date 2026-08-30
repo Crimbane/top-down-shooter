@@ -30,11 +30,19 @@ var actionTween: Tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(ARROW_CURSOR, Input.CURSOR_ARROW, Vector2(16,16))
+	
 	$"Dev/Quit Button".pressed.connect(exitGame)
 	$"Dev/Restart Button".pressed.connect(restartScene)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Resume Button".pressed.connect(resumeGame)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Main Menu Button".pressed.connect(mainMenu)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".pressed.connect(exitGame)
+	
+	$"Dev/Quit Button".mouse_entered.connect(onButtonHover)
+	$"Dev/Restart Button".mouse_entered.connect(onButtonHover)
+	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Resume Button".mouse_entered.connect(onButtonHover)
+	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Main Menu Button".mouse_entered.connect(onButtonHover)
+	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".mouse_entered.connect(onButtonHover)
+	
 	player.healthChanged.connect(updateHearts)
 	
 	$Scoring.visible = false
@@ -87,6 +95,9 @@ func resumeGame() -> void:
 	get_tree().paused = false
 	GameManager.playButtonSound()
 	$"Pause Menu".visible = false
+
+func onButtonHover() -> void:
+	GameManager.playButtonHoverSound()
 
 func loadScene() -> void:
 	if mainMenuPath != "":

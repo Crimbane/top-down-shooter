@@ -35,6 +35,11 @@ func _ready() -> void:
 	$"Button Container/Settings".pressed.connect(openSettings)
 	$"Button Container/Credits".pressed.connect(rollCredits)
 	$"Button Container/Quit".pressed.connect(quitGame)
+	
+	$"Button Container/Start Game".mouse_entered.connect(onButtonHover)
+	$"Button Container/Settings".mouse_entered.connect(onButtonHover)
+	$"Button Container/Credits".mouse_entered.connect(onButtonHover)
+	$"Button Container/Quit".mouse_entered.connect(onButtonHover)
 
 
 func startGame() -> void:
@@ -49,6 +54,9 @@ func rollCredits() -> void:
 
 func quitGame() -> void:
 	get_tree().quit()
+
+func onButtonHover() -> void:
+	GameManager.playButtonHoverSound()
 
 func loadScene() -> void:
 	if gamePath != "":

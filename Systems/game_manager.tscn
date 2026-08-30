@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://syapby5j0mt4" path="res://Systems/game_manager.gd" id="1_jhwwc"]
 [ext_resource type="AudioStream" uid="uid://be3pt3nbqlaxt" path="res://Systems/UI/Audio/Ball Kick Normal.wav" id="2_i43wb"]
+[ext_resource type="AudioStream" uid="uid://ceh14nqtwqq2x" path="res://Systems/UI/Audio/Binder Clip Opening.wav" id="3_i43wb"]
 
 [node name="Game Manager" type="Node" unique_id=1442005331]
+process_mode = 3
 script = ExtResource("1_jhwwc")
 
 [node name="Button Sound" type="AudioStreamPlayer2D" parent="." unique_id=1607237455]
 stream = ExtResource("2_i43wb")
+
+[node name="ButtonHover Sound" type="AudioStreamPlayer2D" parent="." unique_id=1432072180]
+stream = ExtResource("3_i43wb")
+volume_db = -5.778
