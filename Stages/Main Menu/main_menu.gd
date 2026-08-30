@@ -5,8 +5,6 @@ extends Control
 const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
 @export_file("*.tscn") var gamePath: String
 
-@onready var main = $Main
-@onready var settings = $Settings
 @onready var highScoreLabel = $"Main/MarginContainer/VBoxContainer/Highest Score"
 @onready var survivalScoreLabel = $"Main/MarginContainer/VBoxContainer/Survival Time"
 
@@ -33,6 +31,7 @@ func _ready() -> void:
 	survivalScoreLabel.text = "Best Time: " + timeString
 	
 	
+	$"Reset Score".pressed.connect(resetScore)
 	$"Main/Start Game".pressed.connect(startGame)
 	$"Main/Settings".pressed.connect(openSettings)
 	$"Main/Credits".pressed.connect(rollCredits)
@@ -40,6 +39,7 @@ func _ready() -> void:
 	$Settings/Controls.pressed.connect(openControls)
 	$Settings/Back.pressed.connect(exitSettings)
 	
+	$"Reset Score".mouse_entered.connect(onButtonHover)
 	$"Main/Start Game".mouse_entered.connect(onButtonHover)
 	$"Main/Settings".mouse_entered.connect(onButtonHover)
 	$"Main/Credits".mouse_entered.connect(onButtonHover)
@@ -48,14 +48,19 @@ func _ready() -> void:
 	$"Settings/MarginContainer/VBoxContainer/SFX Container/SFX Volume".drag_ended.connect(onSliderDragEnded)
 
 
+func resetScore() -> void:
+	GameManager.playButtonSound()
+	GameManager.resetScore()
+
 func startGame() -> void:
 	GameManager.playButtonSound()
 	call_deferred("loadScene")
 
 func openSettings() -> void:
 	GameManager.playButtonSound()
-	main.visible = false
-	settings.visible = true
+	$Main.visible = false
+	$Settings.visible = true
+	$"Reset Score".visible = true
 
 func rollCredits() -> void:
 	GameManager.playButtonSound()
@@ -68,8 +73,9 @@ func openControls() -> void:
 
 func exitSettings() -> void:
 	GameManager.playButtonSound()
-	main.visible = true
-	settings.visible = false
+	$Main.visible = true
+	$Settings.visible = false
+	$"Reset Score".visible = false
 
 func onButtonHover() -> void:
 	GameManager.playButtonHoverSound()

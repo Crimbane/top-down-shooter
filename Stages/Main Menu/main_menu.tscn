@@ -9,6 +9,30 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjc7g"]
 texture = ExtResource("2_y5bvh")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjc7g"]
+bg_color = Color(0.35898823, 6.708223e-07, 1.2032687e-07, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7bji"]
+bg_color = Color(0.5568628, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4dj5"]
+bg_color = Color(0.27515873, 2.9329675e-07, 1.8049032e-07, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kutm6"]
 bg_color = Color(0.14117648, 0.15686275, 0.18039216, 1)
 corner_radius_top_left = 12
@@ -48,6 +72,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fjc7g")
+
+[node name="Reset Score" type="Button" parent="." unique_id=2107412235]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -42.0
+offset_right = -15.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_fjc7g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r7bji")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c4dj5")
+text = "Reset
+Score"
 
 [node name="Main" type="VBoxContainer" parent="." unique_id=820468604]
 layout_mode = 1
