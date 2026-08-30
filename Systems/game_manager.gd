@@ -96,11 +96,13 @@ func startRun() -> void:
 	survivalScore = 0.0
 	survivalActive = true
 	difficultyMultiplier = 1.0
+	difficultyLevel = 0
 
 
 func endRun() -> void:
 	survivalActive = false
 	difficultyMultiplier = 1.0
+	difficultyLevel = 0
 	
 	if score > highScore:
 		highScore = score
@@ -109,9 +111,6 @@ func endRun() -> void:
 		bestSurvivalScore = survivalScore
 	
 	saveGame()
-	
-	score = 0
-	survivalScore = 0.0
 
 
 func resetScore() -> void: # can put in settings

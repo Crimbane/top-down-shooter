@@ -48,6 +48,9 @@ func _ready() -> void:
 	baseKillScore = killScore
 	
 	killScore = baseKillScore * GameManager.difficultyMultiplier
+	speed = baseSpeed * GameManager.difficultyMultiplier
+	if speed > 155:
+		speed = 155
 	
 	maxHealth = baseMaxHealth * GameManager.difficultyMultiplier
 	currentHealth = maxHealth
@@ -56,13 +59,7 @@ func _ready() -> void:
 	
 	call_deferred("startEnemyPathing")
 
-var increaseDifficulty: bool = true
 func _process(_delta) -> void:
-	speed = baseSpeed * GameManager.difficultyMultiplier
-	
-	if speed > 155:
-		speed = 155
-	
 	animations()
 
 

@@ -3,6 +3,7 @@ extends Control
 
 const ARROW_CURSOR = preload("res://Systems/UI/Art/Crosshair-resized-ps.png")
 @export_file("*.tscn") var mainMenuPath: String
+@export_file("*.tscn") var dungeonPath: String
 
 var cursorTexture = load("uid://cy2ue5555y0r7")
 
@@ -19,10 +20,10 @@ var actionTween: Tween
 @onready var speedBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/Speed/Timer Bar"
 @onready var fireRateBuff: TextureProgressBar = $"HUD/Top Middle Bar/HBox Buffs/FireRate/Timer Bar"
 
-@onready var scoreLabel: Label = $Scoring/VBoxContainer/Score
-@onready var timeScoreLabel: Label = $"Scoring/VBoxContainer/Survival Score"
-@onready var highScoreLabel: Label = $Scoring/VBoxContainer/MarginContainer/VBoxContainer/Highscore
-@onready var bestTimeScoreLabel: Label = $"Scoring/VBoxContainer/MarginContainer/VBoxContainer/Best Survival Score"
+@onready var scoreLabel: Label = $"Death Screen/VBoxContainer/Scoring/VBoxContainer/Score"
+@onready var timeScoreLabel: Label = $"Death Screen/VBoxContainer/Scoring/VBoxContainer/Survival Score"
+@onready var highScoreLabel: Label = $"Death Screen/VBoxContainer/Scoring/VBoxContainer/MarginContainer/VBoxContainer/Highscore"
+@onready var bestTimeScoreLabel: Label = $"Death Screen/VBoxContainer/Scoring/VBoxContainer/MarginContainer/VBoxContainer/Best Survival Score"
 
 @onready var devDifficultyLabel: Label = $Dev/Difficulty
 @onready var devScoreLabel: Label = $Dev/Score
@@ -39,6 +40,8 @@ func _ready() -> void:
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Resume Button".pressed.connect(resumeGame)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Main Menu Button".pressed.connect(mainMenu)
 	$"Pause Menu/CenterContainer/PanelContainer/VBoxContainer/Quit Button".pressed.connect(exitGame)
+	$"Death Screen/VBoxContainer/Death Try Again Button".pressed.connect(tryAgain)
+	$"Death Screen/VBoxContainer/Death Main Menu Button".pressed.connect(mainMenu)
 	
 	$"Dev/Quit Button".mouse_entered.connect(onButtonHover)
 	$"Dev/Restart Button".mouse_entered.connect(onButtonHover)
@@ -48,14 +51,13 @@ func _ready() -> void:
 	
 	player.healthChanged.connect(updateHearts)
 	
-	$Scoring.visible = false
+	$"Death Screen".visible = false
 	
 	damageBuff.value = 0
 	speedBuff.value = 0
 	shieldBuff.value = 0
 	fireRateBuff.value = 0
 	
-	#showScore()
 	
 	call_deferred("updateHearts")
 	#resizeCursor()
@@ -92,23 +94,47 @@ func pauseGame() -> void:
 	$"Pause Menu".visible = true
 	get_tree().paused = true
 
+
 func mainMenu() -> void:
 	GameManager.playButtonSound()
+	get_tree().paused = false
 	call_deferred("loadScene")
+
 
 func resumeGame() -> void:
 	get_tree().paused = false
 	GameManager.playButtonSound()
 	$"Pause Menu".visible = false
 
+
 func onButtonHover() -> void:
 	GameManager.playButtonHoverSound()
+
 
 func loadScene() -> void:
 	if mainMenuPath != "":
 		get_tree().paused = false
 		GameManager.endRun()
 		get_tree().change_scene_to_file(mainMenuPath)
+
+
+func tryAgain() -> void:
+	if dungeonPath != "":
+		get_tree().paused = false
+		GameManager.startRun()
+		get_tree().change_scene_to_file(dungeonPath)
+
+
+func showScore() -> void:
+	GameManager.endRun()
+	$"Death Screen".visible = true
+	get_tree().paused = true
+	
+	scoreLabel.text = "Score: " + str(GameManager.score)
+	timeScoreLabel.text = "Survival Time: " + str(int(GameManager.survivalScore))
+	
+	highScoreLabel.text = "Highscore: " + str(GameManager.highScore)
+	bestTimeScoreLabel.text = "Best Survival Time: " + str(int(GameManager.bestSurvivalScore))
 
 
 func updateHearts(currentHealth: int = player.currentHealth) -> void:
@@ -155,16 +181,6 @@ func updateBuffTimer(buffIcon: TextureProgressBar, timer: Timer) -> void:
 		buffIcon.value = 0
 	else:
 		buffIcon.value = (timer.time_left / timer.wait_time) * 100.0
-
-
-func showScore() -> void:
-	$Scoring.visible = true
-	
-	scoreLabel.text = "Score: " + str(GameManager.score)
-	timeScoreLabel.text = "Survival Time: " + str(int(GameManager.survivalScore))
-	
-	highScoreLabel.text = "Highscore: " + str(GameManager.highScore)
-	bestTimeScoreLabel.text = "Best Survival Time: " + str(int(GameManager.bestSurvivalScore))
 
 
 func resizeCursor() -> void:

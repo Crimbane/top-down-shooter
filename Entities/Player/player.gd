@@ -3,6 +3,9 @@ extends CharacterBody2D
 signal hit
 signal healthChanged(currentHealth)
 
+@onready var uiManager = get_tree().current_scene.get_node("UI/UI Manager")
+
+
 var lastDirection: String = "down"
 
 var maxHealth: int = 5
@@ -275,10 +278,11 @@ func onShieldBuffTimerTimeout() -> void:
 
 
 func die() -> void:
-	#load death screen
-	GameManager.endRun()
+	uiManager.showScore()
 	
-	call_deferred("restartGame")
+	
+	
+	#call_deferred("restartGame")
 
 
 func getBulletSpawnPosition() -> Vector2:

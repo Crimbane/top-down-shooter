@@ -49,76 +49,84 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy Spawners" type="Node" parent="." unique_id=1133821672]
 
-[node name="EnemySpawner" parent="Enemy Spawners" unique_id=1428444744 instance=ExtResource("5_ee4ym")]
+[node name="BigSpawner4" parent="Enemy Spawners" unique_id=1428444744 instance=ExtResource("5_ee4ym")]
 position = Vector2(-193, 496)
 spawnShape = SubResource("CircleShape2D_0lntu")
 enemy = Array[PackedScene]([ExtResource("7_ygu4f"), ExtResource("7_ygu4f")])
 spawnTime = 8
+enemyLimit = 2
 
-[node name="EnemySpawner9" parent="Enemy Spawners" unique_id=1884839554 instance=ExtResource("5_ee4ym")]
+[node name="BigSpawner2" parent="Enemy Spawners" unique_id=1884839554 instance=ExtResource("5_ee4ym")]
 position = Vector2(1221, 502)
 spawnShape = SubResource("CircleShape2D_0lntu")
 enemy = Array[PackedScene]([ExtResource("7_ygu4f"), ExtResource("7_ygu4f")])
 spawnTime = 8
+enemyLimit = 2
 
-[node name="EnemySpawner7" parent="Enemy Spawners" unique_id=2000565347 instance=ExtResource("5_ee4ym")]
+[node name="BigSpawner3" parent="Enemy Spawners" unique_id=2000565347 instance=ExtResource("5_ee4ym")]
 position = Vector2(515, 1206)
 spawnShape = SubResource("CircleShape2D_0lntu")
 enemy = Array[PackedScene]([ExtResource("7_ygu4f"), ExtResource("8_nqybl"), ExtResource("8_nqybl")])
 spawnTime = 8
+enemyLimit = 2
 
-[node name="EnemySpawner8" parent="Enemy Spawners" unique_id=277027875 instance=ExtResource("5_ee4ym")]
+[node name="BigSpawner" parent="Enemy Spawners" unique_id=277027875 instance=ExtResource("5_ee4ym")]
 position = Vector2(510, -194)
 spawnShape = SubResource("CircleShape2D_0lntu")
 enemy = Array[PackedScene]([ExtResource("7_ygu4f"), ExtResource("8_nqybl"), ExtResource("8_nqybl")])
 spawnTime = 8
+enemyLimit = 2
 
-[node name="EnemySpawner2" parent="Enemy Spawners" unique_id=460434652 instance=ExtResource("5_ee4ym")]
+[node name="MiddleSpawner" parent="Enemy Spawners" unique_id=460434652 instance=ExtResource("5_ee4ym")]
 position = Vector2(512, 506)
 spawnShape = SubResource("RectangleShape2D_ihbab")
 enemy = Array[PackedScene]([ExtResource("6_ygu4f"), ExtResource("6_ygu4f"), ExtResource("6_ygu4f"), ExtResource("10_0lntu")])
 spawnTime = 2
-enemyLimit = 20
+enemyLimit = 15
 
 [node name="EnemySpawner3" parent="Enemy Spawners" unique_id=1636160730 instance=ExtResource("5_ee4ym")]
 position = Vector2(95, 90)
 spawnShape = SubResource("RectangleShape2D_orbj4")
 enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu"), ExtResource("10_0lntu")])
+enemyLimit = 2
 
 [node name="EnemySpawner4" parent="Enemy Spawners" unique_id=2068026658 instance=ExtResource("5_ee4ym")]
 position = Vector2(935, 88)
 spawnShape = SubResource("RectangleShape2D_orbj4")
 enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu"), ExtResource("10_0lntu")])
+enemyLimit = 2
 
 [node name="EnemySpawner5" parent="Enemy Spawners" unique_id=1178785978 instance=ExtResource("5_ee4ym")]
 position = Vector2(924, 925)
 spawnShape = SubResource("RectangleShape2D_orbj4")
 enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu"), ExtResource("10_0lntu")])
+enemyLimit = 2
 
 [node name="EnemySpawner6" parent="Enemy Spawners" unique_id=1420433478 instance=ExtResource("5_ee4ym")]
 position = Vector2(98, 921)
 spawnShape = SubResource("RectangleShape2D_orbj4")
 enemy = Array[PackedScene]([ExtResource("8_nqybl"), ExtResource("10_0lntu"), ExtResource("10_0lntu")])
+enemyLimit = 2
 
-[node name="EnemySpawner10" parent="Enemy Spawners" unique_id=1394716643 instance=ExtResource("5_ee4ym")]
+[node name="SquidSpawner4" parent="Enemy Spawners" unique_id=1394716643 instance=ExtResource("5_ee4ym")]
 position = Vector2(16, 226)
 spawnShape = SubResource("RectangleShape2D_nqybl")
 enemy = Array[PackedScene]([ExtResource("6_36544")])
 enemyLimit = 1
 
-[node name="EnemySpawner11" parent="Enemy Spawners" unique_id=1754321080 instance=ExtResource("5_ee4ym")]
+[node name="SquidSpawner3" parent="Enemy Spawners" unique_id=1754321080 instance=ExtResource("5_ee4ym")]
 position = Vector2(1009, 224)
 spawnShape = SubResource("RectangleShape2D_nqybl")
 enemy = Array[PackedScene]([ExtResource("6_36544")])
 enemyLimit = 1
 
-[node name="EnemySpawner12" parent="Enemy Spawners" unique_id=1164170873 instance=ExtResource("5_ee4ym")]
+[node name="SquidSpawner2" parent="Enemy Spawners" unique_id=1164170873 instance=ExtResource("5_ee4ym")]
 position = Vector2(1008, 777)
 spawnShape = SubResource("RectangleShape2D_nqybl")
 enemy = Array[PackedScene]([ExtResource("6_36544")])
 enemyLimit = 1
 
-[node name="EnemySpawner13" parent="Enemy Spawners" unique_id=1886682167 instance=ExtResource("5_ee4ym")]
+[node name="SquidSpawner" parent="Enemy Spawners" unique_id=1886682167 instance=ExtResource("5_ee4ym")]
 position = Vector2(14, 777)
 spawnShape = SubResource("RectangleShape2D_nqybl")
 enemy = Array[PackedScene]([ExtResource("6_36544")])

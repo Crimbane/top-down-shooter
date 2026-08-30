@@ -21,6 +21,7 @@ extends Node2D
 		if spawnTimer:
 			spawnTimer.wait_time = spawnTime
 @export var enemyLimit: int = 3
+@onready var baseEnemyLimit: int
 
 var player
 var tilemap: TileMapLayer
@@ -35,6 +36,14 @@ func _ready() -> void:
 		spawnArea.shape = spawnShape
 	if spawnTimer.wait_time != spawnTime:
 		spawnTimer.wait_time = spawnTime
+	
+	baseEnemyLimit = enemyLimit
+
+
+
+func _process(_delta: float) -> void:
+	if not Engine.is_editor_hint():
+		enemyLimit = baseEnemyLimit * GameManager.difficultyMultiplier
 
 func _on_timer_timeout() -> void:
 	if enemy.is_empty():
