@@ -1,9 +1,6 @@
 extends Control
 
 
-var saveFilePath = "user://highscores.save"
-var highScore: int
-var bestSurvivalScore: int
 
 const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
 @export_file("*.tscn") var gamePath: String
@@ -11,14 +8,27 @@ const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
 @onready var highScoreLabel = $"Button Container/MarginContainer/VBoxContainer/Highest Score"
 @onready var survivalScoreLabel = $"Button Container/MarginContainer/VBoxContainer/Survival Time"
 
+var timeString: String
+var timeOverflowSeconds: int = 0
+var timeOverflowMinutes: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(BUTTTON_MOUSEOVER_CURSOR, Input.CURSOR_ARROW, Vector2(16,16))
-	#loadSaveFile()
 	
-	highScore = GameManager.highScore
-	bestSurvivalScore = GameManager.bestSurvivalScore
+	var timeScore = GameManager.bestSurvivalScore
+	timeOverflowSeconds = int(timeScore) % 60
+	timeOverflowMinutes = int(timeScore - timeOverflowSeconds) % 3600
+	
+	if timeScore < 60:
+		timeString = str(int(timeScore)) + "s"
+	elif timeScore / 60 < 60:
+		timeString = str(int(timeScore / 60)) + "m " + str(timeOverflowSeconds) + "s"
+	elif timeScore / 60 > 60:
+		timeString = str(int(timeScore / 3600)) + "h " + str(timeOverflowMinutes) + "m " + str(timeOverflowSeconds) + "s"
+	
+	highScoreLabel.text = "Best Score: " + str(GameManager.highScore)
+	survivalScoreLabel.text = "Best Time: " + timeString
 	
 	
 	$"Button Container/Start Game".pressed.connect(startGame)
@@ -27,11 +37,6 @@ func _ready() -> void:
 	$"Button Container/Quit".pressed.connect(quitGame)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	highScoreLabel.text = "Highscore: " + str(highScore)
-	survivalScoreLabel.text = "Survival Time: " + str(bestSurvivalScore)
-	
 func startGame() -> void:
 	GameManager.playButtonSound()
 	call_deferred("loadScene")
@@ -49,11 +54,3 @@ func loadScene() -> void:
 	if gamePath != "":
 		GameManager.startRun()
 		get_tree().change_scene_to_file(gamePath)
-
-func loadSaveFile() -> void:
-	if FileAccess.file_exists(saveFilePath):
-		var file = FileAccess.open(saveFilePath, FileAccess.READ)
-		highScore = file.get_var()
-		bestSurvivalScore = file.get_var()
-		
-		#file.store_var(highScore)
