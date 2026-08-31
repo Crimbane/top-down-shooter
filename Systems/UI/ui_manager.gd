@@ -87,6 +87,7 @@ func _input(event: InputEvent) -> void:
 
 
 func exitGame() -> void:
+	GameManager.saveGame()
 	get_tree().quit()
 
 

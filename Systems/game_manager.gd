@@ -16,6 +16,10 @@ var difficultyMultiplier: float = 1.0
 var difficultyTimerInterval: float = 30.0
 var difficultyLevel: int = 0
 
+var masterVolume: float = 1.0
+var musicVolume: float = 1.0
+var sfxVolume: float = 1.0
+
 const SAVE_PATH = "user://savegame.json"
 
 
@@ -23,6 +27,13 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(BUTTTON_MOUSEOVER_CURSOR, Input.CURSOR_POINTING_HAND, Vector2(16,16))
 	print(ProjectSettings.globalize_path(SAVE_PATH))
 	loadSaveFile()
+	
+	var masterBusIndex = AudioServer.get_bus_index("Master")
+	var musicBusIndex = AudioServer.get_bus_index("music")
+	var sfxBusIndex = AudioServer.get_bus_index("sfx")
+	AudioServer.set_bus_volume_db(masterBusIndex, linear_to_db(masterVolume))
+	AudioServer.set_bus_volume_db(musicBusIndex, linear_to_db(musicVolume))
+	AudioServer.set_bus_volume_db(sfxBusIndex, linear_to_db(sfxVolume))
 
 
 func _process(delta: float) -> void:
@@ -40,6 +51,13 @@ func playButtonHoverSound() -> void:
 func playPickupSound() -> void:
 	$"Pickup Sound".play()
 
+func updateSoundVolumes(busName: String, soundValue: float) -> void:
+	if busName == "Master":
+		masterVolume = soundValue
+	elif busName == "music":
+		musicVolume = soundValue
+	elif busName == "sfx":
+		sfxVolume = soundValue
 
 func increaseScore(amount: int) -> void:
 	score += amount
@@ -134,7 +152,10 @@ func resetScore() -> void: # can put in settings
 func saveGame() -> void:
 	var saveData = {
 		"highScore": highScore,
-		"bestSurvivalScore": bestSurvivalScore
+		"bestSurvivalScore": bestSurvivalScore,
+		"masterVolume": masterVolume,
+		"musicVolume": musicVolume,
+		"sfxVolume": sfxVolume,
 	}
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -157,3 +178,6 @@ func loadSaveFile() -> void:
 		if saveData is Dictionary:
 			highScore = saveData.get("highScore", 0)
 			bestSurvivalScore = saveData.get("bestSurvivalScore", 0.0)
+			masterVolume = saveData.get("masterVolume", 1.0)
+			musicVolume = saveData.get("musicVolume", 1.0)
+			sfxVolume = saveData.get("sfxVolume", 1.0)

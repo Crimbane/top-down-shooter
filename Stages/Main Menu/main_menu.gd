@@ -78,6 +78,7 @@ func rollCredits() -> void:
 	call_deferred("loadScene", creditsPath)
 
 func quitGame() -> void:
+	GameManager.saveGame()
 	get_tree().quit()
 
 func openControls() -> void:
