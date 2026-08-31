@@ -142,7 +142,8 @@ func shootBullet(selectedBulletScene: PackedScene, bulletSpread: float) -> void:
 	
 	if player.damageBuffActive == true:
 		bullet.damage *= 2
-		bullet.explosionDamage *= 2
+		if bullet.name == "Explosive Bullet":
+			bullet.explosionDamage *= 2
 	
 	get_tree().current_scene.add_child(bullet)
 

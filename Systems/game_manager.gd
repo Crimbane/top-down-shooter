@@ -54,6 +54,8 @@ func playPickupSound() -> void:
 func playImpactSound() -> void:
 	$"Bullet Impact Sound".play()
 
+func playMonsterDeathSound() -> void:
+	$"Monster Death Sound".play()
 
 func updateSoundVolumes(busName: String, soundValue: float) -> void:
 	if busName == "Master":
