@@ -207,6 +207,8 @@ func takeDamage(damage: int) -> void:
 	
 	healthChanged.emit(currentHealth)
 	
+	$"Take Damage".play()
+	
 	if currentHealth <= 0:
 		die()
 	print("Player health: ", currentHealth)

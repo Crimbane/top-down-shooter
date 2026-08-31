@@ -43,7 +43,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
-		enemyLimit = baseEnemyLimit * GameManager.difficultyMultiplier
+		enemyLimit = int(baseEnemyLimit * GameManager.difficultyMultiplier)
 
 func _on_timer_timeout() -> void:
 	if enemy.is_empty():

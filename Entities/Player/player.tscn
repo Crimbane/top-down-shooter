@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://0ye4t2h3c0dd" path="res://Entities/Player/Art/Player Move With Gun Sprite Sheet.png" id="3_tekja"]
 [ext_resource type="Texture2D" uid="uid://ctjna4udxlj2p" path="res://Entities/Player/Art/Player Idle With Gun Sprite Sheet.png" id="4_5c2io"]
 [ext_resource type="Texture2D" uid="uid://bptln213s00cq" path="res://Systems/UI/Art/Shield Icon.png" id="6_4wf4l"]
+[ext_resource type="AudioStream" uid="uid://ckxtcsj1kncos" path="res://Entities/Player/Audio/Welding Sparks D.wav" id="8_7a1se"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1yug"]
 radius = 6.0
@@ -717,3 +718,8 @@ one_shot = true
 visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_4wf4l")
+
+[node name="Take Damage" type="AudioStreamPlayer2D" parent="." unique_id=1826510834]
+stream = ExtResource("8_7a1se")
+volume_db = 8.254
+bus = &"sfx"

@@ -25,16 +25,18 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+expand_margin_bottom = 20.0
 shadow_color = Color(0, 0, 0, 0.2784314)
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxfak"]
-bg_color = Color(0, 0, 0, 0.28235295)
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.14117648, 0.15686275, 0.18039216, 0)
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.2509804, 0.28235295, 0.78431374)
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kutm6"]
 bg_color = Color(0.14117648, 0.15686275, 0.18039216, 0.78431374)
@@ -358,22 +360,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -100.0
+offset_top = -92.0
 offset_right = 100.0
-offset_bottom = 100.0
+offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UI Manager/Pause Menu/CenterContainer" unique_id=2120086499]
-custom_minimum_size = Vector2(150, 170)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h2tau")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer" unique_id=1843114570]
 layout_mode = 2
 
-[node name="Pause Label" type="Label" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=955942878]
-custom_minimum_size = Vector2(0, 48)
+[node name="MarginContainer" type="MarginContainer" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer" unique_id=1367077333]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="Pause Label" type="Label" parent="UI Manager/Pause Menu/CenterContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=955942878]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.5
@@ -454,7 +460,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -151.0
+offset_top = -159.0
 offset_right = 150.0
 offset_bottom = 147.5
 grow_horizontal = 2
@@ -487,7 +493,7 @@ anchor_bottom = 0.5
 offset_left = -96.5
 offset_top = -54.5
 offset_right = 96.5
-offset_bottom = 52.5
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h2tau")

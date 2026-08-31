@@ -47,12 +47,12 @@ func _ready() -> void:
 	baseMaxHealth = maxHealth
 	baseKillScore = killScore
 	
-	killScore = baseKillScore * GameManager.difficultyMultiplier
-	speed = baseSpeed * GameManager.difficultyMultiplier
+	killScore = int(baseKillScore * GameManager.difficultyMultiplier)
+	speed = int(baseSpeed * GameManager.difficultyMultiplier)
 	if speed > 155:
 		speed = 155
 	
-	maxHealth = baseMaxHealth * GameManager.difficultyMultiplier
+	maxHealth = int(baseMaxHealth * GameManager.difficultyMultiplier)
 	currentHealth = maxHealth
 	
 	placeHealthBar()
