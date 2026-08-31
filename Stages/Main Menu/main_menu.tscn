@@ -64,6 +64,7 @@ grow_vertical = 2
 script = ExtResource("1_bfnqi")
 gamePath = "uid://bss8w2oy0qbad"
 settingsPath = "uid://bv12yf7opnqpt"
+creditsPath = "uid://rehh6xxkwaew"
 
 [node name="Background" type="Panel" parent="." unique_id=686256322]
 layout_mode = 1

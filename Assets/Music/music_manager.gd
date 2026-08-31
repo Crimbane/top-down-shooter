@@ -16,8 +16,8 @@ func _ready() -> void:
 	#playMenuMusic()
 	gameMusicTracks= [gameMusic, gameMusic2, gameMusic3]
 
-
-
+func stopMusic():
+	musicPlayer.stop()
 
 func playMenuMusic():
 	musicPlayer.pitch_scale = 1.0

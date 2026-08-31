@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://btolipntabksf" path="res://Assets/Music/Main Menu Music/Metal Vol3 Beakers Intensity 2.wav" id="2_eijo7"]
 [ext_resource type="AudioStream" uid="uid://wdxsbw6f14yl" path="res://Assets/Music/Game Music/Metal Vol3 Happy Feet Main.wav" id="3_eijo7"]
 [ext_resource type="AudioStream" uid="uid://dftuxm3p6b0rf" path="res://Assets/Music/Game Music/Metal Vol3 Sleeveless Main.wav" id="4_fmojm"]
+[ext_resource type="AudioStream" uid="uid://c70jnx5845ji4" path="res://Assets/Music/Credits Music/Metal Vol3 Chin Surgery Intensity 1.wav" id="6_fmojm"]
 
 [node name="Music Manager" type="Node" unique_id=1807440890]
 process_mode = 3
@@ -13,6 +14,7 @@ menuMusic = ExtResource("2_eijo7")
 gameMusic = ExtResource("2_csri5")
 gameMusic2 = ExtResource("3_eijo7")
 gameMusic3 = ExtResource("4_fmojm")
+creditsMusic = ExtResource("6_fmojm")
 
 [node name="Music Player" type="AudioStreamPlayer" parent="." unique_id=1506469367]
 volume_db = -15.0

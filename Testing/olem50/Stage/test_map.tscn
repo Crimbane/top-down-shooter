@@ -54,7 +54,7 @@ position = Vector2(420, 103)
 
 [node name="Pickup2" parent="." unique_id=1769232337 instance=ExtResource("7_dqrj4")]
 position = Vector2(445, 71)
-pickupSprite = "PiercingBullet"
+pickupSprite = "BouncingBullet"
 
 [node name="BaseEnemy" parent="." unique_id=932177136 instance=ExtResource("1_cq7ob")]
 position = Vector2(320, 0)

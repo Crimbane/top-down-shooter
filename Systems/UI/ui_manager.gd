@@ -103,6 +103,7 @@ func pauseGame() -> void:
 func mainMenu() -> void:
 	GameManager.playButtonSound()
 	MusicManager.normalPitchMusicPlayer()
+	MusicManager.stopMusic()
 	get_tree().paused = false
 	call_deferred("loadScene")
 

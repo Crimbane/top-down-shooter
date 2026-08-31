@@ -5,6 +5,7 @@ extends Control
 const BUTTTON_MOUSEOVER_CURSOR = preload("uid://cn1s3xrc12r11")
 @export_file("*.tscn") var gamePath: String
 @export_file("*.tscn") var settingsPath: String
+@export_file("*.tscn") var creditsPath: String
 
 @onready var highScoreLabel = $"Main/MarginContainer/VBoxContainer/Highest Score"
 @onready var survivalScoreLabel = $"Main/MarginContainer/VBoxContainer/Survival Time"
@@ -73,6 +74,8 @@ func openSettings() -> void:
 
 func rollCredits() -> void:
 	GameManager.playButtonSound()
+	MusicManager.playCreditsMusic()
+	call_deferred("loadScene", creditsPath)
 
 func quitGame() -> void:
 	get_tree().quit()
@@ -99,3 +102,5 @@ func loadScene(scene: String) -> void:
 		get_tree().change_scene_to_file(gamePath)
 	elif scene == "uid://bv12yf7opnqpt":
 		get_tree().change_scene_to_file(settingsPath)
+	elif scene == "uid://rehh6xxkwaew":
+		get_tree().change_scene_to_file(creditsPath)
