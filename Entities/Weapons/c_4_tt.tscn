@@ -76,6 +76,7 @@ sprite_frames = SubResource("SpriteFrames_t1yug")
 
 [node name="Shoot Explosive Sound" type="AudioStreamPlayer2D" parent="." unique_id=2004050209]
 stream = ExtResource("5_x8gpb")
+volume_db = 12.0
 bus = &"sfx"
 
 [node name="Shoot Bouncing Sound" type="AudioStreamPlayer2D" parent="." unique_id=2091045181]

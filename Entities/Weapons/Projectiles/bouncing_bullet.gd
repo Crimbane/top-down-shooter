@@ -27,6 +27,7 @@ func _physics_process(delta):
 			rotation = direction.angle()
 			createImpact()
 		else:
+			createImpact()
 			queue_free()
 
 func createImpact() -> void:
