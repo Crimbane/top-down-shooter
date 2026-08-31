@@ -278,12 +278,10 @@ func iFramesWhenHit() -> void:
 func shieldBuff() -> void:
 	shieldBuffActive = true
 	$"Timers/Shield Buff Timer".start()
-	$"Shield Sprite".visible = true
 
 
 func onShieldBuffTimerTimeout() -> void:
 	shieldBuffActive = false
-	$"Shield Sprite".visible = false
 
 
 func die() -> void:

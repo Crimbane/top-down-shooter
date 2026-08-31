@@ -70,7 +70,7 @@ bulletScene = ExtResource("2_iaqvo")
 altBulletScene = ExtResource("3_8xpl2")
 fireRate = 1.0
 bulletCount = 8
-spread = 0.18
+spread = 0.25
 maxAmmo = 18
 magazineSize = 6
 

@@ -51,6 +51,7 @@ position = Vector2(-359, -194)
 
 [node name="Pickup" parent="." unique_id=2133711726 instance=ExtResource("7_dqrj4")]
 position = Vector2(420, 103)
+pickupSprite = "BouncingBullet"
 
 [node name="Pickup2" parent="." unique_id=1769232337 instance=ExtResource("7_dqrj4")]
 position = Vector2(445, 71)

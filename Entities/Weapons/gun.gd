@@ -210,6 +210,10 @@ func reload() -> void:
 
 
 func updateAmmoUI() -> void:
+	if currentAmmo > magazineSize:
+		currentAmmo = magazineSize
+	if currentAmmoAlt > magazineSizeAlt:
+		currentAmmoAlt = magazineSizeAlt
 	var ammoCounterLabel = get_tree().current_scene.get_node("UI/UI Manager/HUD/Bottom Left/VBox/HBox Bullet/Ammo Counter Bottom")
 	ammoCounterLabel.text = str(currentAmmo) + " / " + str(magazineSize)
 	
