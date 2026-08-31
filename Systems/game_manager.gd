@@ -51,6 +51,9 @@ func playButtonHoverSound() -> void:
 func playPickupSound() -> void:
 	$"Pickup Sound".play()
 
+func playImpactSound() -> void:
+	$"Bullet Impact Sound".play()
+
 func updateSoundVolumes(busName: String, soundValue: float) -> void:
 	if busName == "Master":
 		masterVolume = soundValue

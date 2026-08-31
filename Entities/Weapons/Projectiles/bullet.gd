@@ -27,6 +27,7 @@ func bulletHit(body: Node2D) -> void:
 	
 	if body.is_in_group("Enemy"):
 		body.takeDamage(damage)
+		GameManager.playImpactSound()
 	
 	if explosive:
 		call_deferred("explode")

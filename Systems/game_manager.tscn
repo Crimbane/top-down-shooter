@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://ceh14nqtwqq2x" path="res://Systems/UI/Audio/Binder Clip Opening.wav" id="3_i43wb"]
 [ext_resource type="AudioStream" uid="uid://b68rf5rshipiq" path="res://Systems/Spawn Generator/Audio/Evil Dungeon Chanting C.wav" id="4_i56rn"]
 [ext_resource type="AudioStream" uid="uid://kh2jfb6avmr0" path="res://Systems/Pickup/Audio/Pick Up Equipment A.wav" id="5_scra7"]
+[ext_resource type="AudioStream" uid="uid://ce3kfv32ujn0" path="res://Entities/Weapons/Projectiles/Audio/9mm Micro Pistol - Gunshot A 001.wav" id="6_fjey0"]
 
 [node name="Game Manager" type="Node" unique_id=1442005331]
 process_mode = 3
@@ -27,3 +28,6 @@ bus = &"sfx"
 [node name="Pickup Sound" type="AudioStreamPlayer2D" parent="." unique_id=263470405]
 stream = ExtResource("5_scra7")
 bus = &"sfx"
+
+[node name="Bullet Impact Sound" type="AudioStreamPlayer2D" parent="." unique_id=313642517]
+stream = ExtResource("6_fjey0")

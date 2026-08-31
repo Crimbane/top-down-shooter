@@ -1,0 +1,494 @@
+[gd_scene format=3 uid="uid://bovbeg5d4sng0"]
+
+[ext_resource type="Texture2D" uid="uid://dokmkhjymm3qj" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1001.png" id="1_141nm"]
+[ext_resource type="Script" uid="uid://b15jo3mxano7w" path="res://Assets/Licenses/Godot Splash Art/splash_art.gd" id="1_vpyur"]
+[ext_resource type="Texture2D" uid="uid://dilqkgp3xs3l2" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1002.png" id="2_vpyur"]
+[ext_resource type="Texture2D" uid="uid://b114ujonp8p6" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1003.png" id="3_fqtfe"]
+[ext_resource type="Texture2D" uid="uid://cyqik1ovw76ht" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1004.png" id="4_4i1pj"]
+[ext_resource type="Texture2D" uid="uid://c17my5absa8l1" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1005.png" id="5_7ac7l"]
+[ext_resource type="Texture2D" uid="uid://nrs4aqf4osyi" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1006.png" id="6_p8ror"]
+[ext_resource type="Texture2D" uid="uid://bly2d0pysfd8q" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1007.png" id="7_wt1r3"]
+[ext_resource type="Texture2D" uid="uid://do327d2h5oyop" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1008.png" id="8_pipxn"]
+[ext_resource type="Texture2D" uid="uid://dghlq1pqri70k" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1009.png" id="9_indqv"]
+[ext_resource type="Texture2D" uid="uid://1jacmq2ubkh3" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1010.png" id="10_gkw2t"]
+[ext_resource type="Texture2D" uid="uid://qmu66rcplkai" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1011.png" id="11_n68j8"]
+[ext_resource type="Texture2D" uid="uid://dc63cl1v2aik6" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1012.png" id="12_wynus"]
+[ext_resource type="Texture2D" uid="uid://cacr8arddjcsr" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1013.png" id="13_r7rgv"]
+[ext_resource type="Texture2D" uid="uid://cw4a568mb8bh3" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1014.png" id="14_jl6n0"]
+[ext_resource type="Texture2D" uid="uid://do8hm4ugq7m2n" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1015.png" id="15_uuor3"]
+[ext_resource type="Texture2D" uid="uid://b0yoov2vcnhyd" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1016.png" id="16_c54ie"]
+[ext_resource type="Texture2D" uid="uid://b1bmx8e4a4cy" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1017.png" id="17_slxv4"]
+[ext_resource type="Texture2D" uid="uid://fn001lajlpng" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1018.png" id="18_hqnrw"]
+[ext_resource type="Texture2D" uid="uid://cb7x6kfnqnm5w" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1019.png" id="19_rg6u2"]
+[ext_resource type="Texture2D" uid="uid://smajwckv2av" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1020.png" id="20_ma5lf"]
+[ext_resource type="Texture2D" uid="uid://gme32cpayevh" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1021.png" id="21_qdt4m"]
+[ext_resource type="Texture2D" uid="uid://b4cvjxlrjgiln" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1022.png" id="22_bvex1"]
+[ext_resource type="Texture2D" uid="uid://boa4p5ecwpjjb" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1023.png" id="23_s4qdu"]
+[ext_resource type="Texture2D" uid="uid://co68n3dpmfoaf" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1024.png" id="24_pnue7"]
+[ext_resource type="Texture2D" uid="uid://1vt8s3nb774g" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1025.png" id="25_ftnhn"]
+[ext_resource type="Texture2D" uid="uid://bcnkackmlsofv" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1026.png" id="26_5a5q6"]
+[ext_resource type="Texture2D" uid="uid://d133cieae1wl4" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1027.png" id="27_uxt3e"]
+[ext_resource type="Texture2D" uid="uid://cerljeackhj38" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1028.png" id="28_noi21"]
+[ext_resource type="Texture2D" uid="uid://b4v5d60bedrpw" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1029.png" id="29_4w61j"]
+[ext_resource type="Texture2D" uid="uid://boes8b38yviax" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1030.png" id="30_6i51t"]
+[ext_resource type="Texture2D" uid="uid://i6bv81bgrypf" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1031.png" id="31_dbn2j"]
+[ext_resource type="Texture2D" uid="uid://cnvcxbrqs5m1q" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1032.png" id="32_xybx0"]
+[ext_resource type="Texture2D" uid="uid://is1r6fcn1s6d" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1033.png" id="33_y2xc5"]
+[ext_resource type="Texture2D" uid="uid://n7b3i0ysvgne" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1034.png" id="34_hcp7d"]
+[ext_resource type="Texture2D" uid="uid://cloo3v5cay37f" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1035.png" id="35_misly"]
+[ext_resource type="Texture2D" uid="uid://m86isetqml8l" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1036.png" id="36_tva0h"]
+[ext_resource type="Texture2D" uid="uid://m4hw3ktiym0i" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1037.png" id="37_t0me3"]
+[ext_resource type="Texture2D" uid="uid://dx4gmenin2qbl" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1038.png" id="38_6dgpf"]
+[ext_resource type="Texture2D" uid="uid://blox03hpoos2w" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1039.png" id="39_71ixe"]
+[ext_resource type="Texture2D" uid="uid://cogd3btb6qewg" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1040.png" id="40_y61ha"]
+[ext_resource type="Texture2D" uid="uid://dkmwfi74k4p2v" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1041.png" id="41_0fjpl"]
+[ext_resource type="Texture2D" uid="uid://b4lr270oqqw0o" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1042.png" id="42_suljp"]
+[ext_resource type="Texture2D" uid="uid://cxhuts4k86cuv" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1043.png" id="43_vbxil"]
+[ext_resource type="Texture2D" uid="uid://dsqro8rttlysr" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1044.png" id="44_b82vc"]
+[ext_resource type="Texture2D" uid="uid://corvbxxw74eqx" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1045.png" id="45_ic0co"]
+[ext_resource type="Texture2D" uid="uid://dvdy8axpwjbn8" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1046.png" id="46_ibhqn"]
+[ext_resource type="Texture2D" uid="uid://bkbixu0go462c" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1047.png" id="47_8u2vf"]
+[ext_resource type="Texture2D" uid="uid://chj826u1062xs" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1048.png" id="48_jqt5m"]
+[ext_resource type="Texture2D" uid="uid://xov8gx4ox3wq" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1049.png" id="49_uqt6p"]
+[ext_resource type="Texture2D" uid="uid://c64prt8w5mopt" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1050.png" id="50_rf4ug"]
+[ext_resource type="Texture2D" uid="uid://dwo67ywxiwnpi" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1051.png" id="51_rvydp"]
+[ext_resource type="Texture2D" uid="uid://1phdgr7fdfik" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1052.png" id="52_1iwke"]
+[ext_resource type="Texture2D" uid="uid://bxu8qtkbelg4g" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1053.png" id="53_umwic"]
+[ext_resource type="Texture2D" uid="uid://dfiujv2k4k8w0" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1054.png" id="54_rhuqd"]
+[ext_resource type="Texture2D" uid="uid://cq0p0t3dfavla" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1055.png" id="55_kj16v"]
+[ext_resource type="Texture2D" uid="uid://d1o728tk0cetm" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1056.png" id="56_egpjt"]
+[ext_resource type="Texture2D" uid="uid://duquw8ev32ln0" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1057.png" id="57_cpq8k"]
+[ext_resource type="Texture2D" uid="uid://dcm2xq0s3nejc" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1058.png" id="58_vv8lb"]
+[ext_resource type="Texture2D" uid="uid://8ywm7jtpcysp" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1059.png" id="59_bcju4"]
+[ext_resource type="Texture2D" uid="uid://u4pq56iyimt5" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1060.png" id="60_6d2ky"]
+[ext_resource type="Texture2D" uid="uid://0wtcg2rt3pye" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1061.png" id="61_fo4tn"]
+[ext_resource type="Texture2D" uid="uid://ygmwlbkoxavb" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1062.png" id="62_2cof5"]
+[ext_resource type="Texture2D" uid="uid://j1o77p1d4np7" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1063.png" id="63_dkemd"]
+[ext_resource type="Texture2D" uid="uid://chv6ksip0hepf" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1064.png" id="64_uykmh"]
+[ext_resource type="Texture2D" uid="uid://kitnixgdi3wm" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1065.png" id="65_hb2et"]
+[ext_resource type="Texture2D" uid="uid://5wd3qq6tlyw3" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1066.png" id="66_i5ch2"]
+[ext_resource type="Texture2D" uid="uid://bqor6ujneeip" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1067.png" id="67_7amrd"]
+[ext_resource type="Texture2D" uid="uid://dlq0ke0wwedes" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1068.png" id="68_4yexr"]
+[ext_resource type="Texture2D" uid="uid://bggwot0x85n33" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1069.png" id="69_2krtd"]
+[ext_resource type="Texture2D" uid="uid://vitt7h5f10e1" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1070.png" id="70_ylcl2"]
+[ext_resource type="Texture2D" uid="uid://cck2xj6m7a3k7" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1071.png" id="71_o7ips"]
+[ext_resource type="Texture2D" uid="uid://2iebdyux3fgr" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1072.png" id="72_8y4no"]
+[ext_resource type="Texture2D" uid="uid://dpnun1euichsi" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1073.png" id="73_1khru"]
+[ext_resource type="Texture2D" uid="uid://c81cuehi074vq" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1074.png" id="74_t4rpq"]
+[ext_resource type="Texture2D" uid="uid://b2imwf5vubvt5" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1075.png" id="75_kchaf"]
+[ext_resource type="Texture2D" uid="uid://boccyo0chx6cp" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1076.png" id="76_03r7o"]
+[ext_resource type="Texture2D" uid="uid://cupkxn8kk804c" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1077.png" id="77_r5gq1"]
+[ext_resource type="Texture2D" uid="uid://crx14c5y6nart" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1078.png" id="78_o86jd"]
+[ext_resource type="Texture2D" uid="uid://bpdbsac4gmyxi" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1079.png" id="79_6l6n1"]
+[ext_resource type="Texture2D" uid="uid://cb425by6xp8bb" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1080.png" id="80_ix0kl"]
+[ext_resource type="Texture2D" uid="uid://byxn6eyl62x11" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1081.png" id="81_mhad5"]
+[ext_resource type="Texture2D" uid="uid://dq5f3lgx5lise" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1082.png" id="82_kxg6l"]
+[ext_resource type="Texture2D" uid="uid://bnoo64lb1uadi" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1083.png" id="83_iypal"]
+[ext_resource type="Texture2D" uid="uid://bvfywiyj3er5i" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1084.png" id="84_defie"]
+[ext_resource type="Texture2D" uid="uid://b3jtgex67bavr" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1085.png" id="85_oxmrq"]
+[ext_resource type="Texture2D" uid="uid://rejmeu3lriud" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1086.png" id="86_r2qfy"]
+[ext_resource type="Texture2D" uid="uid://c0wv881v0sa7t" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1087.png" id="87_sikgg"]
+[ext_resource type="Texture2D" uid="uid://cmv70lgyqw18p" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1088.png" id="88_b5hue"]
+[ext_resource type="Texture2D" uid="uid://g21bh5n4160n" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1089.png" id="89_3lj6r"]
+[ext_resource type="Texture2D" uid="uid://cskn4tx3ktb3p" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1090.png" id="90_at7s3"]
+[ext_resource type="Texture2D" uid="uid://dqsofpwdliqhr" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1091.png" id="91_gjc5g"]
+[ext_resource type="Texture2D" uid="uid://dy0knxhx0rsiw" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1092.png" id="92_3ycae"]
+[ext_resource type="Texture2D" uid="uid://c50vsmaijpru1" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1093.png" id="93_3qux8"]
+[ext_resource type="Texture2D" uid="uid://ccsi3ymbhxrqs" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1094.png" id="94_iip8p"]
+[ext_resource type="Texture2D" uid="uid://blpjkmnsdvyib" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1095.png" id="95_vksyd"]
+[ext_resource type="Texture2D" uid="uid://cxcyw3gllsdic" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1096.png" id="96_dabd6"]
+[ext_resource type="Texture2D" uid="uid://bkbtijceq4w37" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1097.png" id="97_un4rl"]
+[ext_resource type="Texture2D" uid="uid://mu6a2x53ak4k" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1098.png" id="98_c4nif"]
+[ext_resource type="Texture2D" uid="uid://8a0kskao0epn" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1099.png" id="99_urxml"]
+[ext_resource type="Texture2D" uid="uid://jsi7wehux6rd" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1100.png" id="100_5g38o"]
+[ext_resource type="Texture2D" uid="uid://ct4l8bf0kovhm" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1101.png" id="101_nen3w"]
+[ext_resource type="Texture2D" uid="uid://dbs153q6gc5eq" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1102.png" id="102_75jy6"]
+[ext_resource type="Texture2D" uid="uid://bdjnjpqwfapo0" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1103.png" id="103_28vjx"]
+[ext_resource type="Texture2D" uid="uid://0aodnnsbqxxm" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1104.png" id="104_ynkp8"]
+[ext_resource type="Texture2D" uid="uid://b7q28k52u5oh" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1105.png" id="105_j864l"]
+[ext_resource type="Texture2D" uid="uid://yjrj8w44lkbl" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1106.png" id="106_cmbhw"]
+[ext_resource type="Texture2D" uid="uid://d30pmessvse80" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1107.png" id="107_43crt"]
+[ext_resource type="Texture2D" uid="uid://dx1b2tic7ee6f" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1108.png" id="108_4v1qt"]
+[ext_resource type="Texture2D" uid="uid://3qw6kl5ottqv" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1109.png" id="109_v6wet"]
+[ext_resource type="Texture2D" uid="uid://b4vb8fqeoaxno" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1110.png" id="110_3x3af"]
+[ext_resource type="Texture2D" uid="uid://bm6r4x8d74smg" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1111.png" id="111_2thd3"]
+[ext_resource type="Texture2D" uid="uid://r1mcsj8g0r2" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1112.png" id="112_xsbv3"]
+[ext_resource type="Texture2D" uid="uid://c1rkqxme6k3cr" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1113.png" id="113_1njrc"]
+[ext_resource type="Texture2D" uid="uid://cs7sd7sd0bm0s" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1114.png" id="114_0h0uy"]
+[ext_resource type="Texture2D" uid="uid://ctxt0itoje3it" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1115.png" id="115_kf653"]
+[ext_resource type="Texture2D" uid="uid://rr8blqx80dl" path="res://Assets/Licenses/Godot Splash Art/godot-splash-pngs/godot-splash_1116.png" id="116_7316q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1yug"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hdypi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_141nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vpyur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fqtfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4i1pj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ac7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p8ror")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wt1r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pipxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_indqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gkw2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_n68j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wynus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_r7rgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jl6n0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_uuor3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c54ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_slxv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hqnrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rg6u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ma5lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qdt4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bvex1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_s4qdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pnue7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ftnhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_5a5q6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_uxt3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_noi21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_4w61j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_6i51t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_dbn2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_xybx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_y2xc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_hcp7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_misly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_tva0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_t0me3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_6dgpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_71ixe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_y61ha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_0fjpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_suljp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_vbxil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_b82vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_ic0co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_ibhqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_8u2vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_jqt5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_uqt6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_rf4ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_rvydp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_1iwke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_umwic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_rhuqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_kj16v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_egpjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_cpq8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_vv8lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_bcju4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_6d2ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_fo4tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_2cof5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_dkemd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_uykmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_hb2et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_i5ch2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_7amrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_4yexr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_2krtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_ylcl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_o7ips")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_8y4no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_1khru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_t4rpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_kchaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_03r7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_r5gq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_o86jd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_6l6n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_ix0kl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_mhad5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_kxg6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_iypal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_defie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_oxmrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_r2qfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_sikgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_b5hue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_3lj6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_at7s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_gjc5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_3ycae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_3qux8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_iip8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_vksyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_dabd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_un4rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_c4nif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_urxml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_5g38o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_nen3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_75jy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_28vjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_ynkp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_j864l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_cmbhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_43crt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_4v1qt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_v6wet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_3x3af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_2thd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_xsbv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_1njrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_0h0uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_kf653")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_7316q")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Splash Art" type="Node" unique_id=971100428]
+script = ExtResource("1_vpyur")
+
+[node name="Panel" type="Panel" parent="." unique_id=104891231]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t1yug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1077895557]
+position = Vector2(306, 169)
+scale = Vector2(0.305, 0.305)
+sprite_frames = SubResource("SpriteFrames_hdypi")
