@@ -117,7 +117,8 @@ func resumeGame() -> void:
 	get_tree().paused = false
 	GameManager.playButtonSound()
 	$"Pause Menu".visible = false
-	GameManager.unPauseRun()
+	if not get_tree().current_scene.name == "Controls":
+		GameManager.unPauseRun()
 
 
 func onButtonHover() -> void:
