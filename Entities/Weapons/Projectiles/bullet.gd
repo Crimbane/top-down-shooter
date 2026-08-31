@@ -36,6 +36,7 @@ func bulletHit(body: Node2D) -> void:
 		return
 	
 	if pierceCount > 0:
+		$AnimatedSprite2D.play("impact")
 		if body.is_in_group("World"):
 			pierceCount -= 100
 		else:
