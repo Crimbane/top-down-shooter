@@ -59,6 +59,14 @@ func _ready() -> void:
 	$"Timers/Speed Buff Timer".timeout.connect(onSpeedBuffTimerTimeout)
 	$"Timers/Shield Buff Timer".timeout.connect(onShieldBuffTimerTimeout)
 	switchWeapon(0)
+	
+	if get_tree().current_scene.name == "Controls":
+		updateInventory("piercing bullets", 99 )
+		updateInventory("buckshot", 99)
+		updateInventory("slugs", 99)
+		updateInventory("explosive bullets", 99)
+		updateInventory("bouncing bullets", 99)
+
 
 
 func _process(_delta: float) -> void:

@@ -18,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://dbk3auvasfv0g" path="res://Systems/UI/Art/Key 1.png" id="16_fuaai"]
 [ext_resource type="Texture2D" uid="uid://dmrwabxw2hcds" path="res://Systems/UI/Art/Key 2.png" id="17_5y0ic"]
 [ext_resource type="Texture2D" uid="uid://3i55egh735rb" path="res://Systems/UI/Art/Key 3.png" id="18_2fes7"]
+[ext_resource type="PackedScene" uid="uid://dpq2d6v3h2kps" path="res://Systems/Spawn Generator/enemy_spawner.tscn" id="19_2fes7"]
+[ext_resource type="PackedScene" uid="uid://b53fvqlcjftyl" path="res://Entities/Enemies/Slime/slime.tscn" id="20_c7sdi"]
+[ext_resource type="PackedScene" uid="uid://dkleqbgfkwqmw" path="res://Systems/Pathfinding/pathfinding.tscn" id="21_c7sdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlaul"]
 
 [node name="Controls" type="Node" unique_id=1007818245]
 
@@ -231,5 +236,13 @@ text = "Grenade Launcher"
 [node name="Three" type="Sprite2D" parent="Controls2" unique_id=162063805]
 position = Vector2(137, -85)
 texture = ExtResource("18_2fes7")
+
+[node name="EnemySpawner" parent="." unique_id=1428444744 instance=ExtResource("19_2fes7")]
+position = Vector2(0, -145)
+spawnShape = SubResource("RectangleShape2D_nlaul")
+enemy = Array[PackedScene]([ExtResource("20_c7sdi")])
+
+[node name="Pathfinding" parent="." unique_id=93237905 instance=ExtResource("21_c7sdi")]
+unique_name_in_owner = true
 
 [editable path="Dungeon Tileset"]

@@ -83,7 +83,10 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Escape"):
-		pauseGame()
+		if not get_tree().paused:
+			pauseGame()
+		else:
+			resumeGame()
 
 
 func exitGame() -> void:
@@ -106,6 +109,7 @@ func mainMenu() -> void:
 	MusicManager.normalPitchMusicPlayer()
 	MusicManager.stopMusic()
 	get_tree().paused = false
+	GameManager.endRun()
 	call_deferred("loadScene")
 
 
