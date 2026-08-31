@@ -477,10 +477,22 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Splash Art" type="Node" unique_id=971100428]
+[node name="Splash Art" type="Node" unique_id=1662528686]
 script = ExtResource("1_vpyur")
 
-[node name="Panel" type="Panel" parent="." unique_id=104891231]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=44537328]
+layer = -1
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=792707482]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=104891231]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -489,6 +501,8 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t1yug")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1077895557]
-position = Vector2(306, 169)
+z_index = 100
 scale = Vector2(0.305, 0.305)
 sprite_frames = SubResource("SpriteFrames_hdypi")
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=1116456359]

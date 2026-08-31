@@ -86,7 +86,8 @@ func _input(event: InputEvent) -> void:
 		if not get_tree().paused:
 			pauseGame()
 		else:
-			resumeGame()
+			if not $"Death Screen".visible:
+				resumeGame()
 
 
 func exitGame() -> void:
