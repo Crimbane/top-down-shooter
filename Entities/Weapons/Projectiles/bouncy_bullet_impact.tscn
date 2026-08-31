@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://7y8f6162vbqk" path="res://Entities/Weapons/Projectiles/Art/Bouncy Bullet Hit Impact Sprite Sheet.png" id="1_0ywbd"]
 [ext_resource type="Script" uid="uid://bvw3pc3g24pdw" path="res://Entities/Weapons/Projectiles/bouncy_bullet_impact.gd" id="2_mleo3"]
+[ext_resource type="AudioStream" uid="uid://0tg68016d60l" path="res://Entities/Weapons/Projectiles/Audio/Little Tesla Burst.wav" id="3_adcof"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kphbx"]
 atlas = ExtResource("1_0ywbd")
@@ -33,6 +34,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k8o02")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": 0,
 "name": &"impact",
@@ -43,3 +47,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_fjc7g")
 animation = &"impact"
 script = ExtResource("2_mleo3")
+
+[node name="Impact Sound" type="AudioStreamPlayer2D" parent="." unique_id=2064445481]
+stream = ExtResource("3_adcof")
+volume_db = -10.0
