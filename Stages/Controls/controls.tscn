@@ -12,9 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://bbuyef37jadvu" path="res://Systems/UI/Art/Key Escape.png" id="9_0mppx"]
 [ext_resource type="Texture2D" uid="uid://bm6uhtbgpl5gj" path="res://Systems/UI/Art/Key Left Arrow.png" id="9_d05pe"]
 [ext_resource type="Texture2D" uid="uid://boxchlpi8bs1c" path="res://Systems/UI/Art/Key Down Arrow.png" id="10_0mppx"]
+[ext_resource type="Texture2D" uid="uid://dgi4ojqg7g3e2" path="res://Entities/Weapons/Projectiles/Art/Normal Bullet Icon.png" id="10_tapfm"]
+[ext_resource type="Texture2D" uid="uid://bu0finc31bw61" path="res://Entities/Weapons/Projectiles/Art/Piercing Bullet Icon.png" id="11_2xrr3"]
 [ext_resource type="Texture2D" uid="uid://xgxaksgng61l" path="res://Systems/UI/Art/Key Right Arrow.png" id="11_6vtr4"]
+[ext_resource type="Texture2D" uid="uid://xehr7o8em82r" path="res://Entities/Weapons/Projectiles/Art/Shotgun Buchshot Icon.png" id="12_g3s6h"]
+[ext_resource type="Texture2D" uid="uid://blwdun6u52mrb" path="res://Entities/Weapons/Projectiles/Art/Shotgun Slug Icon.png" id="13_idi8c"]
 [ext_resource type="Texture2D" uid="uid://xybbg88lhw4s" path="res://Systems/UI/Art/Key RMB.png" id="13_w0d0c"]
+[ext_resource type="Texture2D" uid="uid://bdwoh4vr4v8qv" path="res://Entities/Weapons/Projectiles/Art/Explosive Bullet Icon.png" id="14_eg84y"]
 [ext_resource type="Texture2D" uid="uid://dymfa2uxyidq2" path="res://Systems/UI/Art/Key R.png" id="15_6vtr4"]
+[ext_resource type="Texture2D" uid="uid://dahb6wgmn2pps" path="res://Entities/Weapons/Projectiles/Art/Bouncy Bullet Icon.png" id="15_w1dsc"]
 [ext_resource type="Texture2D" uid="uid://dbk3auvasfv0g" path="res://Systems/UI/Art/Key 1.png" id="16_fuaai"]
 [ext_resource type="Texture2D" uid="uid://dmrwabxw2hcds" path="res://Systems/UI/Art/Key 2.png" id="17_5y0ic"]
 [ext_resource type="Texture2D" uid="uid://3i55egh735rb" path="res://Systems/UI/Art/Key 3.png" id="18_2fes7"]
@@ -115,6 +121,126 @@ text = "Pause"
 [node name="Escape" type="Sprite2D" parent="Controls" unique_id=1982110574]
 position = Vector2(-137, 17)
 texture = ExtResource("9_0mppx")
+
+[node name="Normal Bullet" type="Label" parent="Controls" unique_id=536022292]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -93.0
+offset_right = -159.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Normal Bullet"
+horizontal_alignment = 2
+
+[node name="NormalBullet" type="Sprite2D" parent="Controls" unique_id=1535627595]
+position = Vector2(-137, -85)
+texture = ExtResource("10_tapfm")
+
+[node name="Piercing Bullet" type="Label" parent="Controls" unique_id=1149735052]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -127.0
+offset_right = -159.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Piercing Bullet"
+horizontal_alignment = 2
+
+[node name="PiercingBullet" type="Sprite2D" parent="Controls" unique_id=1223423080]
+position = Vector2(-137, -119)
+texture = ExtResource("11_2xrr3")
+
+[node name="Buckshot_" type="Label" parent="Controls" unique_id=1311071946]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -161.0
+offset_right = -159.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Buckshot"
+horizontal_alignment = 2
+
+[node name="Buckshot" type="Sprite2D" parent="Controls" unique_id=582270310]
+position = Vector2(-137, -153)
+texture = ExtResource("12_g3s6h")
+
+[node name="Slug_" type="Label" parent="Controls" unique_id=66533404]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -195.0
+offset_right = -159.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Slug"
+horizontal_alignment = 2
+
+[node name="Slug" type="Sprite2D" parent="Controls" unique_id=1426495160]
+position = Vector2(-137, -187)
+texture = ExtResource("13_idi8c")
+
+[node name="Explosive Bullet" type="Label" parent="Controls" unique_id=327458819]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -229.0
+offset_right = -159.0
+offset_bottom = -206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Explosive Bullet"
+horizontal_alignment = 2
+
+[node name="ExplosiveBullet" type="Sprite2D" parent="Controls" unique_id=819479043]
+position = Vector2(-137, -221)
+texture = ExtResource("14_eg84y")
+
+[node name="Bouncy Bullet" type="Label" parent="Controls" unique_id=821673022]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -263.0
+offset_right = -159.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Bouncy Bullet"
+horizontal_alignment = 2
+
+[node name="BouncyBullet" type="Sprite2D" parent="Controls" unique_id=421934954]
+position = Vector2(-137, -255)
+texture = ExtResource("15_w1dsc")
 
 [node name="Controls2" type="Node2D" parent="." unique_id=1111545146]
 z_index = 100
