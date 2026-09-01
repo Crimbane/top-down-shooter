@@ -105,7 +105,8 @@ func takeDamage(damage: int) -> void:
 
 func die() -> void:
 	GameManager.playMonsterDeathSound()
-	GameManager.increaseScore(killScore)
+	if not get_tree().current_scene.name == "Controls":
+		GameManager.increaseScore(killScore)
 	queue_free()
 
 
