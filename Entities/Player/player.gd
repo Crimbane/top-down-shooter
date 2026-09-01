@@ -210,7 +210,7 @@ func takeDamage(damage: int) -> void:
 		return
 	
 	print("Player took ", damage, " damage")
-	if damage > 0:
+	if damage > 0 and not get_tree().current_scene.name == "Controls":
 		currentHealth -= damage
 	
 	healthChanged.emit(currentHealth)
