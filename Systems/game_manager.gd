@@ -70,8 +70,18 @@ func increaseScore(amount: int) -> void:
 
 
 func updateDifficulty() -> void:
-	if survivalScore > difficultyTimerInterval * 12 and difficultyLevel < 7:
+	if survivalScore > difficultyTimerInterval * 10 and difficultyLevel < 9:
 		difficultyMultiplier = 3.0
+		difficultyLevel = 9
+		$"Difficulty Increase Sound".play()
+		playDifficultyEffect()
+	elif survivalScore > difficultyTimerInterval * 9 and difficultyLevel < 8:
+		difficultyMultiplier = 2.6
+		difficultyLevel = 8
+		$"Difficulty Increase Sound".play()
+		playDifficultyEffect()
+	elif survivalScore > difficultyTimerInterval * 8 and difficultyLevel < 7:
+		difficultyMultiplier = 2.4
 		difficultyLevel = 7
 		$"Difficulty Increase Sound".play()
 		playDifficultyEffect()

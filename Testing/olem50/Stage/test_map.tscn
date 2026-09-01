@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b1v2i1jgbgqj2" path="res://Systems/Pickup/pickup.tscn" id="7_dqrj4"]
 [ext_resource type="PackedScene" uid="uid://dpq2d6v3h2kps" path="res://Systems/Spawn Generator/enemy_spawner.tscn" id="12_grgnl"]
 [ext_resource type="PackedScene" uid="uid://b53fvqlcjftyl" path="res://Entities/Enemies/Slime/slime.tscn" id="13_mv8rv"]
-[ext_resource type="PackedScene" uid="uid://d55jypu8k4aa" path="res://Entities/Enemies/Squid/squid.tscn" id="14_mv8rv"]
 [ext_resource type="PackedScene" uid="uid://d2ntywfmm8ki7" path="res://Systems/Spawn Generator/item_spawner.tscn" id="14_uhbx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1yug"]
@@ -72,9 +71,6 @@ shape = SubResource("RectangleShape2D_t1yug")
 position = Vector2(-222, 45)
 scale = Vector2(0.09375, 1)
 texture = ExtResource("3_oqh76")
-
-[node name="Squid" parent="." unique_id=1903621472 instance=ExtResource("14_mv8rv")]
-position = Vector2(340, 85)
 
 [node name="EnemySpawner" parent="." unique_id=1428444744 instance=ExtResource("12_grgnl")]
 position = Vector2(301, -76)

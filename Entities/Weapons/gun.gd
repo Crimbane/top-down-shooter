@@ -192,12 +192,24 @@ func reload() -> void:
 	await ui.startActionProgress(reloadTime)
 	
 	if maxAmmo > 0:
-		maxAmmo = maxAmmo - magazineSize + currentAmmo
-		currentAmmo = magazineSize
+		var ammoNeeded = magazineSize - currentAmmo
+		var ammoToReload = min(ammoNeeded, maxAmmo)
+		
+		currentAmmo += ammoToReload
+		maxAmmo -= ammoToReload
+		
+		#maxAmmo = maxAmmo - magazineSize + currentAmmo
+		#currentAmmo = magazineSize
 	
 	if maxAmmoAlt > 0:
-		maxAmmoAlt = maxAmmoAlt - magazineSizeAlt + currentAmmoAlt
-		currentAmmoAlt = magazineSizeAlt
+		var ammoNeededAlt = magazineSizeAlt - currentAmmoAlt
+		var ammoToReloadAlt = min(ammoNeededAlt, maxAmmoAlt)
+		
+		currentAmmoAlt += ammoToReloadAlt
+		maxAmmoAlt -= ammoToReloadAlt
+		
+		#maxAmmoAlt = maxAmmoAlt - magazineSizeAlt + currentAmmoAlt
+		#currentAmmoAlt = magazineSizeAlt
 	
 	updateAmmoUI()
 	
