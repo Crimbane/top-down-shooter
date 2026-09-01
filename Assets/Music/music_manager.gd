@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func stopMusic():
 	musicPlayer.stop()
+	musicPlayer.stream = null
 
 func playMenuMusic():
 	musicPlayer.pitch_scale = 1.0
