@@ -48,10 +48,6 @@ position = Vector2(-314, 0)
 [node name="Bird" parent="." unique_id=1667973257 instance=ExtResource("5_oqh76")]
 position = Vector2(-359, -194)
 
-[node name="Pickup" parent="." unique_id=2133711726 instance=ExtResource("7_dqrj4")]
-position = Vector2(420, 103)
-pickupSprite = "PiercingBullet"
-
 [node name="Pickup2" parent="." unique_id=1769232337 instance=ExtResource("7_dqrj4")]
 position = Vector2(445, 71)
 
@@ -79,5 +75,12 @@ enemy = Array[PackedScene]([ExtResource("13_mv8rv")])
 
 [node name="Item Spawner" parent="." unique_id=14491672 instance=ExtResource("14_uhbx0")]
 position = Vector2(618, -90)
+
+[node name="Item Spawner2" parent="." unique_id=895968140 instance=ExtResource("14_uhbx0")]
+position = Vector2(591, 219)
+
+[node name="Pickup" parent="." unique_id=2133711726 instance=ExtResource("7_dqrj4")]
+position = Vector2(410, 112)
+pickupSprite = "PiercingBullet"
 
 [editable path="Dungeon Tileset"]

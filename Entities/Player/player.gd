@@ -264,6 +264,8 @@ func iFramesWhenHit() -> void:
 	damageTakenRecently = true
 	playingDamageAnimation= true
 	
+	speed = NORMAL_SPEED * 1.5
+	
 	match lastDirection:
 		"right":
 			$AnimatedSprite2D.play("damaged right")
@@ -281,6 +283,7 @@ func iFramesWhenHit() -> void:
 	damageTakenRecently = false
 	playingDamageAnimation= false
 	
+	speed = NORMAL_SPEED
 
 
 func shieldBuff() -> void:

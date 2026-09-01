@@ -39,10 +39,6 @@ var muzzleFlashOffset: Vector2 = Vector2(15, 0)
 
 var canShoot: bool = true
 
-#
-#TODO: Make ammo persistent and not reset
-#
-
 
 func _ready() -> void:
 	$"Muzzle Flash".animation_finished.connect(onMuzzleFlashFinished)
@@ -182,6 +178,13 @@ func reload() -> void:
 	
 	if currentAmmo == magazineSize and currentAmmoAlt == magazineSizeAlt:
 		return
+	
+	if usingAltBullet:
+		if maxAmmoAlt == 0:
+			return
+	else:
+		if maxAmmo == 0:
+			return
 	
 	isReloading = true
 	canShoot = false

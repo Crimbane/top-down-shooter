@@ -1,7 +1,9 @@
 @tool
 extends Area2D
 
-@export var despawnTimer: int = 20
+@onready var despawnTimer: Timer = $"Despawn Timer"
+@onready var textureProgressBar: TextureProgressBar = $"Background Bar"
+
 
 var ammoMultiplier: float = 1.0
 
@@ -19,9 +21,13 @@ func _ready() -> void:
 	
 	if not Engine.is_editor_hint():
 		body_entered.connect(pickup)
-		if pickupSprite == "Health" or pickupSprite == "Damage" or pickupSprite == "Shield" or pickupSprite == "Speed" or pickupSprite == "FireRate":
-			await get_tree().create_timer(despawnTimer).timeout
-			queue_free()
+		#if pickupSprite == "Health" or pickupSprite == "Damage" or pickupSprite == "Shield" or pickupSprite == "Speed" or pickupSprite == "FireRate":
+		await despawnTimer.timeout
+		queue_free()
+
+
+func _process(_delta: float) -> void:
+	updateBackgroundTimer()
 
 
 func updateSprite() -> void:
@@ -88,3 +94,10 @@ func pickup(body: CharacterBody2D) -> void:
 			body.updateInventory("bouncing bullets", 4 * ammoMultiplier)
 			GameManager.playPickupSound()
 	queue_free()
+
+
+func updateBackgroundTimer() -> void:
+	if despawnTimer.is_stopped():
+		textureProgressBar.value = 0
+	else:
+		textureProgressBar.value = (despawnTimer.time_left / despawnTimer.wait_time) * 100.0
