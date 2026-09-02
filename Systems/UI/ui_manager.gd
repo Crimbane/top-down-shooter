@@ -183,7 +183,7 @@ func updateActiveBullet(usingAltBullet: bool) -> void:
 	$"HUD/Bottom Left/VBox/HBox Bullet Alt".visible = usingAltBullet
 
 
-func startActionProgress(reloadTime: float) -> void:
+func startActionProgress(reloadTime: float, type: String = "Reload") -> void:
 	actionProgress.value = 0
 	actionProgress2.value = 0
 	actionProgress3.value = 0
@@ -191,6 +191,29 @@ func startActionProgress(reloadTime: float) -> void:
 	actionProgress.visible = true
 	actionProgress2.visible = true
 	actionProgress3.visible = true
+	
+	match type:
+		"Reload":
+			actionProgress.fill_mode = 4
+			actionProgress.texture_progress = load("uid://df3qylohx44vc")
+		"Normal":
+			actionProgress.fill_mode = 3
+			actionProgress.texture_progress = load("uid://dgi4ojqg7g3e2")
+		"Piercing":
+			actionProgress.fill_mode = 3
+			actionProgress.texture_progress = load("uid://bu0finc31bw61")
+		"Buckshot":
+			actionProgress.fill_mode = 3
+			actionProgress.texture_progress = load("uid://xehr7o8em82r")
+		"Slug":
+			actionProgress.fill_mode = 3
+			actionProgress.texture_progress = load("uid://blwdun6u52mrb")
+		"Explosive":
+			actionProgress.fill_mode = 3
+			actionProgress.texture_progress = load("uid://bdwoh4vr4v8qv")
+		"Bouncy":
+			actionProgress.fill_mode = 3
+			actionProgress.texture_progress = load("uid://dahb6wgmn2pps")
 	
 	if actionTween:
 		actionTween.kill()

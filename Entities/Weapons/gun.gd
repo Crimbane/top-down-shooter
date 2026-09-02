@@ -151,10 +151,28 @@ func changeBullet() -> void:
 	canShoot = false
 	isSwitchingBullet = true
 	
+	var bulletChangingTo: String
+	match gunName:
+		"Rifle":
+			if usingAltBullet:
+				bulletChangingTo = "Normal"
+			else:
+				bulletChangingTo = "Piercing"
+		"Shotgun":
+			if usingAltBullet:
+				bulletChangingTo = "Buckshot"
+			else:
+				bulletChangingTo = "Slug"
+		"C4-TT":
+			if usingAltBullet:
+				bulletChangingTo = "Explosive"
+			else:
+				bulletChangingTo = "Bouncy"
+	
 	playChangeBulletSound()
 	
 	var ui = get_tree().current_scene.get_node("UI/UI Manager")
-	await ui.startActionProgress(CHANGEBULLETTIME)
+	await ui.startActionProgress(CHANGEBULLETTIME, bulletChangingTo)
 	
 	if usingAltBullet == true:
 		usingAltBullet = false
