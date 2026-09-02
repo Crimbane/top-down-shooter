@@ -196,24 +196,31 @@ func startActionProgress(reloadTime: float, type: String = "Reload") -> void:
 		"Reload":
 			actionProgress.fill_mode = 4
 			actionProgress.texture_progress = load("uid://df3qylohx44vc")
+			actionProgress.scale = Vector2(1.0 , 1.0)
 		"Normal":
 			actionProgress.fill_mode = 3
 			actionProgress.texture_progress = load("uid://dgi4ojqg7g3e2")
+			actionProgress.scale = Vector2(0.75 , 0.75)
 		"Piercing":
 			actionProgress.fill_mode = 3
 			actionProgress.texture_progress = load("uid://bu0finc31bw61")
+			actionProgress.scale = Vector2(0.75 , 0.75)
 		"Buckshot":
 			actionProgress.fill_mode = 3
 			actionProgress.texture_progress = load("uid://xehr7o8em82r")
+			actionProgress.scale = Vector2(0.75 , 0.75)
 		"Slug":
 			actionProgress.fill_mode = 3
 			actionProgress.texture_progress = load("uid://blwdun6u52mrb")
+			actionProgress.scale = Vector2(0.75 , 0.75)
 		"Explosive":
 			actionProgress.fill_mode = 3
 			actionProgress.texture_progress = load("uid://bdwoh4vr4v8qv")
+			actionProgress.scale = Vector2(0.75 , 0.75)
 		"Bouncy":
 			actionProgress.fill_mode = 3
 			actionProgress.texture_progress = load("uid://dahb6wgmn2pps")
+			actionProgress.scale = Vector2(0.75 , 0.75)
 	
 	if actionTween:
 		actionTween.kill()
